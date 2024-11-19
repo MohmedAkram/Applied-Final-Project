@@ -3,9 +3,15 @@
 
 // Constructor implementation
 Tickets::Tickets(int id, QString seat, QString movie, QString status, QString type)
-    : ticketID(id), seatNumber(seat), movieName(movie), status(status), type(type), price(0.0) {
+    : ticketID(id), seatNumber(seat), movieName(movie), price(0.0), type(type), status(status) {
     // Price is not initialized yet
 }
+
+// Default constructor implementation
+Tickets::Tickets() : ticketID(0), seatNumber(""), price(0.0), status("Available"), movieName(""), type("") {}
+
+// Constructor with ID only
+Tickets::Tickets(int id) : ticketID(id), seatNumber(""), price(0.0), status("Available"), movieName(""), type("") {}
 
 // Method to calculate ticket price
 double Tickets::calculateTicketPrice() {

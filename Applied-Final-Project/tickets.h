@@ -1,24 +1,27 @@
 #ifndef TICKETS_H
 #define TICKETS_H
 
-#include <string>
+#include <QString> // Include for QString (Qt)
 using namespace std;
 
 class Tickets {
 private:
     int ticketID;
-    string seatNumber;
+    QString seatNumber;
     double price;
-    string status;
+    QString status;
+    QString movieName;  // Added movieName variable
+    QString type;       // Added type variable
 
 public:
-    Tickets();
-    Tickets(int id);
-    Tickets(int id, string seat, double price, string status);
+    Tickets();  // Default constructor
+    Tickets(int id); // Constructor with ID
+    Tickets(int id, QString seat, QString movie, QString status, QString type); // Updated constructor
 
-    void generateTicketDetails();
-    void cancelTicket();
-    void validateTicket();
+    double calculateTicketPrice();  // Method to calculate ticket price
+    void generateTicketDetails();  // Method to generate ticket details
+    void cancelTicket();           // Method to cancel the ticket
+    void checkTicketStatus();      // Method to check ticket status
 };
 
 #endif // TICKETS_H
