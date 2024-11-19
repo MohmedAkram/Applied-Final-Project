@@ -9,6 +9,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    accountpage.cpp \
     admin.cpp \
     customer.cpp \
     events.cpp \
@@ -16,18 +17,22 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     system.cpp \
-    tickets.cpp
+    tickets.cpp \
+    vectorc.cpp
 
 HEADERS += \
+    accountpage.h \
     admin.h \
     customer.h \
     events.h \
     halls.h \
     mainwindow.h \
     system.h \
-    tickets.h
+    tickets.h \
+    vectorc.h
 
 FORMS += \
+    accountpage.ui \
     mainwindow.ui
 
 # Default rules for deployment.
