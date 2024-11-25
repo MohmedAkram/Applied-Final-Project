@@ -1,0 +1,12 @@
+debug/accountpage.o
+debug/admin.o
+debug/customer.o
+debug/events.o
+debug/halls.o
+debug/main.o
+debug/mainwindow.o
+debug/system.o
+debug/tickets.o
+debug/vectorc.o
+debug/moc_accountpage.o
+debug/moc_mainwindow.o

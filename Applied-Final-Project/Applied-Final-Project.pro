@@ -16,6 +16,7 @@ SOURCES += \
     halls.cpp \
     main.cpp \
     mainwindow.cpp \
+    splaytree.cpp \
     system.cpp \
     tickets.cpp \
     vectorc.cpp
@@ -27,6 +28,7 @@ HEADERS += \
     events.h \
     halls.h \
     mainwindow.h \
+    splaytree.h \
     system.h \
     tickets.h \
     vectorc.h

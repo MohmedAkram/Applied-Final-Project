@@ -1,0 +1,12 @@
+release/accountpage.o
+release/admin.o
+release/customer.o
+release/events.o
+release/halls.o
+release/main.o
+release/mainwindow.o
+release/system.o
+release/tickets.o
+release/vectorc.o
+release/moc_accountpage.o
+release/moc_mainwindow.o
