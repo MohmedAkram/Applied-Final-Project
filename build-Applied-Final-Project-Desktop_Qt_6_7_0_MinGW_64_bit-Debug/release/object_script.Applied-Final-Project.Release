@@ -5,6 +5,7 @@ release/events.o
 release/halls.o
 release/main.o
 release/mainwindow.o
+release/splaytree.o
 release/system.o
 release/tickets.o
 release/vectorc.o

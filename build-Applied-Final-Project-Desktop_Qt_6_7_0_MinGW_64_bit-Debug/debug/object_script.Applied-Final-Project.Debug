@@ -5,6 +5,7 @@ debug/events.o
 debug/halls.o
 debug/main.o
 debug/mainwindow.o
+debug/splaytree.o
 debug/system.o
 debug/tickets.o
 debug/vectorc.o
