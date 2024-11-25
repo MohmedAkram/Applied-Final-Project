@@ -24,7 +24,6 @@ private:
     string name;
     string email;
     string membershipStatus;
-    int Ccredit;
     wallet *W;
     //vectorC <Events> ReservedTickets;
 
