@@ -30,7 +30,7 @@ void Tickets::generateTicketDetails() {
     qDebug() << "Price: $" << price;
     qDebug() << "Status:" << status;
 }
-
+//
 // Method to cancel the ticket
 void Tickets::cancelTicket() {
     if (status == "Booked") {
