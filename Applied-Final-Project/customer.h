@@ -23,14 +23,11 @@ private:
     int customerID;
     string name;
     string email;
-<<<<<<< HEAD
     string membershipStatus;
-    wallet *W;
-=======
+    //wallet *W;
     bool IsVIP;
     int Ccredit;
     //wallet *W;
->>>>>>> 7f8122dd3d9bd4adbff4aff806b07763879a4783
     //vectorC <Events> ReservedTickets;
 
 public:

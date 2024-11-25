@@ -1,40 +1,38 @@
 #ifndef SPLAYTREE_H
 #define SPLAYTREE_H
 
-#include <iostream>
-
-template <typename T>
 class SplayTree {
 private:
     struct Node {
-        T data;
+        int value;
         Node* left;
         Node* right;
-        Node(const T& value) : data(value), left(nullptr), right(nullptr) {}
+
+        Node(int val) : value(val), left(nullptr), right(nullptr) {}
     };
 
     Node* root;
 
-    // Utility functions
-    Node* splay(Node* root, const T& key);
-    Node* rightRotate(Node* node);
-    Node* leftRotate(Node* node);
-    Node* insert(Node* root, const T& key);
-    Node* deleteNode(Node* root, const T& key);
-    void inorder(Node* root) const;
+    // Private methods for Splay Tree operations
+    Node* rightRotate(Node* y);
+    Node* leftRotate(Node* x);
+    Node* splay(Node* root, int key);
+    Node* insert(Node* root, int key);
+    Node* deleteNode(Node* root, int key);
+    Node* find(Node* root, int key);
 
 public:
-    SplayTree() : root(nullptr) {}
-    ~SplayTree() { clear(root); }
+    SplayTree();
+    ~SplayTree();
 
-    // Public member functions
-    void insert(const T& key);
-    void remove(const T& key);
-    bool search(const T& key);
-    void displayInOrder() const;
+    void insert(int key);
+    void deleteKey(int key);
+    bool find(int key);
+    void printInOrder();
 
-private:
-    void clear(Node* node);
+    // Helper functions
+    void printInOrderHelper(Node* node);
+    void destroyTree(Node* node);
 };
 
-#endif // SPLAYTREE_H
+#endif

@@ -335,6 +335,9 @@ debug/moc_accountpage.cpp: ../Applied-Final-Project/accountpage.h \
 		../../../Qt/6.7.0/mingw_64/include/QtCore/qlocale.h \
 		../../../Qt/6.7.0/mingw_64/include/QtGui/qguiapplication_platform.h \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
+		../Applied-Final-Project/customer.h \
+		../Applied-Final-Project/vectorC.h \
+		../Applied-Final-Project/Events.h \
 		debug/moc_predefs.h \
 		../../../Qt/6.7.0/mingw_64/bin/moc.exe
 	C:\Qt\6.7.0\mingw_64\bin\moc.exe $(DEFINES) --include C:/ADS/Applied-Final-Project/build-Applied-Final-Project-Desktop_Qt_6_7_0_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.7.0/mingw_64/mkspecs/win32-g++ -IC:/ADS/Applied-Final-Project/Applied-Final-Project -IC:/Qt/6.7.0/mingw_64/include -IC:/Qt/6.7.0/mingw_64/include/QtWidgets -IC:/Qt/6.7.0/mingw_64/include/QtGui -IC:/Qt/6.7.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Applied-Final-Project\accountpage.h -o debug\moc_accountpage.cpp
@@ -748,16 +751,10 @@ debug/accountpage.o: ../Applied-Final-Project/accountpage.cpp ../Applied-Final-P
 		../../../Qt/6.7.0/mingw_64/include/QtCore/qlocale.h \
 		../../../Qt/6.7.0/mingw_64/include/QtGui/qguiapplication_platform.h \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
-		ui_accountpage.h \
-		../../../Qt/6.7.0/mingw_64/include/QtCore/QVariant \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QMenuBar \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qmenubar.h \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qmenu.h \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QStatusBar \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qstatusbar.h \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QWidget
+		../Applied-Final-Project/customer.h \
+		../Applied-Final-Project/vectorC.h \
+		../Applied-Final-Project/Events.h \
+		ui_accountpage.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\accountpage.o ..\Applied-Final-Project\accountpage.cpp
 
 debug/admin.o: ../Applied-Final-Project/admin.cpp ../Applied-Final-Project/admin.h
@@ -963,6 +960,11 @@ debug/main.o: ../Applied-Final-Project/main.cpp ../Applied-Final-Project/mainwin
 		../../../Qt/6.7.0/mingw_64/include/QtCore/qlocale.h \
 		../../../Qt/6.7.0/mingw_64/include/QtGui/qguiapplication_platform.h \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
+		../Applied-Final-Project/system.h \
+		../Applied-Final-Project/splaytree.h \
+		../Applied-Final-Project/customer.h \
+		../Applied-Final-Project/vectorC.h \
+		../Applied-Final-Project/Events.h \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\Applied-Final-Project\main.cpp
@@ -1156,22 +1158,17 @@ debug/mainwindow.o: ../Applied-Final-Project/mainwindow.cpp ../Applied-Final-Pro
 		../../../Qt/6.7.0/mingw_64/include/QtCore/qlocale.h \
 		../../../Qt/6.7.0/mingw_64/include/QtGui/qguiapplication_platform.h \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
-		ui_mainwindow.h \
-		../../../Qt/6.7.0/mingw_64/include/QtCore/QVariant \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QMenuBar \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qmenubar.h \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qmenu.h \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QStatusBar \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qstatusbar.h \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QWidget
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainwindow.o ..\Applied-Final-Project\mainwindow.cpp
 
 debug/splaytree.o: ../Applied-Final-Project/splaytree.cpp ../Applied-Final-Project/splaytree.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\splaytree.o ..\Applied-Final-Project\splaytree.cpp
 
-debug/system.o: ../Applied-Final-Project/system.cpp ../Applied-Final-Project/system.h
+debug/system.o: ../Applied-Final-Project/system.cpp ../Applied-Final-Project/system.h \
+		../Applied-Final-Project/splaytree.h \
+		../Applied-Final-Project/customer.h \
+		../Applied-Final-Project/vectorC.h \
+		../Applied-Final-Project/Events.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\system.o ..\Applied-Final-Project\system.cpp
 
 debug/tickets.o: ../Applied-Final-Project/tickets.cpp ../Applied-Final-Project/Tickets.h \

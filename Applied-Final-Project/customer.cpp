@@ -15,12 +15,12 @@ Customer::Customer(int id, string Name, string Email,bool isvip) {
     W->editbalance(value);
 }*/
 
-bool Customer::chechbalance(int value) {
+/*bool Customer::chechbalance(int value) {
     if(getbalance()>=value) {
         return true;
     }
     return false;
-}
+}*/
 
 void Customer::viewEvents() {
 

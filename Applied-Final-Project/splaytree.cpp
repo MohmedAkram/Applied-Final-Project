@@ -1,76 +1,94 @@
-#include "splaytree.h"
+#include "SplayTree.h"
+#include <iostream>
+using namespace std;
+
+// Constructor
+SplayTree::SplayTree() : root(nullptr) {}
+
+// Destructor
+SplayTree::~SplayTree() {
+    destroyTree(root);
+}
 
 // Right rotation
-template <typename T>
-typename SplayTree<T>::Node* SplayTree<T>::rightRotate(Node* node) {
-    Node* x = node->left;
-    node->left = x->right;
-    x->right = node;
+SplayTree::Node* SplayTree::rightRotate(Node* y) {
+    Node* x = y->left;
+    y->left = x->right;
+    x->right = y;
     return x;
 }
 
 // Left rotation
-template <typename T>
-typename SplayTree<T>::Node* SplayTree<T>::leftRotate(Node* node) {
-    Node* x = node->right;
-    node->right = x->left;
-    x->left = node;
-    return x;
+SplayTree::Node* SplayTree::leftRotate(Node* x) {
+    Node* y = x->right;
+    x->right = y->left;
+    y->left = x;
+    return y;
 }
 
-// Splay operation
-template <typename T>
-typename SplayTree<T>::Node* SplayTree<T>::splay(Node* root, const T& key) {
-    if (!root || root->data == key)
+// Splay operation (bring the node with key to the root)
+SplayTree::Node* SplayTree::splay(Node* root, int key) {
+    if (root == nullptr || root->value == key)
         return root;
 
-    // Key lies in the left subtree
-    if (key < root->data) {
-        if (!root->left) return root;
+    // Key lies in left subtree
+    if (key < root->value) {
+        if (root->left == nullptr)
+            return root;
 
-        if (key < root->left->data) {
+        // Zig-Zig (Left Left)
+        if (key < root->left->value) {
             root->left->left = splay(root->left->left, key);
             root = rightRotate(root);
-        } else if (key > root->left->data) {
+        }
+        // Zig-Zag (Left Right)
+        else if (key > root->left->value) {
             root->left->right = splay(root->left->right, key);
-            if (root->left->right)
+            if (root->left->right != nullptr)
                 root->left = leftRotate(root->left);
         }
 
-        return (root->left) ? rightRotate(root) : root;
+        return root == nullptr ? root : rightRotate(root);
     }
-    // Key lies in the right subtree
+    // Key lies in right subtree
     else {
-        if (!root->right) return root;
+        if (root->right == nullptr)
+            return root;
 
-        if (key > root->right->data) {
-            root->right->right = splay(root->right->right, key);
-            root = leftRotate(root);
-        } else if (key < root->right->data) {
+        // Zag-Zig (Right Left)
+        if (key < root->right->value) {
             root->right->left = splay(root->right->left, key);
-            if (root->right->left)
+            if (root->right->left != nullptr)
                 root->right = rightRotate(root->right);
         }
+        // Zag-Zag (Right Right)
+        else if (key > root->right->value) {
+            root->right->right = splay(root->right->right, key);
+            root = leftRotate(root);
+        }
 
-        return (root->right) ? leftRotate(root) : root;
+        return root == nullptr ? root : leftRotate(root);
     }
 }
 
 // Insert operation
-template <typename T>
-typename SplayTree<T>::Node* SplayTree<T>::insert(Node* root, const T& key) {
-    if (!root) return new Node(key);
+SplayTree::Node* SplayTree::insert(Node* root, int key) {
+    if (root == nullptr)
+        return new Node(key);
 
     root = splay(root, key);
 
-    if (root->data == key) return root;
+    if (root->value == key)
+        return root;  // Key already exists
 
     Node* newNode = new Node(key);
-    if (key < root->data) {
+
+    if (key < root->value) {
         newNode->right = root;
         newNode->left = root->left;
         root->left = nullptr;
-    } else {
+    }
+    else {
         newNode->left = root;
         newNode->right = root->right;
         root->right = nullptr;
@@ -79,66 +97,73 @@ typename SplayTree<T>::Node* SplayTree<T>::insert(Node* root, const T& key) {
     return newNode;
 }
 
-// Remove operation
-template <typename T>
-typename SplayTree<T>::Node* SplayTree<T>::deleteNode(Node* root, const T& key) {
-    if (!root) return nullptr;
+// Delete operation
+SplayTree::Node* SplayTree::deleteNode(Node* root, int key) {
+    if (root == nullptr) return root;
 
     root = splay(root, key);
 
-    if (root->data != key) return root;
+    if (root->value != key)
+        return root;  // Key not found
 
-    Node* temp;
-    if (!root->left) {
-        temp = root->right;
-    } else {
-        temp = splay(root->left, key);
-        temp->right = root->right;
+    // If one of the children is empty, replace root with the other child
+    if (root->left == nullptr) {
+        Node* temp = root;
+        root = root->right;
+        delete temp;
+    }
+    else {
+        Node* temp = root;
+        root = splay(root->left, key);
+        root->right = temp->right;
+        delete temp;
     }
 
-    delete root;
-    return temp;
+    return root;
 }
 
-// Insert key
-template <typename T>
-void SplayTree<T>::insert(const T& key) {
+// Find operation
+SplayTree::Node* SplayTree::find(Node* root, int key) {
+    root = splay(root, key);
+    if (root != nullptr && root->value == key)
+        return root;
+    return nullptr;
+}
+
+// Insert public function
+void SplayTree::insert(int key) {
     root = insert(root, key);
 }
 
-// Remove key
-template <typename T>
-void SplayTree<T>::remove(const T& key) {
+// Delete public function
+void SplayTree::deleteKey(int key) {
     root = deleteNode(root, key);
 }
 
-// Search key
-template <typename T>
-bool SplayTree<T>::search(const T& key) {
-    root = splay(root, key);
-    return root && root->data == key;
+// Find public function
+bool SplayTree::find(int key) {
+    return find(root, key) != nullptr;
 }
 
 // In-order traversal
-template <typename T>
-void SplayTree<T>::inorder(Node* root) const {
-    if (!root) return;
-    inorder(root->left);
-    std::cout << root->data << " ";
-    inorder(root->right);
+void SplayTree::printInOrder() {
+    printInOrderHelper(root);
+    cout << endl;
 }
 
-template <typename T>
-void SplayTree<T>::displayInOrder() const {
-    inorder(root);
-    std::cout << std::endl;
+void SplayTree::printInOrderHelper(Node* node) {
+    if (node != nullptr) {
+        printInOrderHelper(node->left);
+        cout << node->value << " ";
+        printInOrderHelper(node->right);
+    }
 }
 
-// Clear tree
-template <typename T>
-void SplayTree<T>::clear(Node* node) {
-    if (!node) return;
-    clear(node->left);
-    clear(node->right);
+// Helper function to delete the entire tree
+void SplayTree::destroyTree(Node* node) {
+    if (node == nullptr) return;
+
+    destroyTree(node->left);
+    destroyTree(node->right);
     delete node;
 }
