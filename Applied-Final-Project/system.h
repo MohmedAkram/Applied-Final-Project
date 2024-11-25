@@ -14,6 +14,7 @@ private:
 public:
     System();
     System(int id, string name);
+    void addCustomer(int id, const std::string& name, const std::string& email, bool isvip);
     SplayTree<Customer> CustomerTree;
     void authenticateUser();
     void processPayment();
