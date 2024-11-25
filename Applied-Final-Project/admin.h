@@ -1,25 +1,28 @@
 #ifndef ADMIN_H
 #define ADMIN_H
 
+#include "vectorC.h"
 #include <string>
-using namespace std;
 
-class Admin {
+    using namespace std;
+
+struct AdminCredential
+{
+    int username;
+    string password;
+};
+class Admin
+{
 private:
-    int adminID;
-    string name;
-    string email;
-    string phone;
+    vectorC<AdminCredential> adminCredentials;
 
 public:
     Admin();
-    Admin(int id, string name, string email, string phone);
+    bool authenticate(int username, const string& password);
+    bool isAdmin(int username);
+    void addAdmin(int username, const string& password);
+    void removeAdmin(int username);
 
-    void addEvent();
-    void removeEvent();
-    void assignHall();
-    void generateReport();
-    void manageUsers();
 };
 
-#endif // ADMIN_H
+#endif
