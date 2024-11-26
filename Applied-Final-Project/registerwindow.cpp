@@ -34,7 +34,7 @@ void RegisterWindow::on_pushButton_clicked()
     CustomerLogin* customerlogin = new CustomerLogin(this);
     customerlogin->show();
     sys.CustomerTree.printInOrder();
-    //close();
+    close();
 
 
 
