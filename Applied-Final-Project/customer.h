@@ -8,25 +8,27 @@
 
 using namespace std;
 
-/*class wallet {
+class wallet {
 public:
+    wallet(int b){
+        balance=b;
+    };
     int balance=0;
-    vectorC<int> transactions;
+    //vectorC<int> transactions;
     int getbalance(){return balance;};
     void editbalance(int value) {
         balance = balance+value;
-        transactions.push(value);
+        //transactions.push(value);
     };
-};*/
+};
 class Customer {
 private:
 
 
     string email;
-    //wallet *W;
     bool IsVIP;
     int Ccredit;
-    //wallet *W;
+    wallet *W;
     //vectorC <Events> ReservedTickets;
 
 public:
