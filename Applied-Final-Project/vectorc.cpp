@@ -1,16 +1,32 @@
-#include "vectorC.h"
 #include <stdexcept>
-#include <algorithm>  // For std::swap
+#include <algorithm>
 #include <iostream>
 
+template <class T>
+class vectorC {
+public:
+    vectorC(int s = 5);     // Default size is 5
+    ~vectorC();
 
+    void push(const T& value);
+    T pop();
+    T& peek() const;
+    int getSize() const;
+    void print() const;
+
+private:
+    void resize();
+
+    T* data;
+    int currentSize;
+    int capacity;
+};
 
 // Constructor
 template <class T>
-vectorC<T>::vectorC(int s) {
-    size = s;
-    currentSize = 0;
-    data = new T[size];
+vectorC<T>::vectorC(int s) : capacity(s), currentSize(0) {
+    if (capacity <= 0) throw std::invalid_argument("Size must be positive");
+    data = new T[capacity];
 }
 
 // Destructor
@@ -21,28 +37,27 @@ vectorC<T>::~vectorC() {
 
 // Add an element to the vector
 template <class T>
-T vectorC <T>::push(const T& value) {
-    if (currentSize == size) {
-        resize();  // Increase size by 5 when capacity is full
+void vectorC<T>::push(const T& value) {
+    if (currentSize == capacity) {
+        resize();
     }
-    data[currentSize] = value;
-    currentSize++;
-    return data[currentSize - 1];
+    data[currentSize++] = value;
 }
 
-// Resize the array to a new size
+// Resize the array
 template <class T>
 void vectorC<T>::resize() {
-    T* newData = new T[size+5];
+    int newCapacity = (capacity == 0) ? 1 : capacity * 2;
+    T* newData = new T[newCapacity];
     for (int i = 0; i < currentSize; ++i) {
         newData[i] = data[i];
     }
     delete[] data;
     data = newData;
-    size = size+5;
+    capacity = newCapacity;
 }
 
-// Pop the last element from the vector
+// Pop the last element
 template <class T>
 T vectorC<T>::pop() {
     if (currentSize == 0) {
@@ -51,45 +66,26 @@ T vectorC<T>::pop() {
     return data[--currentSize];
 }
 
-// Peek the last element in the vector
+// Peek the last element
 template <class T>
-T vectorC<T>::peek() {
+T& vectorC<T>::peek() const {
     if (currentSize == 0) {
         throw std::out_of_range("Vector is empty");
     }
     return data[currentSize - 1];
 }
 
-// // Sort the vector (simple bubble sort for demonstration purposes)
-// template <class T>
-// void vectorC<T>::sort() {
-//     for (int i = 0; i < currentSize - 1; ++i) {
-//         for (int j = 0; j < currentSize - i - 1; ++j) {
-//             if (data[j] > data[j + 1]) {
-//                 std::swap(data[j], data[j + 1]);
-//             }
-//         }
-//     }
-// }
-
-// Get the current size of the vector
+// Get the current size
 template <class T>
 int vectorC<T>::getSize() const {
     return currentSize;
 }
 
-
-
-
-template<class T>
+// Print the elements
+template <class T>
 void vectorC<T>::print() const {
     for (int i = 0; i < currentSize; ++i) {
         std::cout << data[i] << " ";
     }
+    std::cout << std::endl;
 }
-
-// Explicit instantiation for the types you plan to use
-template class vectorC<int>;  // For integers
-//template class vectorC<Halls>;
-
-
