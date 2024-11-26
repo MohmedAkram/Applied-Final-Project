@@ -12,6 +12,7 @@ debug/splaytree.o
 debug/system.o
 debug/tickets.o
 debug/vectorc.o
+debug/qrc_recources.o
 debug/moc_accountpage.o
 debug/moc_customerlogin.o
 debug/moc_loginadmin.o
