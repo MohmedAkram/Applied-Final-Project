@@ -12,3 +12,9 @@ Loginadmin::~Loginadmin()
 {
     delete ui;
 }
+
+void Loginadmin::on_Login_clicked()
+{
+
+}
+
