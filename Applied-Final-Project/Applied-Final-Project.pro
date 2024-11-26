@@ -39,12 +39,9 @@ HEADERS += \
 
 FORMS += \
     accountpage.ui \
-<<<<<<< HEAD
     customerlogin.ui \
-=======
     loginadmin.ui \
->>>>>>> 4df0d1c85c7440bf931c7d4de8c3140b9b373765
-    mainwindow.ui
+    mainwindow.ui \
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

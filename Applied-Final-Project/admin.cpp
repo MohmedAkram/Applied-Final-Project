@@ -1,4 +1,4 @@
-#include "Admin.h"
+/*#include "Admin.h"
 Admin::Admin()
 {
     adminCredentials= vectorC<AdminCredentials>(5);
@@ -48,3 +48,4 @@ void Admin::removeAdmin(int username)
     }
     adminCredentials = filtered; // this will replace the original vector with filtered vector
 }
+*/

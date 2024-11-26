@@ -4,6 +4,7 @@ debug/customer.o
 debug/customerlogin.o
 debug/events.o
 debug/halls.o
+debug/loginadmin.o
 debug/main.o
 debug/mainwindow.o
 debug/splaytree.o
@@ -12,4 +13,5 @@ debug/tickets.o
 debug/vectorc.o
 debug/moc_accountpage.o
 debug/moc_customerlogin.o
+debug/moc_loginadmin.o
 debug/moc_mainwindow.o

@@ -4,6 +4,7 @@ release/customer.o
 release/customerlogin.o
 release/events.o
 release/halls.o
+release/loginadmin.o
 release/main.o
 release/mainwindow.o
 release/splaytree.o
@@ -12,4 +13,5 @@ release/tickets.o
 release/vectorc.o
 release/moc_accountpage.o
 release/moc_customerlogin.o
+release/moc_loginadmin.o
 release/moc_mainwindow.o
