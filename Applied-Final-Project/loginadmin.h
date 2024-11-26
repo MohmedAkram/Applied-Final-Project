@@ -15,6 +15,9 @@ public:
     explicit Loginadmin(QWidget *parent = nullptr);
     ~Loginadmin();
 
+private slots:
+    void on_Login_clicked();
+
 private:
     Ui::Loginadmin *ui;
 };

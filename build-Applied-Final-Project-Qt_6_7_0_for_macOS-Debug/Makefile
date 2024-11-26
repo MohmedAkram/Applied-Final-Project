@@ -55,6 +55,7 @@ OBJECTS_DIR   = ./
 SOURCES       = ../Applied-Final-Project/accountpage.cpp \
 		../Applied-Final-Project/admin.cpp \
 		../Applied-Final-Project/customer.cpp \
+		../Applied-Final-Project/customerlogin.cpp \
 		../Applied-Final-Project/events.cpp \
 		../Applied-Final-Project/halls.cpp \
 		../Applied-Final-Project/loginadmin.cpp \
@@ -64,11 +65,13 @@ SOURCES       = ../Applied-Final-Project/accountpage.cpp \
 		../Applied-Final-Project/system.cpp \
 		../Applied-Final-Project/tickets.cpp \
 		../Applied-Final-Project/vectorc.cpp moc_accountpage.cpp \
+		moc_customerlogin.cpp \
 		moc_loginadmin.cpp \
 		moc_mainwindow.cpp
 OBJECTS       = accountpage.o \
 		admin.o \
 		customer.o \
+		customerlogin.o \
 		events.o \
 		halls.o \
 		loginadmin.o \
@@ -79,6 +82,7 @@ OBJECTS       = accountpage.o \
 		tickets.o \
 		vectorc.o \
 		moc_accountpage.o \
+		moc_customerlogin.o \
 		moc_loginadmin.o \
 		moc_mainwindow.o
 DIST          = ../../../Qt/6.7.0/macos/mkspecs/features/spec_pre.prf \
@@ -285,6 +289,7 @@ DIST          = ../../../Qt/6.7.0/macos/mkspecs/features/spec_pre.prf \
 		../Applied-Final-Project/Applied-Final-Project.pro ../Applied-Final-Project/accountpage.h \
 		../Applied-Final-Project/admin.h \
 		../Applied-Final-Project/customer.h \
+		../Applied-Final-Project/customerlogin.h \
 		../Applied-Final-Project/events.h \
 		../Applied-Final-Project/halls.h \
 		../Applied-Final-Project/loginadmin.h \
@@ -295,6 +300,7 @@ DIST          = ../../../Qt/6.7.0/macos/mkspecs/features/spec_pre.prf \
 		../Applied-Final-Project/vectorc.h ../Applied-Final-Project/accountpage.cpp \
 		../Applied-Final-Project/admin.cpp \
 		../Applied-Final-Project/customer.cpp \
+		../Applied-Final-Project/customerlogin.cpp \
 		../Applied-Final-Project/events.cpp \
 		../Applied-Final-Project/halls.cpp \
 		../Applied-Final-Project/loginadmin.cpp \
@@ -324,7 +330,7 @@ include /Users/kamalelnazir/Qt/6.7.0/macos/mkspecs/features/mac/sdk.mk
 first: all
 ####### Build rules
 
-Applied-Final-Project.app/Contents/MacOS/Applied-Final-Project: ui_accountpage.h ui_loginadmin.h ui_mainwindow.h $(OBJECTS)  
+Applied-Final-Project.app/Contents/MacOS/Applied-Final-Project: ui_accountpage.h ui_customerlogin.h ui_loginadmin.h ui_mainwindow.h $(OBJECTS)  
 	@test -d Applied-Final-Project.app/Contents/MacOS/ || mkdir -p Applied-Final-Project.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET)  $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -763,9 +769,9 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../Applied-Final-Project/accountpage.h ../Applied-Final-Project/admin.h ../Applied-Final-Project/customer.h ../Applied-Final-Project/events.h ../Applied-Final-Project/halls.h ../Applied-Final-Project/loginadmin.h ../Applied-Final-Project/mainwindow.h ../Applied-Final-Project/splaytree.h ../Applied-Final-Project/system.h ../Applied-Final-Project/tickets.h ../Applied-Final-Project/vectorc.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Applied-Final-Project/accountpage.cpp ../Applied-Final-Project/admin.cpp ../Applied-Final-Project/customer.cpp ../Applied-Final-Project/events.cpp ../Applied-Final-Project/halls.cpp ../Applied-Final-Project/loginadmin.cpp ../Applied-Final-Project/main.cpp ../Applied-Final-Project/mainwindow.cpp ../Applied-Final-Project/splaytree.cpp ../Applied-Final-Project/system.cpp ../Applied-Final-Project/tickets.cpp ../Applied-Final-Project/vectorc.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Applied-Final-Project/accountpage.ui ../Applied-Final-Project/loginadmin.ui ../Applied-Final-Project/mainwindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../Applied-Final-Project/accountpage.h ../Applied-Final-Project/admin.h ../Applied-Final-Project/customer.h ../Applied-Final-Project/customerlogin.h ../Applied-Final-Project/events.h ../Applied-Final-Project/halls.h ../Applied-Final-Project/loginadmin.h ../Applied-Final-Project/mainwindow.h ../Applied-Final-Project/splaytree.h ../Applied-Final-Project/system.h ../Applied-Final-Project/tickets.h ../Applied-Final-Project/vectorc.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Applied-Final-Project/accountpage.cpp ../Applied-Final-Project/admin.cpp ../Applied-Final-Project/customer.cpp ../Applied-Final-Project/customerlogin.cpp ../Applied-Final-Project/events.cpp ../Applied-Final-Project/halls.cpp ../Applied-Final-Project/loginadmin.cpp ../Applied-Final-Project/main.cpp ../Applied-Final-Project/mainwindow.cpp ../Applied-Final-Project/splaytree.cpp ../Applied-Final-Project/system.cpp ../Applied-Final-Project/tickets.cpp ../Applied-Final-Project/vectorc.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Applied-Final-Project/accountpage.ui ../Applied-Final-Project/customerlogin.ui ../Applied-Final-Project/loginadmin.ui ../Applied-Final-Project/mainwindow.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -794,9 +800,9 @@ benchmark: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_accountpage.cpp moc_loginadmin.cpp moc_mainwindow.cpp
+compiler_moc_header_make_all: moc_accountpage.cpp moc_customerlogin.cpp moc_loginadmin.cpp moc_mainwindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_accountpage.cpp moc_loginadmin.cpp moc_mainwindow.cpp
+	-$(DEL_FILE) moc_accountpage.cpp moc_customerlogin.cpp moc_loginadmin.cpp moc_mainwindow.cpp
 moc_accountpage.cpp: ../Applied-Final-Project/accountpage.h \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
@@ -805,6 +811,14 @@ moc_accountpage.cpp: ../Applied-Final-Project/accountpage.h \
 		../Applied-Final-Project/Events.h \
 		../../../Qt/6.7.0/macos/libexec/moc
 	/Users/kamalelnazir/Qt/6.7.0/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/kamalelnazir/Qt/6.7.0/macos/mkspecs/macx-clang -I/Users/kamalelnazir/Documents/Applied-Final-Project/Applied-Final-Project -I/Users/kamalelnazir/Qt/6.7.0/macos/lib/QtWidgets.framework/Headers -I/Users/kamalelnazir/Qt/6.7.0/macos/lib/QtGui.framework/Headers -I/Users/kamalelnazir/Qt/6.7.0/macos/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/kamalelnazir/Qt/6.7.0/macos/lib ../Applied-Final-Project/accountpage.h -o moc_accountpage.cpp
+
+moc_customerlogin.cpp: ../Applied-Final-Project/customerlogin.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QDialog \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../../Qt/6.7.0/macos/libexec/moc
+	/Users/kamalelnazir/Qt/6.7.0/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/kamalelnazir/Qt/6.7.0/macos/mkspecs/macx-clang -I/Users/kamalelnazir/Documents/Applied-Final-Project/Applied-Final-Project -I/Users/kamalelnazir/Qt/6.7.0/macos/lib/QtWidgets.framework/Headers -I/Users/kamalelnazir/Qt/6.7.0/macos/lib/QtGui.framework/Headers -I/Users/kamalelnazir/Qt/6.7.0/macos/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/kamalelnazir/Qt/6.7.0/macos/lib ../Applied-Final-Project/customerlogin.h -o moc_customerlogin.cpp
 
 moc_loginadmin.cpp: ../Applied-Final-Project/loginadmin.h \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QDialog \
@@ -822,12 +836,16 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_accountpage.h ui_loginadmin.h ui_mainwindow.h
+compiler_uic_make_all: ui_accountpage.h ui_customerlogin.h ui_loginadmin.h ui_mainwindow.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_accountpage.h ui_loginadmin.h ui_mainwindow.h
+	-$(DEL_FILE) ui_accountpage.h ui_customerlogin.h ui_loginadmin.h ui_mainwindow.h
 ui_accountpage.h: ../Applied-Final-Project/accountpage.ui \
 		../../../Qt/6.7.0/macos/libexec/uic
 	/Users/kamalelnazir/Qt/6.7.0/macos/libexec/uic ../Applied-Final-Project/accountpage.ui -o ui_accountpage.h
+
+ui_customerlogin.h: ../Applied-Final-Project/customerlogin.ui \
+		../../../Qt/6.7.0/macos/libexec/uic
+	/Users/kamalelnazir/Qt/6.7.0/macos/libexec/uic ../Applied-Final-Project/customerlogin.ui -o ui_customerlogin.h
 
 ui_loginadmin.h: ../Applied-Final-Project/loginadmin.ui \
 		../../../Qt/6.7.0/macos/libexec/uic
@@ -858,14 +876,27 @@ accountpage.o: ../Applied-Final-Project/accountpage.cpp ../Applied-Final-Project
 		ui_accountpage.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o accountpage.o ../Applied-Final-Project/accountpage.cpp
 
-admin.o: ../Applied-Final-Project/admin.cpp ../Applied-Final-Project/Admin.h \
-		../Applied-Final-Project/vectorC.h
+admin.o: ../Applied-Final-Project/admin.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o admin.o ../Applied-Final-Project/admin.cpp
 
 customer.o: ../Applied-Final-Project/customer.cpp ../Applied-Final-Project/customer.h \
 		../Applied-Final-Project/vectorC.h \
 		../Applied-Final-Project/Events.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o customer.o ../Applied-Final-Project/customer.cpp
+
+customerlogin.o: ../Applied-Final-Project/customerlogin.cpp ../Applied-Final-Project/customerlogin.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QDialog \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		ui_customerlogin.h \
+		../Applied-Final-Project/splaytree.h \
+		../Applied-Final-Project/Customer.h \
+		../Applied-Final-Project/vectorC.h \
+		../Applied-Final-Project/Events.h \
+		../Applied-Final-Project/system.h \
+		../Applied-Final-Project/customer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o customerlogin.o ../Applied-Final-Project/customerlogin.cpp
 
 events.o: ../Applied-Final-Project/events.cpp ../Applied-Final-Project/events.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o events.o ../Applied-Final-Project/events.cpp
@@ -882,6 +913,17 @@ loginadmin.o: ../Applied-Final-Project/loginadmin.cpp ../Applied-Final-Project/l
 main.o: ../Applied-Final-Project/main.cpp ../Applied-Final-Project/mainwindow.h \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../Applied-Final-Project/system.h \
+		../Applied-Final-Project/splaytree.h \
+		../Applied-Final-Project/Customer.h \
+		../Applied-Final-Project/vectorC.h \
+		../Applied-Final-Project/Events.h \
+		../Applied-Final-Project/customer.h \
+		../Applied-Final-Project/customerlogin.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QDialog \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QApplication \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Applied-Final-Project/main.cpp
@@ -889,17 +931,26 @@ main.o: ../Applied-Final-Project/main.cpp ../Applied-Final-Project/mainwindow.h 
 mainwindow.o: ../Applied-Final-Project/mainwindow.cpp ../Applied-Final-Project/mainwindow.h \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QLabel \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		../../../Qt/6.7.0/macos/lib/QtGui.framework/Headers/QPixmap \
+		../../../Qt/6.7.0/macos/lib/QtGui.framework/Headers/qpixmap.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../Applied-Final-Project/mainwindow.cpp
 
-splaytree.o: ../Applied-Final-Project/splaytree.cpp ../Applied-Final-Project/splaytree.h
+splaytree.o: ../Applied-Final-Project/splaytree.cpp ../Applied-Final-Project/SplayTree.h \
+		../Applied-Final-Project/Customer.h \
+		../Applied-Final-Project/vectorC.h \
+		../Applied-Final-Project/Events.h \
+		../Applied-Final-Project/customer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o splaytree.o ../Applied-Final-Project/splaytree.cpp
 
 system.o: ../Applied-Final-Project/system.cpp ../Applied-Final-Project/system.h \
 		../Applied-Final-Project/splaytree.h \
-		../Applied-Final-Project/customer.h \
+		../Applied-Final-Project/Customer.h \
 		../Applied-Final-Project/vectorC.h \
-		../Applied-Final-Project/Events.h
+		../Applied-Final-Project/Events.h \
+		../Applied-Final-Project/customer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o system.o ../Applied-Final-Project/system.cpp
 
 tickets.o: ../Applied-Final-Project/tickets.cpp ../Applied-Final-Project/Tickets.h \
@@ -914,6 +965,9 @@ vectorc.o: ../Applied-Final-Project/vectorc.cpp ../Applied-Final-Project/vectorC
 
 moc_accountpage.o: moc_accountpage.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_accountpage.o moc_accountpage.cpp
+
+moc_customerlogin.o: moc_customerlogin.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_customerlogin.o moc_customerlogin.cpp
 
 moc_loginadmin.o: moc_loginadmin.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_loginadmin.o moc_loginadmin.cpp
