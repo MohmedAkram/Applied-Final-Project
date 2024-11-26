@@ -246,7 +246,8 @@ Makefile: ../Applied-Final-Project/Applied-Final-Project.pro ../../../Qt/6.7.0/m
 		../../../Qt/6.7.0/mingw_64/lib/Qt6Gui.prl \
 		../../../Qt/6.7.0/mingw_64/lib/Qt6Core.prl \
 		../../../Qt/6.7.0/mingw_64/lib/Qt6EntryPoint.prl \
-		../../../Qt/6.7.0/mingw_64/mkspecs/features/build_pass.prf
+		../../../Qt/6.7.0/mingw_64/mkspecs/features/build_pass.prf \
+		../Applied-Final-Project/recources.qrc
 	$(QMAKE) -o Makefile ..\Applied-Final-Project\Applied-Final-Project.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 ../../../Qt/6.7.0/mingw_64/mkspecs/features/spec_pre.prf:
 ../../../Qt/6.7.0/mingw_64/mkspecs/features/device_config.prf:
@@ -425,6 +426,7 @@ Makefile: ../Applied-Final-Project/Applied-Final-Project.pro ../../../Qt/6.7.0/m
 ../../../Qt/6.7.0/mingw_64/lib/Qt6Core.prl:
 ../../../Qt/6.7.0/mingw_64/lib/Qt6EntryPoint.prl:
 ../../../Qt/6.7.0/mingw_64/mkspecs/features/build_pass.prf:
+../Applied-Final-Project/recources.qrc:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\Applied-Final-Project\Applied-Final-Project.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 

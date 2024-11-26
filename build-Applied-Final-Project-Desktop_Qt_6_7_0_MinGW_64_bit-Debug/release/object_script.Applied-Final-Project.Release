@@ -12,6 +12,7 @@ release/splaytree.o
 release/system.o
 release/tickets.o
 release/vectorc.o
+release/qrc_recources.o
 release/moc_accountpage.o
 release/moc_customerlogin.o
 release/moc_loginadmin.o
