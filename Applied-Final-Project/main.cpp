@@ -4,13 +4,11 @@
 #include "customerlogin.h"
 
 #include <QApplication>
-extern System sys;
 int main(int argc, char *argv[])
 {
     Customer customer(1234,"wwwerffrf","rfefr",true,"lol");
     sys.CustomerTree.insert(customer);
-    sys.CustomerTree.printInOrder();
-
+    //sys.CustomerTree.printInOrder();
     QApplication a(argc, argv);
     CustomerLogin w;
     w.show();

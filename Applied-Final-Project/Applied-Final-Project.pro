@@ -19,11 +19,12 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     printticket.cpp \
+    registerwindow.cpp \
     splaytree.cpp \
     system.cpp \
     tickets.cpp \
     tickets2.cpp \
-    vectorc.cpp
+    vectorc.cpp \
 
 HEADERS += \
     accountpage.h \
@@ -35,20 +36,20 @@ HEADERS += \
     loginadmin.h \
     mainwindow.h \
     printticket.h \
+    registerwindow.h \
     splaytree.h \
     system.h \
     tickets.h \
     tickets2.h \
-    vectorc.h
-
+    vectorc.h \
 FORMS += \
     accountpage.ui \
     customerlogin.ui \
     loginadmin.ui \
     mainwindow.ui \
     printticket.ui \
-    tickets2.ui
-
+    tickets2.ui \
+    registerwindow.ui
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
