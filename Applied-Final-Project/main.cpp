@@ -8,7 +8,8 @@
 #include <QGridLayout>
 #include <QLabel>
 #include <QPushButton>
-#include <QMessageBox>  // Include for message box
+#include <QMessageBox>
+#include"customerlogin.h"
 
 class LoginWindow : public QDialog {
 public:
@@ -169,6 +170,8 @@ int main(int argc, char *argv[]) {
     // Set main window properties
     mainWindow.setLayout(mainLayout);
     mainWindow.setStyleSheet("background-color: #1e1e1e; padding: 20px; color: #ffffff;"); // Dark background
+    CustomerLogin *w = new CustomerLogin();
+    w->show();
     mainWindow.show();
 
     return EventWindow.exec();
