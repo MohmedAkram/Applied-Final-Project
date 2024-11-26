@@ -11,6 +11,7 @@
 #include <QMessageBox>
 #include "customerlogin.h"
 #include "registerwindow.h"
+#include "seats.h"
 
 class LoginWindow : public QDialog {
 public:
@@ -33,7 +34,6 @@ public:
         setFixedSize(400, 300);
         QLabel *label = new QLabel("This is the Sign Up window.", this);
         label->setAlignment(Qt::AlignCenter);
-
         QVBoxLayout *layout = new QVBoxLayout(this);
         layout->addWidget(label);
         setLayout(layout);
@@ -43,6 +43,9 @@ public:
 int main(int argc, char *argv[]) {
     QApplication EventWindow(argc, argv);
 
+    QApplication a(argc, argv);
+    Seats w;
+    w.show();
     // Create a vectorC to hold events
     vectorC<Events> movies(10);
 
@@ -175,6 +178,7 @@ int main(int argc, char *argv[]) {
     mainWindow.setLayout(mainLayout);
     mainWindow.setStyleSheet("background-color: #B4E7E2; padding: 20px; color: #2F4F4F;"); // Teal background for the window
     mainWindow.show();
+
 
     return EventWindow.exec();
 }
