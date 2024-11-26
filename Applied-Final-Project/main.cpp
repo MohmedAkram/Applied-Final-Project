@@ -9,7 +9,8 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QMessageBox>
-#include"customerlogin.h"
+#include "customerlogin.h"
+#include "registerwindow.h"
 
 class LoginWindow : public QDialog {
 public:
@@ -47,11 +48,14 @@ int main(int argc, char *argv[]) {
 
     // Define and add events to vectorC
     QPixmap www(":/images/welad resq.jpg");
+    QPixmap opp(":/images/_.jpeg");
+    QPixmap bar(":/images/share.jpg");
+    QPixmap morg(":/images/maxresdefault.jpg");
 
-    Events* event1 = new Events(1, "Name: Welad Rizk III", 2023, "08-2023", 200.00, www);
-    Events* event2 = new Events(2, "Name: Welad Rizk IV", 2023, "09-2023", 250.00, www);
-    Events* event3 = new Events(2, "Name: Welad Rizk IV", 2023, "09-2023", 250.00, www);
-    Events* event4 = new Events(2, "Name: Welad Rizk IV", 2023, "09-2023", 250.00, www);
+    Events* event1 = new Events(1, "Welad Rizk III", 2023, "Action - Comedy", 200.00, www);
+    Events* event2 = new Events(2, "Barbie", 2023, "Romance - Fiction", 250.00, bar);
+    Events* event3 = new Events(2, "Oppenheimer", 2023, "Thriller", 250.00, opp);
+    Events* event4 = new Events(2, "Bringing Back: Morgan Ahmed Morgan", 2023, "Comedy", 250.00, morg);
     // Add more events here...
 
     movies.push(event1);
@@ -72,24 +76,24 @@ int main(int argc, char *argv[]) {
     QPushButton *signupButton = new QPushButton("Sign Up");
 
     loginButton->setStyleSheet(
-        "background-color: #800080; color: white; font-size: 18px; padding: 10px 20px;"
+        "background-color: #FF69B4; color: white; font-size: 18px; padding: 10px 20px;"
         "border-radius: 5px; font-weight: bold;"
         );
     signupButton->setStyleSheet(
-        "background-color: #800080; color: white; font-size: 18px; padding: 10px 20px;"
+        "background-color: #FF69B4; color: white; font-size: 18px; padding: 10px 20px;"
         "border-radius: 5px; font-weight: bold;"
         );
 
     // Create instances for the Login and Signup windows
-    LoginWindow loginWindow;
-    SignupWindow signupWindow;
+    CustomerLogin login;
+    RegisterWindow registerr;
 
-    QObject::connect(loginButton, &QPushButton::clicked, [&loginWindow]() {
-        loginWindow.exec(); // Show Login window
+    QObject::connect(loginButton, &QPushButton::clicked, [&login]() {
+        login.exec(); // Show Login window
     });
 
-    QObject::connect(signupButton, &QPushButton::clicked, [&signupWindow]() {
-        signupWindow.exec(); // Show Signup window
+    QObject::connect(signupButton, &QPushButton::clicked, [&registerr]() {
+        registerr.exec(); // Show Signup window
     });
 
     topBarLayout->addWidget(loginButton);
@@ -112,7 +116,7 @@ int main(int argc, char *argv[]) {
         eventWidget->setFixedSize(600, 600); // Larger size for each event box
         eventWidget->setStyleSheet(
             "border-radius: 15px;"
-            "background-color: #2c2c2c;" // Solid dark background
+            "background-color: #e6f7ff;" // Cream background for the event box
             "box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);"
             );
 
@@ -124,25 +128,25 @@ int main(int argc, char *argv[]) {
         photoLabel->setAlignment(Qt::AlignCenter);
         photoLabel->setStyleSheet(
             "border-radius: 15px;"
-            "border: 3px solid #800080;"
+            "border: 3px solid #FF69B4;" // Pink border around image
             "box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);"
             "padding: 10px;"
             );
 
         // Event details
         QLabel *titleLabel = new QLabel(event->getTitle(), eventWidget);
-        titleLabel->setStyleSheet("font-size: 24px; font-weight: bold; color: white; text-align: center; margin-top: 15px;");
+        titleLabel->setStyleSheet("font-size: 24px; font-weight: bold; color: #333333; text-align: center; margin-top: 15px;");
 
         QLabel *dateLabel = new QLabel(event->getDate(), eventWidget);
-        dateLabel->setStyleSheet("color: #aaaaaa; font-size: 18px; text-align: center; margin-bottom: 20px;");
+        dateLabel->setStyleSheet("color: #5f6368; font-size: 18px; text-align: center; margin-bottom: 20px;");
 
-        // Details button (purple background)
+        // Details button (pink background)
         QPushButton *detailsButton = new QPushButton("Details", eventWidget);
         detailsButton->setStyleSheet(
-            "background-color: #800080; color: white; font-size: 18px; padding: 12px 20px;"
+            "background-color: #FF69B4; color: white; font-size: 18px; padding: 12px 20px;"
             "border: none; border-radius: 5px; font-weight: bold;"
             "transition: 0.3s;"
-            "box-shadow: 0px 0px 10px rgba(128, 0, 128, 0.5);"
+            "box-shadow: 0px 0px 10px rgba(255, 105, 180, 0.5);"
             );
         detailsButton->setFixedWidth(180); // Consistent button width
 
@@ -169,9 +173,7 @@ int main(int argc, char *argv[]) {
 
     // Set main window properties
     mainWindow.setLayout(mainLayout);
-    mainWindow.setStyleSheet("background-color: #1e1e1e; padding: 20px; color: #ffffff;"); // Dark background
-    CustomerLogin *w = new CustomerLogin();
-    w->show();
+    mainWindow.setStyleSheet("background-color: #B4E7E2; padding: 20px; color: #2F4F4F;"); // Teal background for the window
     mainWindow.show();
 
     return EventWindow.exec();

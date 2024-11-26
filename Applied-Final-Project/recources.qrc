@@ -1,5 +1,9 @@
 <RCC>
     <qresource prefix="/images">
         <file>welad resq.jpg</file>
+        <file>WALLPAPER.jpeg</file>
+        <file>_.jpeg</file>
+        <file>share.jpg</file>
+        <file>maxresdefault.jpg</file>
     </qresource>
 </RCC>
