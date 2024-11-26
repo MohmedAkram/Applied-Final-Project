@@ -1,40 +1,45 @@
 #include "mainwindow.h"
-<<<<<<< HEAD
-#include "system.h"
-#include "customer.h"
-#include "customerlogin.h"
-
-#include <QApplication>
-extern System sys;
-int main(int argc, char *argv[])
-{
-    Customer customer(1234,"wwwerffrf","rfefr",true,"lol");
-    sys.CustomerTree.insert(customer);
-    sys.CustomerTree.printInOrder();
-
-    QApplication a(argc, argv);
-    CustomerLogin w;
-    w.show();
-    return a.exec();
-
-
-
-
-
-
-
-=======
 #include "eventss.h"
 #include "vectorc.h"
 #include <QApplication>
 #include <QScrollArea>
 #include <QVBoxLayout>
+#include <QHBoxLayout>
 #include <QGridLayout>
 #include <QLabel>
 #include <QPushButton>
+#include <QMessageBox>  // Include for message box
+
+class LoginWindow : public QDialog {
+public:
+    LoginWindow(QWidget *parent = nullptr) : QDialog(parent) {
+        setWindowTitle("Login");
+        setFixedSize(400, 300);
+        QLabel *label = new QLabel("This is the Login window.", this);
+        label->setAlignment(Qt::AlignCenter);
+
+        QVBoxLayout *layout = new QVBoxLayout(this);
+        layout->addWidget(label);
+        setLayout(layout);
+    }
+};
+
+class SignupWindow : public QDialog {
+public:
+    SignupWindow(QWidget *parent = nullptr) : QDialog(parent) {
+        setWindowTitle("Sign Up");
+        setFixedSize(400, 300);
+        QLabel *label = new QLabel("This is the Sign Up window.", this);
+        label->setAlignment(Qt::AlignCenter);
+
+        QVBoxLayout *layout = new QVBoxLayout(this);
+        layout->addWidget(label);
+        setLayout(layout);
+    }
+};
 
 int main(int argc, char *argv[]) {
-    QApplication a(argc, argv);
+    QApplication EventWindow(argc, argv);
 
     // Create a vectorC to hold events
     vectorC<Eventss> movies(10);
@@ -43,26 +48,52 @@ int main(int argc, char *argv[]) {
     QPixmap www(":/immages/welad rizk betterr.jpg");
 
     Eventss* event1 = new Eventss(1, "Name: Welad Rizk III", 2023, "08-2023", 200.00, www);
-    Eventss* event2 = new Eventss(1, "Name: Welad Rizk III", 2023, "08-2023", 200.00, www);
-    Eventss* event3 = new Eventss(1, "Name: Welad Rizk III", 2023, "08-2023", 200.00, www);
-    Eventss* event4 = new Eventss(1, "Name: Welad Rizk III", 2023, "08-2023", 200.00, www);
-    Eventss* event5 = new Eventss(1, "Name: Welad Rizk III", 2023, "08-2023", 200.00, www);
-    Eventss* event6 = new Eventss(1, "Name: Welad Rizk III", 2023, "08-2023", 200.00, www);
-    Eventss* event7 = new Eventss(1, "Name: Welad Rizk III", 2023, "08-2023", 200.00, www);
-    Eventss* event8 = new Eventss(1, "Name: Welad Rizk III", 2023, "08-2023", 200.00, www);
+    Eventss* event2 = new Eventss(2, "Name: Welad Rizk IV", 2023, "09-2023", 250.00, www);
+    Eventss* event3 = new Eventss(2, "Name: Welad Rizk IV", 2023, "09-2023", 250.00, www);
+    Eventss* event4 = new Eventss(2, "Name: Welad Rizk IV", 2023, "09-2023", 250.00, www);
+    // Add more events here...
 
     movies.push(event1);
     movies.push(event2);
     movies.push(event3);
     movies.push(event4);
-    movies.push(event5);
-    movies.push(event6);
-    movies.push(event7);
-    movies.push(event8);
+    // Add more events to the vector...
 
     // Create main window and scrollable layout
     QDialog mainWindow;
     QVBoxLayout *mainLayout = new QVBoxLayout(&mainWindow);
+
+    // Top bar with buttons
+    QHBoxLayout *topBarLayout = new QHBoxLayout;
+    topBarLayout->setAlignment(Qt::AlignRight); // Align buttons to the top-right corner
+
+    QPushButton *loginButton = new QPushButton("Login");
+    QPushButton *signupButton = new QPushButton("Sign Up");
+
+    loginButton->setStyleSheet(
+        "background-color: #800080; color: white; font-size: 18px; padding: 10px 20px;"
+        "border-radius: 5px; font-weight: bold;"
+        );
+    signupButton->setStyleSheet(
+        "background-color: #800080; color: white; font-size: 18px; padding: 10px 20px;"
+        "border-radius: 5px; font-weight: bold;"
+        );
+
+    // Create instances for the Login and Signup windows
+    LoginWindow loginWindow;
+    SignupWindow signupWindow;
+
+    QObject::connect(loginButton, &QPushButton::clicked, [&loginWindow]() {
+        loginWindow.exec(); // Show Login window
+    });
+
+    QObject::connect(signupButton, &QPushButton::clicked, [&signupWindow]() {
+        signupWindow.exec(); // Show Signup window
+    });
+
+    topBarLayout->addWidget(loginButton);
+    topBarLayout->addWidget(signupButton);
+    mainLayout->addLayout(topBarLayout); // Add top bar to the main layout
 
     QScrollArea *scrollArea = new QScrollArea(&mainWindow);
     scrollArea->setWidgetResizable(true);
@@ -92,12 +123,9 @@ int main(int argc, char *argv[]) {
         photoLabel->setAlignment(Qt::AlignCenter);
         photoLabel->setStyleSheet(
             "border-radius: 15px;"
-            "border: 3px solid #800080;"  // Add a border with purple color for better definition
-            "box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);"  // Add shadow for depth effect
+            "border: 3px solid #800080;"
+            "box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);"
             "padding: 10px;"
-            "QLabel:hover {"
-            "  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);" // Stronger shadow on hover
-            "}"
             );
 
         // Event details
@@ -114,12 +142,13 @@ int main(int argc, char *argv[]) {
             "border: none; border-radius: 5px; font-weight: bold;"
             "transition: 0.3s;"
             "box-shadow: 0px 0px 10px rgba(128, 0, 128, 0.5);"
-            "QPushButton:hover {"
-            "background-color: #800080;"  // Same purple color on hover
-            "box-shadow: 0px 0px 20px rgba(160, 32, 240, 0.8);"
-            "}"
             );
         detailsButton->setFixedWidth(180); // Consistent button width
+
+        // Connect the "Details" button to show event details in a message box when clicked
+        QObject::connect(detailsButton, &QPushButton::clicked, [event]() {
+            QMessageBox::information(nullptr, "Event Details", event->getdetails());
+        });
 
         // Add widgets to event layout
         eventLayout->addWidget(photoLabel, 0, Qt::AlignCenter);
@@ -142,6 +171,5 @@ int main(int argc, char *argv[]) {
     mainWindow.setStyleSheet("background-color: #1e1e1e; padding: 20px; color: #ffffff;"); // Dark background
     mainWindow.show();
 
-    return a.exec();
->>>>>>> b035ea2 (karim)
+    return EventWindow.exec();
 }

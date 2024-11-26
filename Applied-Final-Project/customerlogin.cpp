@@ -25,7 +25,7 @@ void CustomerLogin::on_LoginButton_clicked()
    Customer customer(IDint, "","",true,password);
     if(sys.CustomerTree.findNode(customer) != nullptr &&sys.CustomerTree.findNode(customer)->customer.Password == password )
     {
-        cout<<"sucesssssssssssss";
+        sys.CustomerTree.printInOrder();
     }
     else
     {
