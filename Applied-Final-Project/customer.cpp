@@ -7,20 +7,21 @@ Customer::Customer(int id, string Name, string Email,bool isvip,string password 
     email = std::move(Email);
     IsVIP = isvip;
     Password = password;
+    W = new wallet(0);
 }
-/*int Customer::getbalance() {
+int Customer::getbalance() {
     return W->getbalance();
-}*/
-/*void Customer::editbalance(int value) {
+}
+void Customer::editbalance(int value) {
     W->editbalance(value);
-}*/
+}
 
-/*bool Customer::chechbalance(int value) {
+bool Customer::chechbalance(int value) {
     if(getbalance()>=value) {
         return true;
     }
     return false;
-}*/
+}
 
 void Customer::viewEvents() {
 
