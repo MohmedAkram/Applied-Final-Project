@@ -1,14 +1,16 @@
 #ifndef SPLAYTREE_H
 #define SPLAYTREE_H
 
+#include "Customer.h"
+
 class SplayTree {
-private:
+public:
     struct Node {
-        int value;
+        Customer customer;
         Node* left;
         Node* right;
 
-        Node(int val) : value(val), left(nullptr), right(nullptr) {}
+        Node(const Customer& cust) : customer(cust), left(nullptr), right(nullptr) {}
     };
 
     Node* root;
@@ -16,18 +18,19 @@ private:
     // Private methods for Splay Tree operations
     Node* rightRotate(Node* y);
     Node* leftRotate(Node* x);
-    Node* splay(Node* root, int key);
-    Node* insert(Node* root, int key);
-    Node* deleteNode(Node* root, int key);
-    Node* find(Node* root, int key);
+    Node* splay(Node* root, const Customer& key);
+    Node* insert(Node* root, const Customer& key);
+    Node* deleteNode(Node* root, const Customer& key);
+    Node* find(Node* root, const Customer& key);
 
-public:
+
     SplayTree();
     ~SplayTree();
 
-    void insert(int key);
-    void deleteKey(int key);
-    bool find(int key);
+    void insert(const Customer& customer);
+    void deleteKey(const Customer& customer);
+    bool find(const Customer& customer);
+    Node* findNode(const Customer& customer);
     void printInOrder();
 
     // Helper functions

@@ -20,5 +20,4 @@ public:
     void sendNotifications();
     void generateTicket();
 };
-
 #endif // SYSTEM_H

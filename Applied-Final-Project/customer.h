@@ -20,10 +20,9 @@ public:
 };*/
 class Customer {
 private:
-    int customerID;
-    string name;
+
+
     string email;
-    string membershipStatus;
     //wallet *W;
     bool IsVIP;
     int Ccredit;
@@ -31,8 +30,11 @@ private:
     //vectorC <Events> ReservedTickets;
 
 public:
+    int customerID; ////////*****************************************
+    string Password;
+    string name; ////////*****************************************
     Customer(int id);
-    Customer(int id, string Name, string Email,bool isvip);
+    Customer(int id, string Name, string Email,bool isvip,string password );
     int getbalance();
     void editbalance(int value);
     bool chechbalance(int value);
@@ -47,6 +49,15 @@ public:
     bool operator==(const Customer& other) const {
         return customerID == other.customerID;
     }
+
+
+    bool operator>(const Customer& other) const {
+        return customerID > other.customerID;
+    }
+    bool operator!=(const Customer& other) const {
+        return !(*this == other);  // return true if not equal (using ==)
+    }
+    friend ostream& operator<<(ostream& os, const Customer& customer);
 };
 
 #endif // CUSTOMER_H

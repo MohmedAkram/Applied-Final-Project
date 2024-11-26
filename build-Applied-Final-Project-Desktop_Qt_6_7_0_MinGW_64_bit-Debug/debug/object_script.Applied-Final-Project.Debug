@@ -1,6 +1,7 @@
 debug/accountpage.o
 debug/admin.o
 debug/customer.o
+debug/customerlogin.o
 debug/events.o
 debug/halls.o
 debug/main.o
@@ -10,4 +11,5 @@ debug/system.o
 debug/tickets.o
 debug/vectorc.o
 debug/moc_accountpage.o
+debug/moc_customerlogin.o
 debug/moc_mainwindow.o

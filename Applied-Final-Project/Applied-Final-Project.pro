@@ -12,6 +12,7 @@ SOURCES += \
     accountpage.cpp \
     admin.cpp \
     customer.cpp \
+    customerlogin.cpp \
     events.cpp \
     halls.cpp \
     main.cpp \
@@ -25,6 +26,7 @@ HEADERS += \
     accountpage.h \
     admin.h \
     customer.h \
+    customerlogin.h \
     events.h \
     halls.h \
     mainwindow.h \
@@ -35,6 +37,7 @@ HEADERS += \
 
 FORMS += \
     accountpage.ui \
+    customerlogin.ui \
     mainwindow.ui
 
 # Default rules for deployment.

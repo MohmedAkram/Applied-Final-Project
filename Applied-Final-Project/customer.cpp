@@ -1,13 +1,13 @@
 #include "customer.h"
 using namespace std;
 
-Customer::Customer(int id, string Name, string Email,bool isvip) {
+Customer::Customer(int id, string Name, string Email,bool isvip,string password ) {
     customerID = id;
     name = std::move(Name);
     email = std::move(Email);
     IsVIP = isvip;
+    Password = password;
 }
-
 /*int Customer::getbalance() {
     return W->getbalance();
 }*/
@@ -34,4 +34,5 @@ void Customer::cancelBooking() {
 void Customer::viewBookingHistory() {
 
 }
+
 
