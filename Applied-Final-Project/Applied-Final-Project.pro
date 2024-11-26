@@ -15,6 +15,7 @@ SOURCES += \
     customerlogin.cpp \
     events.cpp \
     halls.cpp \
+    loginadmin.cpp \
     main.cpp \
     mainwindow.cpp \
     splaytree.cpp \
@@ -37,7 +38,11 @@ HEADERS += \
 
 FORMS += \
     accountpage.ui \
+<<<<<<< HEAD
     customerlogin.ui \
+=======
+    loginadmin.ui \
+>>>>>>> 4df0d1c85c7440bf931c7d4de8c3140b9b373765
     mainwindow.ui
 
 # Default rules for deployment.
