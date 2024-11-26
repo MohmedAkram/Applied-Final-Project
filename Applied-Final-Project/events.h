@@ -1,24 +1,48 @@
 #ifndef EVENTS_H
 #define EVENTS_H
 
-#include <string>
-using namespace std;
+#include <QString>
+#include <QPixmap>
+
+namespace Ui {
+class Events;
+}
 
 class Events {
+
 private:
-    int eventID;
-    string title;
+
+    int eventId;
+    QString title;
     int duration;
-    string date;
+    QString date;
     double price;
+    QPixmap image;
 
 public:
-    Events();
-    Events(int id, string title, int duration, string date, double price);
+    // Constructors and Destructor
+    explicit Events(QWidget *parent = nullptr);
+    Events(int id, const QString &title, int duration, const QString &date, double price, const QPixmap &img);
+    ~Events();
 
-    void getEventDetails();
-    void updateEventDetails();
-    void checkAvailability();
+    // Rule of Five: Move Constructor and Assignment
+    Events(Events &&other) noexcept;
+    Events &operator=(Events &&other) noexcept;
+
+    // Getters
+    int getEventID() const;
+    QString getTitle() const;
+    int getDuration() const;
+    QString getDate() const;
+    QPixmap getImage() const;
+    QString getDetails() const;
+
+    // Setters
+    void setEventID(int id);
+    void setTitle(const QString &title);
+    void setDuration(int duration);
+    void setDate(const QString &date);
+    void setPrice(double price);
 };
 
 #endif // EVENTS_H
