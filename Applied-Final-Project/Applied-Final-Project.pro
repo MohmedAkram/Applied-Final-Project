@@ -30,6 +30,7 @@ HEADERS += \
     customerlogin.h \
     events.h \
     halls.h \
+    loginadmin.h \
     mainwindow.h \
     splaytree.h \
     system.h \
