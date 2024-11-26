@@ -7,6 +7,7 @@ debug/halls.o
 debug/loginadmin.o
 debug/main.o
 debug/mainwindow.o
+debug/registerwindow.o
 debug/splaytree.o
 debug/system.o
 debug/tickets.o
@@ -15,3 +16,4 @@ debug/moc_accountpage.o
 debug/moc_customerlogin.o
 debug/moc_loginadmin.o
 debug/moc_mainwindow.o
+debug/moc_registerwindow.o

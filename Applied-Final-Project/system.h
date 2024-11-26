@@ -5,7 +5,6 @@
 #include "splaytree.h"
 #include "customer.h"
 using namespace std;
-
 class System {
 private:
     int systemID;
@@ -20,4 +19,5 @@ public:
     void sendNotifications();
     void generateTicket();
 };
+extern System sys;
 #endif // SYSTEM_H

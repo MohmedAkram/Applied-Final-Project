@@ -18,6 +18,7 @@ SOURCES += \
     loginadmin.cpp \
     main.cpp \
     mainwindow.cpp \
+    registerwindow.cpp \
     splaytree.cpp \
     system.cpp \
     tickets.cpp \
@@ -32,6 +33,7 @@ HEADERS += \
     halls.h \
     loginadmin.h \
     mainwindow.h \
+    registerwindow.h \
     splaytree.h \
     system.h \
     tickets.h \
@@ -42,6 +44,7 @@ FORMS += \
     customerlogin.ui \
     loginadmin.ui \
     mainwindow.ui \
+    registerwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

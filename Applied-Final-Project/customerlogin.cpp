@@ -2,8 +2,8 @@
 #include "ui_customerlogin.h"
 #include "splaytree.h"
 #include "system.h"
+#include "registerwindow.h"
 
-System sys;
 CustomerLogin::CustomerLogin(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::CustomerLogin)
@@ -40,5 +40,13 @@ void CustomerLogin::on_LoginButton_clicked()
 
 
 
+}
+
+
+void CustomerLogin::on_RegisterButton_clicked()
+{
+    RegisterWindow *registerwindow = new RegisterWindow(this);
+    registerwindow->show();
+    this->hide();
 }
 
