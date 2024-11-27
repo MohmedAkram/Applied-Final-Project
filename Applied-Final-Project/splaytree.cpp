@@ -7,7 +7,8 @@ using namespace std;
 SplayTree::SplayTree() : root(nullptr) {}
 
 // Destructor
-SplayTree::~SplayTree() {
+SplayTree::~SplayTree()
+{
     destroyTree(root);
 }
 
