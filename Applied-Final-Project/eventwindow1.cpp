@@ -79,11 +79,15 @@ void EventsWindow1::loadEvents() {
     Events* event2 = new Events(2, "Barbie", 2023, "Romance - Fiction", 250.00, bar);
     Events* event3 = new Events(2, "Oppenheimer", 2023, "Thriller", 250.00, opp);
     Events* event4 = new Events(2, "Bringing Back: Morgan Ahmed Morgan", 2023, "Comedy", 250.00, morg);
+    Events* event6 = new Events(1, "Welad Rizk III", 2023, "Action - Comedy", 200.00, www);
+    Events* event7 = new Events(1, "Welad Rizk III", 2023, "Action - Comedy", 200.00, www);
 
     movies.push(event1);
     movies.push(event2);
     movies.push(event3);
     movies.push(event4);
+    movies.push(event6);
+    movies.push(event7);
 
     // Iterate through the vector and display events
     for (int i = 0; i < movies.getSize(); ++i) {
