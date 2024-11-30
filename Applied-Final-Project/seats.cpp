@@ -13,7 +13,7 @@ Seats::Seats(QWidget *parent) // Constructor for the Seats class
     cinemaScreen->setStyleSheet("background-color: black; border: 2px solid white; color: white; font-size: 20px;"); //  color of cinema screen
     cinemaScreen->setText("Cinema Screen"); //text
     cinemaScreen->setAlignment(Qt::AlignCenter); //putting the screen in the centre
-    cinemaScreen->setFixedHeight(100); // Height of the cinema screen
+    cinemaScreen->setFixedHeight(70); // Height of the cinema screen
     mainLayout->addWidget(cinemaScreen, 0, Qt::AlignTop);//cinema screen above seats
 
     // Create the grid layout for seat buttons
