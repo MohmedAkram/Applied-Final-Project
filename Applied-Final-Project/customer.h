@@ -35,6 +35,8 @@ public:
     int getbalance();
     void editbalance(int value);
     bool chechbalance(int value);
+    void editname(string s);
+    void editemail(string s);
     void viewEvents();
     void bookTicket();
     void cancelBooking();

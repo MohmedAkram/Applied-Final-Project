@@ -22,7 +22,12 @@ bool Customer::chechbalance(int value) {
     }
     return false;
 }
-
+void Customer::editname(string s){
+    name= s;
+}
+void Customer::editemail(string s){
+    email=s;
+}
 void Customer::viewEvents() {
 
 }
