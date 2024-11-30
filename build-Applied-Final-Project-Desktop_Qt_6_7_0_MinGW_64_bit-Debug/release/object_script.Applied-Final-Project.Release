@@ -3,11 +3,14 @@ release/admin.o
 release/customer.o
 release/customerlogin.o
 release/events.o
+release/eventwindow1.o
+release/eventwindow2.o
 release/halls.o
 release/loginadmin.o
 release/main.o
 release/mainwindow.o
 release/registerwindow.o
+release/seats.o
 release/splaytree.o
 release/system.o
 release/tickets.o
@@ -15,6 +18,9 @@ release/vectorc.o
 release/qrc_recources.o
 release/moc_accountpage.o
 release/moc_customerlogin.o
+release/moc_eventwindow1.o
+release/moc_eventwindow2.o
 release/moc_loginadmin.o
 release/moc_mainwindow.o
 release/moc_registerwindow.o
+release/moc_seats.o

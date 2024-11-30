@@ -15,6 +15,7 @@ public:
     System();
     System(int id, string name);
     SplayTree CustomerTree; // tree
+    EventsWindow1 *ev;
     void authenticateUser();
     void processPayment();
     void sendNotifications();

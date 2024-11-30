@@ -24,11 +24,8 @@
 
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
-    EventsWindow1 eventWindow;
-    // Create and show the EventWindow
-    //EventWindow2 E2;
-    eventWindow.show();
-    //E2.show();
+    sys.ev = new EventsWindow1();
+    sys.ev->showMaximized();
 
     return a.exec();
 }
