@@ -5,6 +5,7 @@
 #include <string>
 #include "vectorC.h"
 #include"Events.h"
+#include "tickets.h"
 
 using namespace std;
 
@@ -14,21 +15,14 @@ public:
         balance=b;
     };
     int balance=0;
-    //vectorC<int> transactions;
     int getbalance(){return balance;};
     void editbalance(int value) {
         balance = balance+value;
-        //transactions.push(value);
     };
 };
 class Customer {
-private:
-
-
-
-    //vectorC <Events> ReservedTickets;
-
 public:
+    vectorC <Tickets> ReservedTickets;
     string email;
     bool IsVIP;
     int Ccredit;
@@ -41,6 +35,8 @@ public:
     int getbalance();
     void editbalance(int value);
     bool chechbalance(int value);
+    void editname(string s);
+    void editemail(string s);
     void viewEvents();
     void bookTicket();
     void cancelBooking();

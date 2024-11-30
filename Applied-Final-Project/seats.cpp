@@ -10,6 +10,11 @@ Seats::Seats(QWidget *parent) // Constructor for the Seats class
 
     // Add the cinema screen at the top
     QLabel *cinemaScreen = new QLabel(this);
+    cinemaScreen->setStyleSheet("background-color: black; border: 2px solid white; color: white; font-size: 20px;");
+    cinemaScreen->setText("Cinema Screen");
+    cinemaScreen->setAlignment(Qt::AlignCenter);
+    cinemaScreen->setFixedHeight(70); // Height of the cinema screen
+    mainLayout->addWidget(cinemaScreen, 0, Qt::AlignTop);
     cinemaScreen->setStyleSheet("background-color: black; border: 2px solid white; color: white; font-size: 20px;"); //  color of cinema screen
     cinemaScreen->setText("Cinema Screen"); //text
     cinemaScreen->setAlignment(Qt::AlignCenter); //putting the screen in the centre

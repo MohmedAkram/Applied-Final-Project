@@ -17,6 +17,13 @@ public:
     ~AccountPage();
     Customer *C;
 
+private slots:
+    void on_add_balance_clicked();
+
+    void on_EditName_clicked();
+
+    void on_EditEmail_clicked();
+
 private:
     Ui::AccountPage *ui;
 };

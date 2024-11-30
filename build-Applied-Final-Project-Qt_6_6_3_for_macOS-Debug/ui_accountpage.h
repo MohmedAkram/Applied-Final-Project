@@ -75,7 +75,7 @@ public:
         IDLine->setReadOnly(true);
         EmailLine = new QLineEdit(centralwidget);
         EmailLine->setObjectName("EmailLine");
-        EmailLine->setGeometry(QRect(190, 110, 141, 21));
+        EmailLine->setGeometry(QRect(160, 110, 211, 21));
         EmailLine->setFrame(true);
         MemStautsLine = new QLineEdit(centralwidget);
         MemStautsLine->setObjectName("MemStautsLine");
@@ -86,7 +86,7 @@ public:
         EditName->setGeometry(QRect(10, 150, 100, 32));
         EditEmail = new QPushButton(centralwidget);
         EditEmail->setObjectName("EditEmail");
-        EditEmail->setGeometry(QRect(220, 150, 100, 32));
+        EditEmail->setGeometry(QRect(210, 150, 100, 32));
         label_6 = new QLabel(centralwidget);
         label_6->setObjectName("label_6");
         label_6->setGeometry(QRect(20, 280, 111, 16));
