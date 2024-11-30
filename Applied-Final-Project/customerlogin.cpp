@@ -33,7 +33,7 @@ void CustomerLogin::on_LoginButton_clicked()
         Customer *C;
         C= new Customer(c->customer.customerID,c->customer.name,c->customer.email,c->customer.IsVIP,c->customer.Password);
         EventWindow2* eve2= new EventWindow2(C);
-        eve2->show();
+        eve2->showMaximized();
         this->hide();
         sys.ev->hide();
 

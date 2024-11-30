@@ -20,6 +20,7 @@ public:
     void processPayment();
     void sendNotifications();
     void generateTicket();
+
 };
 extern System sys;
 #endif // SYSTEM_H
