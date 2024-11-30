@@ -2,7 +2,8 @@
 #include <QVBoxLayout>
 #include <QMessageBox>
 
-Seats::Seats(QWidget *parent) // Constructor for the Seats class
+
+Seats::Seats(Customer* customer,Events* EV, QWidget* parent)// Constructor for the Seats class
 
     : QWidget(parent), totalPrice(0.0), regularPrice(50.0), vipPrice(100.0) // initializng the prices of diff types of setas
 {
@@ -24,7 +25,10 @@ Seats::Seats(QWidget *parent) // Constructor for the Seats class
     // Create the grid layout for seat buttons
     seatLayout = new QGridLayout();
     seatLayout->setHorizontalSpacing(20); // Space between columns
-    seatLayout->setVerticalSpacing(20);   // Space between rows
+    seatLayout->setVerticalSpacing(20);
+    Events* E= EV;    // Space between rows
+    Customer* C =customer;
+    QMessageBox::information(this, "Booking Confirmed",EV->getTitle());
 
     // Example: Define which seats are VIP (true for VIP, false for regular)
     QVector<bool> vipSeats = {
@@ -79,24 +83,24 @@ void Seats::createSeats(int rows, int cols, QVector<bool> vipSeats)
 
             // Determine if the seat is VIP or regular
             bool isVip = vipSeats[vipIndex++];
-            if (isVip) {
+            seatButton->setObjectName(isVip ? "vip" : "regular");
 
+            if (isVip) {
                 // Setting VIP seat button style (blue background)
                 seatButton->setStyleSheet(
                     "background-color: blue; color: white;"
-                    "margin: 2px;"   // Reduced margin
-                    "padding: 0px;" // No padding for compact look
+                    "margin: 2px;"
+                    "padding: 0px;"
                     );
             } else {
-
-                // Setting the regular seat button style (green background)
-
+                // Setting regular seat button style (green background)
                 seatButton->setStyleSheet(
                     "background-color: green; color: white;"
-                    "margin: 2px;"   // Reduced margin
-                    "padding: 0px;" // No padding for compact look
+                    "margin: 2px;"
+                    "padding: 0px;"
                     );
             }
+
 
             // Connecting the button's click signal to the onSeatClicked slot
 
@@ -124,32 +128,31 @@ void Seats::onSeatClicked()
     QString seatNumber = button->text();
 
 
-    bool isVip = button->styleSheet().contains("blue");
+    bool isVip = (button->objectName() == "vip");
 
     // seat selection: if available, select it; if selected, deselect it
 
-    if (button->styleSheet().contains("green") || button->styleSheet().contains("blue")) {
-
+    if (button->styleSheet().contains("green") || button->styleSheet().contains("blue"))
+    {
         // Available seat becomes selected (change color)
 
-        button->setStyleSheet(isVip ? "background-color: cyan; color: black;" // VIP selected
-
-                                    : "background-color: yellow; color: black;"); // Regular selected
+        button->setStyleSheet(isVip ? "background-color: cyan; color: black;" : "background-color: yellow; color: black;");
 
         selectedSeats.append(seatNumber);  // Adding seat to selected seats list
 
         totalPrice += isVip ? vipPrice : regularPrice;   // Adding seat price to total
 
-    } else if (button->styleSheet().contains("yellow") || button->styleSheet().contains("cyan")) {
+    }   else if (button->styleSheet().contains("yellow") || button->styleSheet().contains("cyan")) {
 
-        // selected seat as available (change color)
+        // Selected seat becomes available (change color)
 
-        button->setStyleSheet(isVip ? "background-color: blue; color: white;" // VIP available
-                                    : "background-color: green; color: white;"); // Regular available
+        button->setStyleSheet(isVip ? "background-color: blue; color: white;" : "background-color: green; color: white;");
 
         selectedSeats.removeOne(seatNumber);   // Remove seat from selected seats list
+
         totalPrice -= isVip ? vipPrice : regularPrice;      // Subtract seat price from total
     }
+
 
     // Updating UI labels to show selected seats and total price
 
@@ -169,23 +172,19 @@ void Seats::confirmBooking()
     }
 
     // Show confirmation message with booked seats and total price
+    ConfirmBook* confirm = new ConfirmBook(E,C);
 
-    QMessageBox::information(this, "Booking Confirmed",
-                             QString("You have booked the following seats:\n%1\nTotal Price: $%2")
-                                 .arg(selectedSeats.join(", "))
-                                 .arg(totalPrice, 0, 'f', 2));
+
 
 
     // Mark selected seats as booked and disable them
 
     for (auto *button : seatButtons) {
         if (button->styleSheet().contains("yellow") || button->styleSheet().contains("cyan")) {
-
             // Marking seat as booked (change color)
-
             button->setStyleSheet(button->styleSheet().contains("cyan")
-                                  ? "background-color: darkred; color: white;" // VIP booked
-                                  : "background-color: red; color: white;"); // Regular booked
+                                      ? "background-color: darkred; color: white;" // VIP booked
+                                      : "background-color: red; color: white;"); // Regular booked
             button->setEnabled(false);  // Disabling the button (can't click it again)
         }
     }

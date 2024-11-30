@@ -1,7 +1,7 @@
 #include "confirmbook.h"
 #include "ui_confirmbook.h"
 
-ConfirmBook::ConfirmBook(QWidget *parent)
+ConfirmBook::ConfirmBook(Events* e,Customer*c,QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::ConfirmBook)
 {
@@ -12,3 +12,4 @@ ConfirmBook::~ConfirmBook()
 {
     delete ui;
 }
+//ConfirmBook(Event* event, Customer* C,QWidget *parent = nullptr);

@@ -1,5 +1,7 @@
 #ifndef CONFIRMBOOK_H
 #define CONFIRMBOOK_H
+#include "customer.h"
+#include "events.h"
 
 #include <QDialog>
 
@@ -12,7 +14,7 @@ class ConfirmBook : public QDialog
     Q_OBJECT
 
 public:
-    explicit ConfirmBook(QWidget *parent = nullptr);
+    explicit ConfirmBook(Events* e,Customer*c,QWidget *parent = nullptr);
     ~ConfirmBook();
 
 private:

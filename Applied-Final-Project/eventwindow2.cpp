@@ -7,8 +7,9 @@ EventWindow2::EventWindow2(Customer* customer,QWidget *parent)
     gridLayout(new QGridLayout(scrollWidget)), accountButton(new QPushButton("My Account")),
     movies(10) {    // Initialize vector with a capacity of 10
     setupUI();
-    loadEvents();
     C = customer;
+    loadEvents(C);
+
 }
 
 EventWindow2::~EventWindow2() {
@@ -48,7 +49,7 @@ void EventWindow2::setupUI() {
     setStyleSheet("background-color: #B4E7E2; padding: 20px; color: #2F4F4F;");
 }
 
-void EventWindow2::loadEvents() {
+void EventWindow2::loadEvents(Customer* customer) {
     // Add events to the custom vector
     movies.push(new Events(1, "Welad Rizk III", 2023, "Action - Comedy", 200.00, QPixmap(":/images/welad resq.jpg")));
     movies.push(new Events(2, "Barbie", 2023, "Romance - Fiction", 250.00, QPixmap(":/images/share.jpg")));
@@ -56,11 +57,11 @@ void EventWindow2::loadEvents() {
     movies.push(new Events(4, "Bringing Back: Morgan Ahmed Morgan", 2023, "Comedy", 250.00, QPixmap(":/images/maxresdefault.jpg")));
 
     for (int i = 0; i < movies.getSize(); ++i) {
-        addEventToLayout(movies.get(i), i / 2, i % 2);
+        addEventToLayout(movies.get(i),customer, i / 2, i % 2);
     }
 }
 
-void EventWindow2::addEventToLayout(Events *event, int row, int col) {
+void EventWindow2::addEventToLayout(Events *event,Customer* C, int row, int col) {
     // Create event container
     QWidget *eventWidget = new QWidget;
     eventWidget->setFixedSize(600, 600);
@@ -96,11 +97,11 @@ void EventWindow2::addEventToLayout(Events *event, int row, int col) {
         "box-shadow: 0px 0px 10px rgba(255, 105, 180, 0.5);");
     bookButton->setFixedWidth(180);
 
-    connect(bookButton, &QPushButton::clicked, [event]() {
-        // Ensure the Seats window is being created and shown properly
-        Seats* w = new Seats();  // Create a new instance of Seats window
-        w->show();  // Show the window
+    connect(bookButton, &QPushButton::clicked, [C, event]() {
+        Seats* w = new Seats(C, event); // Pass Customer pointer and event
+        w->show(); // Display the Seats window
     });
+
 
     // Add widgets to event layout
     eventLayout->addWidget(photoLabel, 0, Qt::AlignCenter);

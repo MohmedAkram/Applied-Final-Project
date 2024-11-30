@@ -34,8 +34,8 @@ public:
     ~EventWindow2();
     Customer* C;
     void setupUI();                  // Function to set up the UI
-    void loadEvents();               // Function to load event data
-    void addEventToLayout(Events *event, int row, int col); // Add an event to the grid layout
+    void loadEvents(Customer* customer);               // Function to load event data
+    void addEventToLayout(Events *event,Customer* C, int row, int col); // Add an event to the grid layout
 };
 
 #endif // EVENTWINDOW2_H

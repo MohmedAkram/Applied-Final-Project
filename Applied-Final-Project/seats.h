@@ -6,13 +6,19 @@
 #include <QPushButton>
 #include <QLabel>
 #include <QVector>
+#include "customer.h"
+#include "events.h"
+#include "confirmbook.h"
+
 
 class Seats : public QWidget
 {
     Q_OBJECT
 
 public:
-    Seats(QWidget *parent = nullptr);
+    Seats(Customer* Cu,Events* Ev,QWidget* parent = nullptr);
+    Customer * C;
+    Events *E;
     ~Seats();
 
 private slots:
