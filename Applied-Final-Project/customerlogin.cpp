@@ -35,6 +35,7 @@ void CustomerLogin::on_LoginButton_clicked()
         EventWindow2* eve2= new EventWindow2(C);
         eve2->show();
         this->hide();
+        sys.ev->hide();
 
     }
     else
