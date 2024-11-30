@@ -25,13 +25,14 @@ class Customer {
 private:
 
 
+
+    //vectorC <Events> ReservedTickets;
+
+public:
     string email;
     bool IsVIP;
     int Ccredit;
     wallet *W;
-    //vectorC <Events> ReservedTickets;
-
-public:
     int customerID; ////////*****************************************
     string Password;
     string name; ////////*****************************************

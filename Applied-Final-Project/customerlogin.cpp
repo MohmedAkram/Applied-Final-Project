@@ -3,6 +3,9 @@
 #include "splaytree.h"
 #include "system.h"
 #include "registerwindow.h"
+#include <QMessageBox>
+#include "eventwindow2.h"
+#include "customer.h"
 
 CustomerLogin::CustomerLogin(QWidget *parent)
     : QDialog(parent)
@@ -22,31 +25,29 @@ void CustomerLogin::on_LoginButton_clicked()
     QString Password = ui->CustomerPasswordSignIn->text();
     int IDint = ID.toInt();
     std::string password = Password.toStdString();
-   Customer customer(IDint, "","",true,password);
-    if(sys.CustomerTree.findNode(customer) != nullptr &&sys.CustomerTree.findNode(customer)->customer.Password == password )
+    Customer customer(IDint, "", "", true, password);
+
+    auto c = sys.CustomerTree.findNode(customer);
+    if (c != nullptr && c->customer.Password == password)
     {
-        sys.CustomerTree.printInOrder();
+        Customer *C;
+        C= new Customer(c->customer.customerID,c->customer.name,c->customer.email,c->customer.IsVIP,c->customer.Password);
+        EventWindow2* eve2= new EventWindow2(C);
+        eve2->show();
+        this->hide();
+
     }
     else
     {
-        // Incorrect password or user not found.
         QMessageBox::warning(this, "Login Failed", "Incorrect ID or Password. Please try again.");
-
-        // Clear input fields for retry.
         ui->CustomerIDSignIn->clear();
         ui->CustomerPasswordSignIn->clear();
     }
-
-
-
-
 }
-
 
 void CustomerLogin::on_RegisterButton_clicked()
 {
     RegisterWindow *registerwindow = new RegisterWindow(this);
     registerwindow->show();
-    this->hide();
+    this->close(); // Close login window when signup is clicked
 }
-

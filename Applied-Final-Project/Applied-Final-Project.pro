@@ -14,6 +14,8 @@ SOURCES += \
     customer.cpp \
     customerlogin.cpp \
     events.cpp \
+    eventwindow1.cpp \
+    eventwindow2.cpp \
     halls.cpp \
     loginadmin.cpp \
     main.cpp \
@@ -31,6 +33,8 @@ HEADERS += \
     customer.h \
     customerlogin.h \
     events.h \
+    eventwindow1.h \
+    eventwindow2.h \
     halls.h \
     loginadmin.h \
     mainwindow.h \
@@ -44,6 +48,8 @@ HEADERS += \
 FORMS += \
     accountpage.ui \
     customerlogin.ui \
+    eventwindow1.ui \
+    eventwindow2.ui \
     loginadmin.ui \
     mainwindow.ui \
     registerwindow.ui \

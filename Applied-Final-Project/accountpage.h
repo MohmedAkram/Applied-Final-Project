@@ -13,19 +13,9 @@ class AccountPage : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit AccountPage(QWidget *parent = nullptr);
+    explicit AccountPage(Customer *customer,QWidget *parent = nullptr);
     ~AccountPage();
-
-private slots:
-    void on_NameLine_cursorPositionChanged(int arg1, int arg2);
-
-    void on_EmailLine_cursorPositionChanged(int arg1, int arg2);
-
-    void on_IDLine_cursorPositionChanged(int arg1, int arg2);
-
-    void on_MemStautsLine_cursorPositionChanged(int arg1, int arg2);
-
-    void on_BalanceLine_cursorPositionChanged(int arg1, int arg2);
+    Customer *C;
 
 private:
     Ui::AccountPage *ui;

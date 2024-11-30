@@ -4,30 +4,23 @@
 #include <QString>
 #include <QPixmap>
 
-namespace Ui {
-class Events;
-}
-
 class Events {
-
 private:
-
-    int eventId;
-    QString title;
-    int duration;
-    QString date;
-    double price;
-    QPixmap image;
+    int eventId;          // Unique ID for the event
+    QString title;        // Event title
+    int duration;         // Duration in minutes
+    QString date;         // Date of the event
+    double price;         // Price of the event
+    QPixmap image;        // Event image
 
 public:
     // Constructors and Destructor
-    explicit Events(QWidget *parent = nullptr);
     Events(int id, const QString &title, int duration, const QString &date, double price, const QPixmap &img);
-    ~Events();
-
-    // Rule of Five: Move Constructor and Assignment
-    Events(Events &&other) noexcept;
-    Events &operator=(Events &&other) noexcept;
+    Events(const Events &other) = delete;             // Delete copy constructor
+    Events &operator=(const Events &other) = delete;  // Delete copy assignment operator
+    Events(Events &&other) noexcept;                 // Move constructor
+    Events &operator=(Events &&other) noexcept;      // Move assignment operator
+    ~Events();                                       // Destructor
 
     // Getters
     int getEventID() const;

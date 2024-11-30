@@ -4,6 +4,7 @@
 #include <string>
 #include "splaytree.h"
 #include "customer.h"
+#include "eventwindow1.h"
 using namespace std;
 class System {
 private:
@@ -13,7 +14,7 @@ private:
 public:
     System();
     System(int id, string name);
-    SplayTree CustomerTree;
+    SplayTree CustomerTree; // tree
     void authenticateUser();
     void processPayment();
     void sendNotifications();
