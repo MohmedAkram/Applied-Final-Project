@@ -17,6 +17,7 @@ public:
     explicit ConfirmBook(Events* e,Customer*c,QWidget *parent = nullptr);
     ~ConfirmBook();
 
+
 private:
     Ui::ConfirmBook *ui;
 };

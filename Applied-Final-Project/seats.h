@@ -23,7 +23,7 @@ public:
 
 private slots:
     void onSeatClicked();  // Slot to handle seat selection
-    void confirmBooking(); // Slot to confirm booking
+    void confirmBooking(Customer* Cu,Events* Ev); // Slot to confirm booking
 
 private:
     QGridLayout *seatLayout;  // Layout for seats

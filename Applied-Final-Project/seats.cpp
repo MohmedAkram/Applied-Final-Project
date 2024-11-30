@@ -2,69 +2,101 @@
 #include <QVBoxLayout>
 #include <QMessageBox>
 
-
-Seats::Seats(Customer* customer,Events* EV, QWidget* parent)// Constructor for the Seats class
-
-    : QWidget(parent), totalPrice(0.0), regularPrice(50.0), vipPrice(100.0) // initializng the prices of diff types of setas
+void Seats::confirmBooking(Customer* Cu, Events* Ev)
 {
-    QVBoxLayout *mainLayout = new QVBoxLayout(this); // Main vertical layout
+    if (selectedSeats.isEmpty()) {
+        QMessageBox::warning(this, "No Seats Selected", "Please select at least one seat.");
+        return;
+    }
+
+    if (!Ev || !Cu) {
+        QMessageBox::critical(this, "Error", "Invalid Event or Customer.");
+        return;
+    }
+
+    // Show the confirmation window
+    ConfirmBook* confirm = new ConfirmBook(Ev, Cu, this);
+    confirm->setAttribute(Qt::WA_DeleteOnClose);
+    confirm->show();
+
+    // Mark selected seats as booked
+    for (auto* button : seatButtons) {
+        if (button->styleSheet().contains("yellow") || button->styleSheet().contains("cyan")) {
+            button->setStyleSheet(button->styleSheet().contains("cyan")
+                                  ? "background-color: darkred; color: white;"
+                                  : "background-color: red; color: white;");
+            button->setEnabled(false);
+        }
+    }
+
+    // Reset selection and UI
+    selectedSeats.clear();
+    totalPrice = 0.0;
+    selectedSeatsLabel->setText("Selected Seats: None");
+    totalPriceLabel->setText("Total Price: $0.00");
+}
+
+
+Seats::Seats(Customer* customer, Events* EV, QWidget* parent)
+    : QWidget(parent), C(customer), E(EV), totalPrice(0.0), regularPrice(50.0), vipPrice(100.0)
+{
+    QVBoxLayout* mainLayout = new QVBoxLayout(this); // Main vertical layout
 
     // Add the cinema screen at the top
-    QLabel *cinemaScreen = new QLabel(this);
+    QLabel* cinemaScreen = new QLabel("Cinema Screen", this);
     cinemaScreen->setStyleSheet("background-color: black; border: 2px solid white; color: white; font-size: 20px;");
-    cinemaScreen->setText("Cinema Screen");
     cinemaScreen->setAlignment(Qt::AlignCenter);
-    cinemaScreen->setFixedHeight(70); // Height of the cinema screen
+    cinemaScreen->setFixedHeight(70);
     mainLayout->addWidget(cinemaScreen, 0, Qt::AlignTop);
-    cinemaScreen->setStyleSheet("background-color: black; border: 2px solid white; color: white; font-size: 20px;"); //  color of cinema screen
-    cinemaScreen->setText("Cinema Screen"); //text
-    cinemaScreen->setAlignment(Qt::AlignCenter); //putting the screen in the centre
-    cinemaScreen->setFixedHeight(70); // Height of the cinema screen
-    mainLayout->addWidget(cinemaScreen, 0, Qt::AlignTop);//cinema screen above seats
 
     // Create the grid layout for seat buttons
     seatLayout = new QGridLayout();
     seatLayout->setHorizontalSpacing(20); // Space between columns
     seatLayout->setVerticalSpacing(20);
-    Events* E= EV;    // Space between rows
-    Customer* C =customer;
-    QMessageBox::information(this, "Booking Confirmed",EV->getTitle());
 
-    // Example: Define which seats are VIP (true for VIP, false for regular)
+    // Display information about the event
+    if (E) {
+        QMessageBox::information(this, "Booking Confirmed", QString("Booking for Event: %1").arg(E->getTitle()));
+    }
+
+    // Define which seats are VIP (true for VIP, false for regular)
     QVector<bool> vipSeats = {
         false, false, false, false, false, false, false, false, false, false,
         false, false, false, false, false, false, false, false, false, false,    // false = regular seats
-        true, true, true, true, true, true, true, true, true, true,              // true = vip seats
+        true, true, true, true, true, true, true, true, true, true,              // true = VIP seats
         true, true, true, true, true, true, true, true, true, true
     };
 
-    // Creating the seats (e.g., 4 rows x 10 columns)
+    // Create seats (e.g., 4 rows x 10 columns)
     createSeats(4, 10, vipSeats);
 
     // Wrap the seat layout in a container for better alignment
-    QWidget *seatContainer = new QWidget(this);
+    QWidget* seatContainer = new QWidget(this);
     seatContainer->setLayout(seatLayout);
     mainLayout->addWidget(seatContainer, 0, Qt::AlignHCenter); // Centers the seats
 
     // Labels for selected seats and total price
-    selectedSeatsLabel = new QLabel("Selected Seats: None"); // selected seats
-    totalPriceLabel = new QLabel("Total Price: $0.00");      // the price of all (total)
-    selectedSeatsLabel->setStyleSheet("font-size: 16px;");      //font
-    totalPriceLabel->setStyleSheet("font-size: 16px;");         //font
+    selectedSeatsLabel = new QLabel("Selected Seats: None", this);
+    totalPriceLabel = new QLabel("Total Price: $0.00", this);
+    selectedSeatsLabel->setStyleSheet("font-size: 16px;");
+    totalPriceLabel->setStyleSheet("font-size: 16px;");
     mainLayout->addWidget(selectedSeatsLabel, 0, Qt::AlignHCenter);
     mainLayout->addWidget(totalPriceLabel, 0, Qt::AlignHCenter);
 
     // Confirm booking button
-    QPushButton *confirmButton = new QPushButton("Confirm Booking");
+    QPushButton* confirmButton = new QPushButton("Confirm Booking", this);
     confirmButton->setStyleSheet("font-size: 16px; padding: 8px 16px;");
     mainLayout->addWidget(confirmButton, 0, Qt::AlignHCenter);
 
-    // Connect the confirm button signal
-    connect(confirmButton, &QPushButton::clicked, this, &Seats::confirmBooking);
+    // Connect the confirm button signal with a lambda function to pass parameters
+    connect(confirmButton, &QPushButton::clicked, this, [this]() {
+        this->confirmBooking(C, E); // Call confirmBooking with Customer* and Events*
+    });
 
     // Set the main layout for the widget
     setLayout(mainLayout);
 }
+
 
 Seats::~Seats() {}  // Function to create seats in a grid layout
 
@@ -162,39 +194,4 @@ void Seats::onSeatClicked()
 
 // Function to confirm the booking and finalize seat selection
 
-void Seats::confirmBooking()
-{
-    // Showing warning if no seats are selected
 
-    if (selectedSeats.isEmpty()) {
-        QMessageBox::warning(this, "No Seats Selected", "Please select at least one seat.");
-        return;
-    }
-
-    // Show confirmation message with booked seats and total price
-    ConfirmBook* confirm = new ConfirmBook(E,C);
-
-
-
-
-    // Mark selected seats as booked and disable them
-
-    for (auto *button : seatButtons) {
-        if (button->styleSheet().contains("yellow") || button->styleSheet().contains("cyan")) {
-            // Marking seat as booked (change color)
-            button->setStyleSheet(button->styleSheet().contains("cyan")
-                                      ? "background-color: darkred; color: white;" // VIP booked
-                                      : "background-color: red; color: white;"); // Regular booked
-            button->setEnabled(false);  // Disabling the button (can't click it again)
-        }
-    }
-
-    selectedSeats.clear();  // Clearing the list of selected seats
-
-    totalPrice = 0.0;           // Reseting the total price to 0
-
-    selectedSeatsLabel->setText("Selected Seats: None");  // Updating the label to indicate no seats are selected
-
-    totalPriceLabel->setText("Total Price: $0.00");  // Updating the label to show the total price is $0
-
-}
