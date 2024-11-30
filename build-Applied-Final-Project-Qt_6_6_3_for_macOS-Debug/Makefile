@@ -75,6 +75,7 @@ SOURCES       = ../Applied-Final-Project/accountpage.cpp \
 		moc_customerlogin.cpp \
 		moc_eventwindow1.cpp \
 		moc_eventwindow2.cpp \
+		moc_halls.cpp \
 		moc_loginadmin.cpp \
 		moc_mainwindow.cpp \
 		moc_registerwindow.cpp \
@@ -103,6 +104,7 @@ OBJECTS       = accountpage.o \
 		moc_customerlogin.o \
 		moc_eventwindow1.o \
 		moc_eventwindow2.o \
+		moc_halls.o \
 		moc_loginadmin.o \
 		moc_mainwindow.o \
 		moc_registerwindow.o \
@@ -1266,12 +1268,17 @@ compiler_rcc_make_all: qrc_recources.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) qrc_recources.cpp
 qrc_recources.cpp: ../Applied-Final-Project/recources.qrc \
-		../../../../Qt/6.6.3/macos/libexec/rcc
+		../../../../Qt/6.6.3/macos/libexec/rcc \
+		../Applied-Final-Project/WALLPAPER.jpeg \
+		../Applied-Final-Project/_.jpeg \
+		../Applied-Final-Project/share.jpg \
+		../Applied-Final-Project/maxresdefault.jpg \
+		../Applied-Final-Project/welad\ resq.jpg
 	/Users/zeyadkhaled/Qt/6.6.3/macos/libexec/rcc -name recources --no-zstd ../Applied-Final-Project/recources.qrc -o qrc_recources.cpp
 
-compiler_moc_header_make_all: moc_accountpage.cpp moc_confirmbook.cpp moc_customerlogin.cpp moc_eventwindow1.cpp moc_eventwindow2.cpp moc_loginadmin.cpp moc_mainwindow.cpp moc_registerwindow.cpp moc_seats.cpp
+compiler_moc_header_make_all: moc_accountpage.cpp moc_confirmbook.cpp moc_customerlogin.cpp moc_eventwindow1.cpp moc_eventwindow2.cpp moc_halls.cpp moc_loginadmin.cpp moc_mainwindow.cpp moc_registerwindow.cpp moc_seats.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_accountpage.cpp moc_confirmbook.cpp moc_customerlogin.cpp moc_eventwindow1.cpp moc_eventwindow2.cpp moc_loginadmin.cpp moc_mainwindow.cpp moc_registerwindow.cpp moc_seats.cpp
+	-$(DEL_FILE) moc_accountpage.cpp moc_confirmbook.cpp moc_customerlogin.cpp moc_eventwindow1.cpp moc_eventwindow2.cpp moc_halls.cpp moc_loginadmin.cpp moc_mainwindow.cpp moc_registerwindow.cpp moc_seats.cpp
 moc_accountpage.cpp: ../Applied-Final-Project/accountpage.h \
 		../../../../Qt/6.6.3/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../../Qt/6.6.3/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
@@ -1374,6 +1381,12 @@ moc_eventwindow2.cpp: ../Applied-Final-Project/eventwindow2.h \
 		../../../../Qt/6.6.3/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../../../../Qt/6.6.3/macos/libexec/moc
 	/Users/zeyadkhaled/Qt/6.6.3/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/zeyadkhaled/Qt/6.6.3/macos/mkspecs/macx-clang -I/Users/zeyadkhaled/Documents/GitHub/Applied-Final-Project/Applied-Final-Project -I/Users/zeyadkhaled/Qt/6.6.3/macos/lib/QtWidgets.framework/Headers -I/Users/zeyadkhaled/Qt/6.6.3/macos/lib/QtGui.framework/Headers -I/Users/zeyadkhaled/Qt/6.6.3/macos/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/zeyadkhaled/Qt/6.6.3/macos/lib ../Applied-Final-Project/eventwindow2.h -o moc_eventwindow2.cpp
+
+moc_halls.cpp: ../Applied-Final-Project/halls.h \
+		../../../../Qt/6.6.3/macos/lib/QtWidgets.framework/Headers/QWidget \
+		../../../../Qt/6.6.3/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../../Qt/6.6.3/macos/libexec/moc
+	/Users/zeyadkhaled/Qt/6.6.3/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/zeyadkhaled/Qt/6.6.3/macos/mkspecs/macx-clang -I/Users/zeyadkhaled/Documents/GitHub/Applied-Final-Project/Applied-Final-Project -I/Users/zeyadkhaled/Qt/6.6.3/macos/lib/QtWidgets.framework/Headers -I/Users/zeyadkhaled/Qt/6.6.3/macos/lib/QtGui.framework/Headers -I/Users/zeyadkhaled/Qt/6.6.3/macos/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/zeyadkhaled/Qt/6.6.3/macos/lib ../Applied-Final-Project/halls.h -o moc_halls.cpp
 
 moc_loginadmin.cpp: ../Applied-Final-Project/loginadmin.h \
 		../../../../Qt/6.6.3/macos/lib/QtWidgets.framework/Headers/QDialog \
@@ -1623,7 +1636,13 @@ eventwindow2.o: ../Applied-Final-Project/eventwindow2.cpp ../Applied-Final-Proje
 		../Applied-Final-Project/Seats.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o eventwindow2.o ../Applied-Final-Project/eventwindow2.cpp
 
-halls.o: ../Applied-Final-Project/halls.cpp ../Applied-Final-Project/halls.h
+halls.o: ../Applied-Final-Project/halls.cpp ../Applied-Final-Project/halls.h \
+		../../../../Qt/6.6.3/macos/lib/QtWidgets.framework/Headers/QWidget \
+		../../../../Qt/6.6.3/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../../Qt/6.6.3/macos/lib/QtWidgets.framework/Headers/QPushButton \
+		../../../../Qt/6.6.3/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		../../../../Qt/6.6.3/macos/lib/QtWidgets.framework/Headers/QVBoxLayout \
+		../../../../Qt/6.6.3/macos/lib/QtWidgets.framework/Headers/qboxlayout.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o halls.o ../Applied-Final-Project/halls.cpp
 
 loginadmin.o: ../Applied-Final-Project/loginadmin.cpp ../Applied-Final-Project/loginadmin.h \
@@ -1674,7 +1693,8 @@ main.o: ../Applied-Final-Project/main.cpp ../Applied-Final-Project/mainwindow.h 
 		../Applied-Final-Project/eventwindow1.h \
 		../Applied-Final-Project/system.h \
 		../Applied-Final-Project/splaytree.h \
-		../Applied-Final-Project/Customer.h
+		../Applied-Final-Project/Customer.h \
+		../Applied-Final-Project/halls.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Applied-Final-Project/main.cpp
 
 mainwindow.o: ../Applied-Final-Project/mainwindow.cpp ../Applied-Final-Project/mainwindow.h \
@@ -1824,6 +1844,9 @@ moc_eventwindow1.o: moc_eventwindow1.cpp
 
 moc_eventwindow2.o: moc_eventwindow2.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_eventwindow2.o moc_eventwindow2.cpp
+
+moc_halls.o: moc_halls.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_halls.o moc_halls.cpp
 
 moc_loginadmin.o: moc_loginadmin.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_loginadmin.o moc_loginadmin.cpp

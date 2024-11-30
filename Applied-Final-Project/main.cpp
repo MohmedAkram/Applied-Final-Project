@@ -15,6 +15,7 @@
 #include "eventwindow2.h"
 #include "eventwindow1.h"
 #include "system.h"
+#include "halls.h"
 
 
 
@@ -26,6 +27,8 @@ int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
     sys.ev = new EventsWindow1();
     sys.ev->showMaximized();
+    // Halls h(1,"21:00");
+    // h.show();
 
     return a.exec();
 }

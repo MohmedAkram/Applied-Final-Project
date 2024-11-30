@@ -1,23 +1,23 @@
-#ifndef HALLS_H
-#define HALLS_H
+// #ifndef HALLS_H
+// #define HALLS_H
+// #include <QPushButton>
+// #include <QVBoxLayout>
+// #include <QWidget>
+// #include <string>
+// #include "seats.h"
 
-#include <string>
-using namespace std;
+// using namespace std;
 
-class Halls {
-private:
-    int hallID;
-    string name;
-    int capacity;
-    string location;
+// class Halls : public QWidget  // Inherit from QWidget
+// {
+//     Q_OBJECT  // Required for Qt signals and slots
 
-public:
-    Halls();
-    Halls(int id, string name, int capacity, string location);
+// public:
+//     Halls(int id, string t, QWidget *parent = nullptr); // Constructor
+//     ~Halls();  // Explicit destructor declaration
 
-    void checkHallAvailability();
-    void getSeatingPlan();
-    void assignToEvent();
-};
+//     int hallID;
+//     string time;
+// };
 
-#endif // HALLS_H
+// #endif // HALLS_H
