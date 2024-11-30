@@ -17,7 +17,7 @@ CustomerLogin::CustomerLogin(QWidget *parent)
     QString lineEditStyle =
         "background-color: #f5f5f5;"     // Light-gray background
         "color: #333333;"                // Dark-gray text
-        "font-size: 14px;"               // Larger, readable font
+        "font-size: 18px;"               // Larger, readable font
         "font-weight: normal;"           // Normal text weight
 
         "border-radius: 10px;"           // Slightly rounded corners
@@ -34,9 +34,9 @@ CustomerLogin::CustomerLogin(QWidget *parent)
     QString buttonStyle =
         "background-color: #007bff;"    // Blue background
         "color: white;"                 // White font color
-        "font-size: 16px;"              // Medium font size
+        "font-size: 14px;"              // Medium font size
         "font-weight: bold;"            // Bold text
-        "padding: 10px 20px;"           // Comfortable padding
+
         "border-radius: 8px;"           // Rounded corners
         "border: 2px solid #0056b3;"    // Border matching button color
         "transition: background-color 0.3s ease;"  // Smooth transition for hover
@@ -54,22 +54,19 @@ CustomerLogin::CustomerLogin(QWidget *parent)
         "color: #333333;"               // Dark-gray text color
         "font-size: 14px;"              // Clear font size
         "font-weight: bold;"            // Bold text
-        "padding: 5px;"                 // Minimal padding
+
         "border: none;";                // No border for simplicity
 
     ui->IdLabel->setStyleSheet(labelStyle);
     ui->PasswordLabel->setStyleSheet(labelStyle);
 
     // Optional: Set a custom background color for the dialog
-    //this->setStyleSheet("background-color: #ffffff;");  // White background
+
 }
-
-
 CustomerLogin::~CustomerLogin()
 {
     delete ui;
 }
-
 
 void CustomerLogin::on_LoginButton_clicked()
 {
@@ -88,7 +85,6 @@ void CustomerLogin::on_LoginButton_clicked()
         eve2->showMaximized();
         this->hide();
         sys.ev->hide();
-
 
     }
     else

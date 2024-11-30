@@ -12,5 +12,4 @@ System::System() {
     CustomerTree.insert(c3);
     CustomerTree.insert(c4);
     CustomerTree.insert(c5);
-
 }
