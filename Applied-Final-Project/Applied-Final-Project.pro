@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     accountpage.cpp \
     admin.cpp \
+    confirmbook.cpp \
     customer.cpp \
     customerlogin.cpp \
     events.cpp \
@@ -30,6 +31,7 @@ SOURCES += \
 HEADERS += \
     accountpage.h \
     admin.h \
+    confirmbook.h \
     customer.h \
     customerlogin.h \
     events.h \
@@ -47,6 +49,7 @@ HEADERS += \
 
 FORMS += \
     accountpage.ui \
+    confirmbook.ui \
     customerlogin.ui \
     eventwindow1.ui \
     eventwindow2.ui \

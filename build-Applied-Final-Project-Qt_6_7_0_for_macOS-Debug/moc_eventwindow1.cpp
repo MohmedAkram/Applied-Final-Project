@@ -1,12 +1,13 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'accountpage.h'
+** Meta object code from reading C++ file 'eventwindow1.h'
 **
 ** Created by: The Qt Meta Object Compiler version 68 (Qt 6.7.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../Applied-Final-Project/accountpage.h"
+#include "../Applied-Final-Project/eventwindow1.h"
+#include <QtGui/qtextcursor.h>
 #include <QtCore/qmetatype.h>
 
 #include <QtCore/qtmochelpers.h>
@@ -16,7 +17,7 @@
 
 #include <QtCore/qxptype_traits.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'accountpage.h' doesn't include <QObject>."
+#error "The header file 'eventwindow1.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 68
 #error "This file was generated using the moc from 6.7.0. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -33,16 +34,16 @@ QT_WARNING_DISABLE_GCC("-Wuseless-cast")
 namespace {
 
 #ifdef QT_MOC_HAS_STRINGDATA
-struct qt_meta_stringdata_CLASSAccountPageENDCLASS_t {};
-constexpr auto qt_meta_stringdata_CLASSAccountPageENDCLASS = QtMocHelpers::stringData(
-    "AccountPage"
+struct qt_meta_stringdata_CLASSEventsWindow1ENDCLASS_t {};
+constexpr auto qt_meta_stringdata_CLASSEventsWindow1ENDCLASS = QtMocHelpers::stringData(
+    "EventsWindow1"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
 #endif // !QT_MOC_HAS_STRINGDATA
 } // unnamed namespace
 
-Q_CONSTINIT static const uint qt_meta_data_CLASSAccountPageENDCLASS[] = {
+Q_CONSTINIT static const uint qt_meta_data_CLASSEventsWindow1ENDCLASS[] = {
 
  // content:
       12,       // revision
@@ -58,20 +59,20 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSAccountPageENDCLASS[] = {
        0        // eod
 };
 
-Q_CONSTINIT const QMetaObject AccountPage::staticMetaObject = { {
-    QMetaObject::SuperData::link<QMainWindow::staticMetaObject>(),
-    qt_meta_stringdata_CLASSAccountPageENDCLASS.offsetsAndSizes,
-    qt_meta_data_CLASSAccountPageENDCLASS,
+Q_CONSTINIT const QMetaObject EventsWindow1::staticMetaObject = { {
+    QMetaObject::SuperData::link<QDialog::staticMetaObject>(),
+    qt_meta_stringdata_CLASSEventsWindow1ENDCLASS.offsetsAndSizes,
+    qt_meta_data_CLASSEventsWindow1ENDCLASS,
     qt_static_metacall,
     nullptr,
-    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSAccountPageENDCLASS_t,
+    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSEventsWindow1ENDCLASS_t,
         // Q_OBJECT / Q_GADGET
-        QtPrivate::TypeAndForceComplete<AccountPage, std::true_type>
+        QtPrivate::TypeAndForceComplete<EventsWindow1, std::true_type>
     >,
     nullptr
 } };
 
-void AccountPage::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void EventsWindow1::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     (void)_o;
     (void)_id;
@@ -79,22 +80,22 @@ void AccountPage::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
     (void)_a;
 }
 
-const QMetaObject *AccountPage::metaObject() const
+const QMetaObject *EventsWindow1::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *AccountPage::qt_metacast(const char *_clname)
+void *EventsWindow1::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_CLASSAccountPageENDCLASS.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_CLASSEventsWindow1ENDCLASS.stringdata0))
         return static_cast<void*>(this);
-    return QMainWindow::qt_metacast(_clname);
+    return QDialog::qt_metacast(_clname);
 }
 
-int AccountPage::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int EventsWindow1::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QMainWindow::qt_metacall(_c, _id, _a);
+    _id = QDialog::qt_metacall(_c, _id, _a);
     return _id;
 }
 QT_WARNING_POP

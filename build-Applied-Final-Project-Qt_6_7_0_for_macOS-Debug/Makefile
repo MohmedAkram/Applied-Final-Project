@@ -54,9 +54,12 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../Applied-Final-Project/accountpage.cpp \
 		../Applied-Final-Project/admin.cpp \
+		../Applied-Final-Project/confirmbook.cpp \
 		../Applied-Final-Project/customer.cpp \
 		../Applied-Final-Project/customerlogin.cpp \
 		../Applied-Final-Project/events.cpp \
+		../Applied-Final-Project/eventwindow1.cpp \
+		../Applied-Final-Project/eventwindow2.cpp \
 		../Applied-Final-Project/halls.cpp \
 		../Applied-Final-Project/loginadmin.cpp \
 		../Applied-Final-Project/main.cpp \
@@ -68,16 +71,22 @@ SOURCES       = ../Applied-Final-Project/accountpage.cpp \
 		../Applied-Final-Project/tickets.cpp \
 		../Applied-Final-Project/vectorc.cpp qrc_recources.cpp \
 		moc_accountpage.cpp \
+		moc_confirmbook.cpp \
 		moc_customerlogin.cpp \
+		moc_eventwindow1.cpp \
+		moc_eventwindow2.cpp \
 		moc_loginadmin.cpp \
 		moc_mainwindow.cpp \
 		moc_registerwindow.cpp \
 		moc_seats.cpp
 OBJECTS       = accountpage.o \
 		admin.o \
+		confirmbook.o \
 		customer.o \
 		customerlogin.o \
 		events.o \
+		eventwindow1.o \
+		eventwindow2.o \
 		halls.o \
 		loginadmin.o \
 		main.o \
@@ -90,7 +99,10 @@ OBJECTS       = accountpage.o \
 		vectorc.o \
 		qrc_recources.o \
 		moc_accountpage.o \
+		moc_confirmbook.o \
 		moc_customerlogin.o \
+		moc_eventwindow1.o \
+		moc_eventwindow2.o \
 		moc_loginadmin.o \
 		moc_mainwindow.o \
 		moc_registerwindow.o \
@@ -298,9 +310,12 @@ DIST          = ../../../Qt/6.7.0/macos/mkspecs/features/spec_pre.prf \
 		../../../Qt/6.7.0/macos/mkspecs/features/lex.prf \
 		../Applied-Final-Project/Applied-Final-Project.pro ../Applied-Final-Project/accountpage.h \
 		../Applied-Final-Project/admin.h \
+		../Applied-Final-Project/confirmbook.h \
 		../Applied-Final-Project/customer.h \
 		../Applied-Final-Project/customerlogin.h \
 		../Applied-Final-Project/events.h \
+		../Applied-Final-Project/eventwindow1.h \
+		../Applied-Final-Project/eventwindow2.h \
 		../Applied-Final-Project/halls.h \
 		../Applied-Final-Project/loginadmin.h \
 		../Applied-Final-Project/mainwindow.h \
@@ -311,9 +326,12 @@ DIST          = ../../../Qt/6.7.0/macos/mkspecs/features/spec_pre.prf \
 		../Applied-Final-Project/tickets.h \
 		../Applied-Final-Project/vectorc.h ../Applied-Final-Project/accountpage.cpp \
 		../Applied-Final-Project/admin.cpp \
+		../Applied-Final-Project/confirmbook.cpp \
 		../Applied-Final-Project/customer.cpp \
 		../Applied-Final-Project/customerlogin.cpp \
 		../Applied-Final-Project/events.cpp \
+		../Applied-Final-Project/eventwindow1.cpp \
+		../Applied-Final-Project/eventwindow2.cpp \
 		../Applied-Final-Project/halls.cpp \
 		../Applied-Final-Project/loginadmin.cpp \
 		../Applied-Final-Project/main.cpp \
@@ -344,7 +362,7 @@ include /Users/kamalelnazir/Qt/6.7.0/macos/mkspecs/features/mac/sdk.mk
 first: all
 ####### Build rules
 
-Applied-Final-Project.app/Contents/MacOS/Applied-Final-Project: ui_accountpage.h ui_customerlogin.h ui_loginadmin.h ui_mainwindow.h ui_registerwindow.h ui_seats.h $(OBJECTS)  
+Applied-Final-Project.app/Contents/MacOS/Applied-Final-Project: ui_accountpage.h ui_confirmbook.h ui_customerlogin.h ui_eventwindow1.h ui_eventwindow2.h ui_loginadmin.h ui_mainwindow.h ui_registerwindow.h ui_seats.h $(OBJECTS)  
 	@test -d Applied-Final-Project.app/Contents/MacOS/ || mkdir -p Applied-Final-Project.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET)  $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -786,9 +804,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../Applied-Final-Project/recources.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../Applied-Final-Project/accountpage.h ../Applied-Final-Project/admin.h ../Applied-Final-Project/customer.h ../Applied-Final-Project/customerlogin.h ../Applied-Final-Project/events.h ../Applied-Final-Project/halls.h ../Applied-Final-Project/loginadmin.h ../Applied-Final-Project/mainwindow.h ../Applied-Final-Project/registerwindow.h ../Applied-Final-Project/seats.h ../Applied-Final-Project/splaytree.h ../Applied-Final-Project/system.h ../Applied-Final-Project/tickets.h ../Applied-Final-Project/vectorc.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Applied-Final-Project/accountpage.cpp ../Applied-Final-Project/admin.cpp ../Applied-Final-Project/customer.cpp ../Applied-Final-Project/customerlogin.cpp ../Applied-Final-Project/events.cpp ../Applied-Final-Project/halls.cpp ../Applied-Final-Project/loginadmin.cpp ../Applied-Final-Project/main.cpp ../Applied-Final-Project/mainwindow.cpp ../Applied-Final-Project/registerwindow.cpp ../Applied-Final-Project/seats.cpp ../Applied-Final-Project/splaytree.cpp ../Applied-Final-Project/system.cpp ../Applied-Final-Project/tickets.cpp ../Applied-Final-Project/vectorc.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Applied-Final-Project/accountpage.ui ../Applied-Final-Project/customerlogin.ui ../Applied-Final-Project/loginadmin.ui ../Applied-Final-Project/mainwindow.ui ../Applied-Final-Project/registerwindow.ui ../Applied-Final-Project/seats.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../Applied-Final-Project/accountpage.h ../Applied-Final-Project/admin.h ../Applied-Final-Project/confirmbook.h ../Applied-Final-Project/customer.h ../Applied-Final-Project/customerlogin.h ../Applied-Final-Project/events.h ../Applied-Final-Project/eventwindow1.h ../Applied-Final-Project/eventwindow2.h ../Applied-Final-Project/halls.h ../Applied-Final-Project/loginadmin.h ../Applied-Final-Project/mainwindow.h ../Applied-Final-Project/registerwindow.h ../Applied-Final-Project/seats.h ../Applied-Final-Project/splaytree.h ../Applied-Final-Project/system.h ../Applied-Final-Project/tickets.h ../Applied-Final-Project/vectorc.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Applied-Final-Project/accountpage.cpp ../Applied-Final-Project/admin.cpp ../Applied-Final-Project/confirmbook.cpp ../Applied-Final-Project/customer.cpp ../Applied-Final-Project/customerlogin.cpp ../Applied-Final-Project/events.cpp ../Applied-Final-Project/eventwindow1.cpp ../Applied-Final-Project/eventwindow2.cpp ../Applied-Final-Project/halls.cpp ../Applied-Final-Project/loginadmin.cpp ../Applied-Final-Project/main.cpp ../Applied-Final-Project/mainwindow.cpp ../Applied-Final-Project/registerwindow.cpp ../Applied-Final-Project/seats.cpp ../Applied-Final-Project/splaytree.cpp ../Applied-Final-Project/system.cpp ../Applied-Final-Project/tickets.cpp ../Applied-Final-Project/vectorc.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Applied-Final-Project/accountpage.ui ../Applied-Final-Project/confirmbook.ui ../Applied-Final-Project/customerlogin.ui ../Applied-Final-Project/eventwindow1.ui ../Applied-Final-Project/eventwindow2.ui ../Applied-Final-Project/loginadmin.ui ../Applied-Final-Project/mainwindow.ui ../Applied-Final-Project/registerwindow.ui ../Applied-Final-Project/seats.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -827,9 +845,9 @@ qrc_recources.cpp: ../Applied-Final-Project/recources.qrc \
 		../Applied-Final-Project/welad\ resq.jpg
 	/Users/kamalelnazir/Qt/6.7.0/macos/libexec/rcc -name recources --no-zstd ../Applied-Final-Project/recources.qrc -o qrc_recources.cpp
 
-compiler_moc_header_make_all: moc_accountpage.cpp moc_customerlogin.cpp moc_loginadmin.cpp moc_mainwindow.cpp moc_registerwindow.cpp moc_seats.cpp
+compiler_moc_header_make_all: moc_accountpage.cpp moc_confirmbook.cpp moc_customerlogin.cpp moc_eventwindow1.cpp moc_eventwindow2.cpp moc_loginadmin.cpp moc_mainwindow.cpp moc_registerwindow.cpp moc_seats.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_accountpage.cpp moc_customerlogin.cpp moc_loginadmin.cpp moc_mainwindow.cpp moc_registerwindow.cpp moc_seats.cpp
+	-$(DEL_FILE) moc_accountpage.cpp moc_confirmbook.cpp moc_customerlogin.cpp moc_eventwindow1.cpp moc_eventwindow2.cpp moc_loginadmin.cpp moc_mainwindow.cpp moc_registerwindow.cpp moc_seats.cpp
 moc_accountpage.cpp: ../Applied-Final-Project/accountpage.h \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
@@ -843,6 +861,12 @@ moc_accountpage.cpp: ../Applied-Final-Project/accountpage.h \
 		../../../Qt/6.7.0/macos/libexec/moc
 	/Users/kamalelnazir/Qt/6.7.0/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/kamalelnazir/Qt/6.7.0/macos/mkspecs/macx-clang -I/Users/kamalelnazir/Documents/Applied-Final-Project/Applied-Final-Project -I/Users/kamalelnazir/Qt/6.7.0/macos/lib/QtWidgets.framework/Headers -I/Users/kamalelnazir/Qt/6.7.0/macos/lib/QtGui.framework/Headers -I/Users/kamalelnazir/Qt/6.7.0/macos/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/kamalelnazir/Qt/6.7.0/macos/lib ../Applied-Final-Project/accountpage.h -o moc_accountpage.cpp
 
+moc_confirmbook.cpp: ../Applied-Final-Project/confirmbook.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QDialog \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../../Qt/6.7.0/macos/libexec/moc
+	/Users/kamalelnazir/Qt/6.7.0/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/kamalelnazir/Qt/6.7.0/macos/mkspecs/macx-clang -I/Users/kamalelnazir/Documents/Applied-Final-Project/Applied-Final-Project -I/Users/kamalelnazir/Qt/6.7.0/macos/lib/QtWidgets.framework/Headers -I/Users/kamalelnazir/Qt/6.7.0/macos/lib/QtGui.framework/Headers -I/Users/kamalelnazir/Qt/6.7.0/macos/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/kamalelnazir/Qt/6.7.0/macos/lib ../Applied-Final-Project/confirmbook.h -o moc_confirmbook.cpp
+
 moc_customerlogin.cpp: ../Applied-Final-Project/customerlogin.h \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QDialog \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
@@ -850,6 +874,79 @@ moc_customerlogin.cpp: ../Applied-Final-Project/customerlogin.h \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		../../../Qt/6.7.0/macos/libexec/moc
 	/Users/kamalelnazir/Qt/6.7.0/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/kamalelnazir/Qt/6.7.0/macos/mkspecs/macx-clang -I/Users/kamalelnazir/Documents/Applied-Final-Project/Applied-Final-Project -I/Users/kamalelnazir/Qt/6.7.0/macos/lib/QtWidgets.framework/Headers -I/Users/kamalelnazir/Qt/6.7.0/macos/lib/QtGui.framework/Headers -I/Users/kamalelnazir/Qt/6.7.0/macos/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/kamalelnazir/Qt/6.7.0/macos/lib ../Applied-Final-Project/customerlogin.h -o moc_customerlogin.cpp
+
+moc_eventwindow1.cpp: ../Applied-Final-Project/eventwindow1.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QDialog \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QScrollArea \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qscrollarea.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QVBoxLayout \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QHBoxLayout \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QGridLayout \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qgridlayout.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QLabel \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QPushButton \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../../Qt/6.7.0/macos/lib/QtGui.framework/Headers/QPixmap \
+		../../../Qt/6.7.0/macos/lib/QtGui.framework/Headers/qpixmap.h \
+		../Applied-Final-Project/events.h \
+		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/QString \
+		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/qstring.h \
+		../Applied-Final-Project/vectorc.h \
+		../Applied-Final-Project/customerlogin.h \
+		../Applied-Final-Project/registerwindow.h \
+		../Applied-Final-Project/seats.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QWidget \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/QVector \
+		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/qvector.h \
+		../Applied-Final-Project/eventwindow2.h \
+		../Applied-Final-Project/vectorC.h \
+		../Applied-Final-Project/Events.h \
+		../Applied-Final-Project/customer.h \
+		../Applied-Final-Project/accountpage.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../../Qt/6.7.0/macos/libexec/moc
+	/Users/kamalelnazir/Qt/6.7.0/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/kamalelnazir/Qt/6.7.0/macos/mkspecs/macx-clang -I/Users/kamalelnazir/Documents/Applied-Final-Project/Applied-Final-Project -I/Users/kamalelnazir/Qt/6.7.0/macos/lib/QtWidgets.framework/Headers -I/Users/kamalelnazir/Qt/6.7.0/macos/lib/QtGui.framework/Headers -I/Users/kamalelnazir/Qt/6.7.0/macos/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/kamalelnazir/Qt/6.7.0/macos/lib ../Applied-Final-Project/eventwindow1.h -o moc_eventwindow1.cpp
+
+moc_eventwindow2.cpp: ../Applied-Final-Project/eventwindow2.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QDialog \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QVBoxLayout \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QHBoxLayout \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QScrollArea \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qscrollarea.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QGridLayout \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qgridlayout.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QPushButton \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QLabel \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		../../../Qt/6.7.0/macos/lib/QtGui.framework/Headers/QPixmap \
+		../../../Qt/6.7.0/macos/lib/QtGui.framework/Headers/qpixmap.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../Applied-Final-Project/vectorC.h \
+		../Applied-Final-Project/Events.h \
+		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/QString \
+		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/qstring.h \
+		../Applied-Final-Project/customer.h \
+		../Applied-Final-Project/seats.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QWidget \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/QVector \
+		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/qvector.h \
+		../Applied-Final-Project/accountpage.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../../Qt/6.7.0/macos/libexec/moc
+	/Users/kamalelnazir/Qt/6.7.0/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=15 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/kamalelnazir/Qt/6.7.0/macos/mkspecs/macx-clang -I/Users/kamalelnazir/Documents/Applied-Final-Project/Applied-Final-Project -I/Users/kamalelnazir/Qt/6.7.0/macos/lib/QtWidgets.framework/Headers -I/Users/kamalelnazir/Qt/6.7.0/macos/lib/QtGui.framework/Headers -I/Users/kamalelnazir/Qt/6.7.0/macos/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/kamalelnazir/Qt/6.7.0/macos/lib ../Applied-Final-Project/eventwindow2.h -o moc_eventwindow2.cpp
 
 moc_loginadmin.cpp: ../Applied-Final-Project/loginadmin.h \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QDialog \
@@ -887,16 +984,28 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_accountpage.h ui_customerlogin.h ui_loginadmin.h ui_mainwindow.h ui_registerwindow.h ui_seats.h
+compiler_uic_make_all: ui_accountpage.h ui_confirmbook.h ui_customerlogin.h ui_eventwindow1.h ui_eventwindow2.h ui_loginadmin.h ui_mainwindow.h ui_registerwindow.h ui_seats.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_accountpage.h ui_customerlogin.h ui_loginadmin.h ui_mainwindow.h ui_registerwindow.h ui_seats.h
+	-$(DEL_FILE) ui_accountpage.h ui_confirmbook.h ui_customerlogin.h ui_eventwindow1.h ui_eventwindow2.h ui_loginadmin.h ui_mainwindow.h ui_registerwindow.h ui_seats.h
 ui_accountpage.h: ../Applied-Final-Project/accountpage.ui \
 		../../../Qt/6.7.0/macos/libexec/uic
 	/Users/kamalelnazir/Qt/6.7.0/macos/libexec/uic ../Applied-Final-Project/accountpage.ui -o ui_accountpage.h
 
+ui_confirmbook.h: ../Applied-Final-Project/confirmbook.ui \
+		../../../Qt/6.7.0/macos/libexec/uic
+	/Users/kamalelnazir/Qt/6.7.0/macos/libexec/uic ../Applied-Final-Project/confirmbook.ui -o ui_confirmbook.h
+
 ui_customerlogin.h: ../Applied-Final-Project/customerlogin.ui \
 		../../../Qt/6.7.0/macos/libexec/uic
 	/Users/kamalelnazir/Qt/6.7.0/macos/libexec/uic ../Applied-Final-Project/customerlogin.ui -o ui_customerlogin.h
+
+ui_eventwindow1.h: ../Applied-Final-Project/eventwindow1.ui \
+		../../../Qt/6.7.0/macos/libexec/uic
+	/Users/kamalelnazir/Qt/6.7.0/macos/libexec/uic ../Applied-Final-Project/eventwindow1.ui -o ui_eventwindow1.h
+
+ui_eventwindow2.h: ../Applied-Final-Project/eventwindow2.ui \
+		../../../Qt/6.7.0/macos/libexec/uic
+	/Users/kamalelnazir/Qt/6.7.0/macos/libexec/uic ../Applied-Final-Project/eventwindow2.ui -o ui_eventwindow2.h
 
 ui_loginadmin.h: ../Applied-Final-Project/loginadmin.ui \
 		../../../Qt/6.7.0/macos/libexec/uic
@@ -942,6 +1051,12 @@ accountpage.o: ../Applied-Final-Project/accountpage.cpp ../Applied-Final-Project
 admin.o: ../Applied-Final-Project/admin.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o admin.o ../Applied-Final-Project/admin.cpp
 
+confirmbook.o: ../Applied-Final-Project/confirmbook.cpp ../Applied-Final-Project/confirmbook.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QDialog \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		ui_confirmbook.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o confirmbook.o ../Applied-Final-Project/confirmbook.cpp
+
 customer.o: ../Applied-Final-Project/customer.cpp ../Applied-Final-Project/customer.h \
 		../Applied-Final-Project/vectorC.h \
 		../Applied-Final-Project/Events.h \
@@ -967,21 +1082,114 @@ customerlogin.o: ../Applied-Final-Project/customerlogin.cpp ../Applied-Final-Pro
 		../../../Qt/6.7.0/macos/lib/QtGui.framework/Headers/qpixmap.h \
 		../Applied-Final-Project/system.h \
 		../Applied-Final-Project/customer.h \
-		../Applied-Final-Project/registerwindow.h
+		../Applied-Final-Project/eventwindow1.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QScrollArea \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qscrollarea.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QVBoxLayout \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QHBoxLayout \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QGridLayout \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qgridlayout.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QLabel \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QPushButton \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		../Applied-Final-Project/events.h \
+		../Applied-Final-Project/vectorc.h \
+		../Applied-Final-Project/registerwindow.h \
+		../Applied-Final-Project/seats.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QWidget \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/QVector \
+		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/qvector.h \
+		../Applied-Final-Project/eventwindow2.h \
+		../Applied-Final-Project/accountpage.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o customerlogin.o ../Applied-Final-Project/customerlogin.cpp
 
 events.o: ../Applied-Final-Project/events.cpp ../Applied-Final-Project/events.h \
 		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/QString \
 		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/qstring.h \
 		../../../Qt/6.7.0/macos/lib/QtGui.framework/Headers/QPixmap \
-		../../../Qt/6.7.0/macos/lib/QtGui.framework/Headers/qpixmap.h \
+		../../../Qt/6.7.0/macos/lib/QtGui.framework/Headers/qpixmap.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o events.o ../Applied-Final-Project/events.cpp
+
+eventwindow1.o: ../Applied-Final-Project/eventwindow1.cpp ../Applied-Final-Project/eventwindow1.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QDialog \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QScrollArea \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qscrollarea.h \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QVBoxLayout \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QHBoxLayout \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QGridLayout \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qgridlayout.h \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QLabel \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qlabel.h \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QPushButton \
-		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qpushbutton.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o events.o ../Applied-Final-Project/events.cpp
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../../Qt/6.7.0/macos/lib/QtGui.framework/Headers/QPixmap \
+		../../../Qt/6.7.0/macos/lib/QtGui.framework/Headers/qpixmap.h \
+		../Applied-Final-Project/events.h \
+		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/QString \
+		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/qstring.h \
+		../Applied-Final-Project/vectorc.h \
+		../Applied-Final-Project/customerlogin.h \
+		../Applied-Final-Project/registerwindow.h \
+		../Applied-Final-Project/seats.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QWidget \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/QVector \
+		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/qvector.h \
+		../Applied-Final-Project/eventwindow2.h \
+		../Applied-Final-Project/vectorC.h \
+		../Applied-Final-Project/Events.h \
+		../Applied-Final-Project/customer.h \
+		../Applied-Final-Project/accountpage.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		ui_eventwindow1.h \
+		../Applied-Final-Project/system.h \
+		../Applied-Final-Project/splaytree.h \
+		../Applied-Final-Project/Customer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o eventwindow1.o ../Applied-Final-Project/eventwindow1.cpp
+
+eventwindow2.o: ../Applied-Final-Project/eventwindow2.cpp ../Applied-Final-Project/EventWindow2.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QDialog \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QVBoxLayout \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QHBoxLayout \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QScrollArea \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qscrollarea.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QGridLayout \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qgridlayout.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QPushButton \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QLabel \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		../../../Qt/6.7.0/macos/lib/QtGui.framework/Headers/QPixmap \
+		../../../Qt/6.7.0/macos/lib/QtGui.framework/Headers/qpixmap.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../Applied-Final-Project/vectorC.h \
+		../Applied-Final-Project/Events.h \
+		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/QString \
+		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/qstring.h \
+		../Applied-Final-Project/customer.h \
+		../Applied-Final-Project/seats.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QWidget \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/QVector \
+		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/qvector.h \
+		../Applied-Final-Project/accountpage.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../Applied-Final-Project/Seats.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o eventwindow2.o ../Applied-Final-Project/eventwindow2.cpp
 
 halls.o: ../Applied-Final-Project/halls.cpp ../Applied-Final-Project/halls.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o halls.o ../Applied-Final-Project/halls.cpp
@@ -1024,7 +1232,16 @@ main.o: ../Applied-Final-Project/main.cpp ../Applied-Final-Project/mainwindow.h 
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qwidget.h \
 		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/QVector \
-		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/qvector.h
+		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/qvector.h \
+		../Applied-Final-Project/eventwindow2.h \
+		../Applied-Final-Project/vectorC.h \
+		../Applied-Final-Project/Events.h \
+		../Applied-Final-Project/customer.h \
+		../Applied-Final-Project/accountpage.h \
+		../Applied-Final-Project/eventwindow1.h \
+		../Applied-Final-Project/system.h \
+		../Applied-Final-Project/splaytree.h \
+		../Applied-Final-Project/Customer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Applied-Final-Project/main.cpp
 
 mainwindow.o: ../Applied-Final-Project/mainwindow.cpp ../Applied-Final-Project/mainwindow.h \
@@ -1047,9 +1264,32 @@ registerwindow.o: ../Applied-Final-Project/registerwindow.cpp ../Applied-Final-P
 		../Applied-Final-Project/system.h \
 		../Applied-Final-Project/splaytree.h \
 		../Applied-Final-Project/Customer.h \
-		../Applied-Final-Project/customerlogin.h \
+		../Applied-Final-Project/eventwindow1.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QScrollArea \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qscrollarea.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QVBoxLayout \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QHBoxLayout \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QGridLayout \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qgridlayout.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QLabel \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QPushButton \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMessageBox \
-		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmessagebox.h
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../Applied-Final-Project/events.h \
+		../Applied-Final-Project/vectorc.h \
+		../Applied-Final-Project/customerlogin.h \
+		../Applied-Final-Project/seats.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QWidget \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/QVector \
+		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/qvector.h \
+		../Applied-Final-Project/eventwindow2.h \
+		../Applied-Final-Project/accountpage.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o registerwindow.o ../Applied-Final-Project/registerwindow.cpp
 
 seats.o: ../Applied-Final-Project/seats.cpp ../Applied-Final-Project/seats.h \
@@ -1089,7 +1329,36 @@ system.o: ../Applied-Final-Project/system.cpp ../Applied-Final-Project/system.h 
 		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/qstring.h \
 		../../../Qt/6.7.0/macos/lib/QtGui.framework/Headers/QPixmap \
 		../../../Qt/6.7.0/macos/lib/QtGui.framework/Headers/qpixmap.h \
-		../Applied-Final-Project/customer.h
+		../Applied-Final-Project/customer.h \
+		../Applied-Final-Project/eventwindow1.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QDialog \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QScrollArea \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qscrollarea.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QVBoxLayout \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QHBoxLayout \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QGridLayout \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qgridlayout.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QLabel \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qlabel.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QPushButton \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../Applied-Final-Project/events.h \
+		../Applied-Final-Project/vectorc.h \
+		../Applied-Final-Project/customerlogin.h \
+		../Applied-Final-Project/registerwindow.h \
+		../Applied-Final-Project/seats.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QWidget \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/QVector \
+		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/qvector.h \
+		../Applied-Final-Project/eventwindow2.h \
+		../Applied-Final-Project/accountpage.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o system.o ../Applied-Final-Project/system.cpp
 
 tickets.o: ../Applied-Final-Project/tickets.cpp ../Applied-Final-Project/Tickets.h \
@@ -1108,8 +1377,17 @@ qrc_recources.o: qrc_recources.cpp
 moc_accountpage.o: moc_accountpage.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_accountpage.o moc_accountpage.cpp
 
+moc_confirmbook.o: moc_confirmbook.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_confirmbook.o moc_confirmbook.cpp
+
 moc_customerlogin.o: moc_customerlogin.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_customerlogin.o moc_customerlogin.cpp
+
+moc_eventwindow1.o: moc_eventwindow1.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_eventwindow1.o moc_eventwindow1.cpp
+
+moc_eventwindow2.o: moc_eventwindow2.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_eventwindow2.o moc_eventwindow2.cpp
 
 moc_loginadmin.o: moc_loginadmin.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_loginadmin.o moc_loginadmin.cpp
