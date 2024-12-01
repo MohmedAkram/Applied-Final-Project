@@ -8,7 +8,6 @@
 #include <QVector>
 #include "customer.h"
 #include "events.h"
-#include "confirmbook.h"
 
 
 class Seats : public QWidget
@@ -23,9 +22,9 @@ public:
 
 private slots:
     void onSeatClicked();  // Slot to handle seat selection
-    void confirmBooking(Customer* Cu,Events* Ev); // Slot to confirm booking
+    void confirmBooking(Customer* Cu,Events* Ev,Seats* S); // Slot to confirm booking
 
-private:
+public:
     QGridLayout *seatLayout;  // Layout for seats
     QLabel *selectedSeatsLabel; // Label to display selected seats
     QLabel *totalPriceLabel; // Label to display total price

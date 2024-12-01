@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>427</width>
+    <height>310</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -109,9 +109,12 @@
     <rect>
      <x>180</x>
      <y>70</y>
-     <width>113</width>
+     <width>201</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QLineEdit" name="Moviename">
@@ -119,9 +122,15 @@
     <rect>
      <x>180</x>
      <y>100</y>
-     <width>113</width>
+     <width>201</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QLineEdit" name="HallEdit">
@@ -129,9 +138,12 @@
     <rect>
      <x>180</x>
      <y>130</y>
-     <width>113</width>
+     <width>201</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QLineEdit" name="TimeEdit">
@@ -139,9 +151,12 @@
     <rect>
      <x>180</x>
      <y>160</y>
-     <width>113</width>
+     <width>201</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QLineEdit" name="PriceEdit">
@@ -149,9 +164,12 @@
     <rect>
      <x>180</x>
      <y>190</y>
-     <width>113</width>
+     <width>201</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QLineEdit" name="RemainingEdit">
@@ -159,9 +177,12 @@
     <rect>
      <x>180</x>
      <y>220</y>
-     <width>113</width>
+     <width>201</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QLineEdit" name="WalletEdit">
@@ -197,8 +218,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <widget class="QPushButton" name="Confirm">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>250</y>
+     <x>160</x>
+     <y>260</y>
      <width>131</width>
      <height>32</height>
     </rect>
