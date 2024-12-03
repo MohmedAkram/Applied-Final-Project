@@ -22,6 +22,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     registerwindow.cpp \
+    reserved.cpp \
     seats.cpp \
     splaytree.cpp \
     system.cpp \
@@ -41,6 +42,7 @@ HEADERS += \
     loginadmin.h \
     mainwindow.h \
     registerwindow.h \
+    reserved.h \
     seats.h \
     splaytree.h \
     system.h \
@@ -56,6 +58,7 @@ FORMS += \
     loginadmin.ui \
     mainwindow.ui \
     registerwindow.ui \
+    reserved.ui \
     seats.ui
 
 # Default rules for deployment.

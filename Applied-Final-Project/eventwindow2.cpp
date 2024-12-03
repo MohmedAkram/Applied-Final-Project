@@ -40,6 +40,10 @@ void EventWindow2::setupUI() {
     connect(myTic, &QPushButton::clicked, [this]() {
         // 7oto el functionality hena bta3et el mytickets window hena ya regalaaaa
 
+
+
+
+
     });
 
     // Add both buttons to the top bar layout

@@ -32,11 +32,10 @@ void Seats::confirmBooking(Customer* Cu, Events* Ev,Seats* S)
     }
 
     // Reset selection and UI
-    selectedSeats.clear();
     totalPrice = 0.0;
     selectedSeatsLabel->setText("Selected Seats: " + QString::number(selectedSeats.size()));
     totalPriceLabel->setText("Total Price: $" + QString::number(totalPrice));
-    S->hide();
+    S->close();
 
 
     qDebug() << "Seat selection reset and UI updated.";
