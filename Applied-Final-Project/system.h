@@ -5,6 +5,8 @@
 #include "splaytree.h"
 #include "customer.h"
 #include "eventwindow1.h"
+#include "tickets.h"
+#include "vectorc.h"
 using namespace std;
 class System {
 private:
@@ -13,6 +15,7 @@ private:
 
 public:
     System();
+    ~System();
     System(int id, string name);
     SplayTree CustomerTree; // tree
     EventsWindow1 *ev;
@@ -20,6 +23,8 @@ public:
     void processPayment();
     void sendNotifications();
     void generateTicket();
+    Tickets* TDB[5][3][40];
+    void addEventTikets();
 
 };
 extern System sys;

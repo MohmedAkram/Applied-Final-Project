@@ -2,16 +2,10 @@
 #include <QDebug>
 
 // Constructor implementation
-Tickets::Tickets(int id, QString seat, QString movie, QString status, QString type)
-    : ticketID(id), seatNumber(seat), movieName(movie), price(0.0), type(type), status(status) {
+Tickets::Tickets(int seat, int movie, bool status, bool type)
+    : seatNumber(seat), movieNum (movie), price(0.0), type(type), status(status) {
     // Price is not initialized yet
 }
-
-// Default constructor implementation
-Tickets::Tickets() : ticketID(0), seatNumber(""), price(0.0), status("Available"), movieName(""), type("") {}
-
-// Constructor with ID only
-Tickets::Tickets(int id) : ticketID(id), seatNumber(""), price(0.0), status("Available"), movieName(""), type("") {}
 
 // Method to calculate ticket price
 double Tickets::calculateTicketPrice() {
@@ -23,9 +17,7 @@ double Tickets::calculateTicketPrice() {
 void Tickets::generateTicketDetails() {
     price = calculateTicketPrice();  // Calculate price only when generating details
 
-    qDebug() << "Ticket ID:" << ticketID;
     qDebug() << "Seat Number:" << seatNumber;
-    qDebug() << "Movie:" << movieName;
     qDebug() << "Ticket Type:" << type;
     qDebug() << "Price: $" << price;
     qDebug() << "Status:" << status;
@@ -33,19 +25,19 @@ void Tickets::generateTicketDetails() {
 //
 // Method to cancel the ticket
 void Tickets::cancelTicket() {
-    if (status == "Booked") {
-        status = "Cancelled";
-        qDebug() << "Ticket" << ticketID << "has been cancelled.";
+    if (status == true) {
+        status = false;
+        qDebug() << "Ticket" << seatNumber << "has been cancelled.";
     } else {
-        qDebug() << "Ticket" << ticketID << "cannot be cancelled (status:" << status << ").";
+        qDebug() << "Ticket" << seatNumber << "cannot be cancelled (status:" << status << ").";
     }
 }
 
 // Method to check if the ticket is already booked
 void Tickets::checkTicketStatus() {
-    if (status == "Booked") {
-        qDebug() << "Ticket" << ticketID << "is already booked.";
+    if (status == true) {
+        qDebug() << "Ticket" << seatNumber << "is already booked.";
     } else {
-        qDebug() << "Ticket" << ticketID << "is not booked yet.";
+        qDebug() << "Ticket" << seatNumber << "is not booked yet.";
     }
 }

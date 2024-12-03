@@ -5,18 +5,15 @@
 using namespace std;
 
 class Tickets {
-private:
-    int ticketID;
-    QString seatNumber;
-    double price;
-    QString status;
-    QString movieName;  // Added movieName variable
-    QString type;       // Added type variable
-
 public:
+    int seatNumber;
+    double price;
+    bool status;
+    int movieNum;  // Added movieName variable
+    bool type;       // Added type variable
+
     Tickets();  // Default constructor
-    Tickets(int id); // Constructor with ID
-    Tickets(int id, QString seat, QString movie, QString status, QString type); // Updated constructor
+    Tickets(int seat, int movie, bool status, bool type); // Updated constructor
 
     double calculateTicketPrice();  // Method to calculate ticket price
     void generateTicketDetails();  // Method to generate ticket details

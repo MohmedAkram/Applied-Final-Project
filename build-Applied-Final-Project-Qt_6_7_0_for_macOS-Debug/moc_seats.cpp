@@ -39,7 +39,13 @@ constexpr auto qt_meta_stringdata_CLASSSeatsENDCLASS = QtMocHelpers::stringData(
     "Seats",
     "onSeatClicked",
     "",
-    "confirmBooking"
+    "confirmBooking",
+    "Customer*",
+    "Cu",
+    "Events*",
+    "Ev",
+    "Seats*",
+    "S"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -61,11 +67,11 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSSeatsENDCLASS[] = {
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
        1,    0,   26,    2, 0x08,    1 /* Private */,
-       3,    0,   27,    2, 0x08,    2 /* Private */,
+       3,    3,   27,    2, 0x08,    2 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 4, 0x80000000 | 6, 0x80000000 | 8,    5,    7,    9,
 
        0        // eod
 };
@@ -82,7 +88,10 @@ Q_CONSTINIT const QMetaObject Seats::staticMetaObject = { {
         // method 'onSeatClicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'confirmBooking'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<Customer *, std::false_type>,
+        QtPrivate::TypeAndForceComplete<Events *, std::false_type>,
+        QtPrivate::TypeAndForceComplete<Seats *, std::false_type>
     >,
     nullptr
 } };
@@ -94,11 +103,21 @@ void Seats::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         (void)_t;
         switch (_id) {
         case 0: _t->onSeatClicked(); break;
-        case 1: _t->confirmBooking(); break;
+        case 1: _t->confirmBooking((*reinterpret_cast< std::add_pointer_t<Customer*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<Events*>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<Seats*>>(_a[3]))); break;
         default: ;
         }
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+        case 1:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 2:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< Seats* >(); break;
+            }
+            break;
+        }
     }
-    (void)_a;
 }
 
 const QMetaObject *Seats::metaObject() const
@@ -125,7 +144,7 @@ int Seats::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         _id -= 2;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         if (_id < 2)
-            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+            qt_static_metacall(this, _c, _id, _a);
         _id -= 2;
     }
     return _id;
