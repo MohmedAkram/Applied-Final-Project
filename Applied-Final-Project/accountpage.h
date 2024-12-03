@@ -2,6 +2,7 @@
 #define ACCOUNTPAGE_H
 
 #include <QMainWindow>
+#include "creditcardwidget.h"
 #include "customer.h"
 
 namespace Ui {

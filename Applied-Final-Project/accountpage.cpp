@@ -24,8 +24,11 @@ AccountPage::~AccountPage()
 void AccountPage::on_add_balance_clicked()
 {
     C->editbalance(ui->add->text().toInt());
-    ui->BalanceLine->setText(QString::number(C->getbalance()));
-    ui->add->setText(QString::number(0));
+    hide();
+    //ui->BalanceLine->setText(QString::number(C->getbalance()));
+    //ui->add->setText(QString::number(0));
+    CreditCardWidget * c = new CreditCardWidget(C);
+    c-> show();
 }
 
 

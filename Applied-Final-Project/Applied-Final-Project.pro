@@ -12,6 +12,7 @@ SOURCES += \
     accountpage.cpp \
     admin.cpp \
     confirmbook.cpp \
+    creditcardwidget.cpp \
     customer.cpp \
     customerlogin.cpp \
     events.cpp \
@@ -33,6 +34,7 @@ HEADERS += \
     accountpage.h \
     admin.h \
     confirmbook.h \
+    creditcardwidget.h \
     customer.h \
     customerlogin.h \
     events.h \
@@ -52,6 +54,7 @@ HEADERS += \
 FORMS += \
     accountpage.ui \
     confirmbook.ui \
+    creditcardwidget.ui \
     customerlogin.ui \
     eventwindow1.ui \
     eventwindow2.ui \

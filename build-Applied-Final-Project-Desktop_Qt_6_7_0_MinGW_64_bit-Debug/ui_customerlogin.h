@@ -35,22 +35,22 @@ public:
         CustomerLogin->resize(677, 350);
         IdLabel = new QLabel(CustomerLogin);
         IdLabel->setObjectName("IdLabel");
-        IdLabel->setGeometry(QRect(180, 100, 63, 20));
+        IdLabel->setGeometry(QRect(142, 100, 101, 20));
         PasswordLabel = new QLabel(CustomerLogin);
         PasswordLabel->setObjectName("PasswordLabel");
-        PasswordLabel->setGeometry(QRect(170, 150, 63, 20));
+        PasswordLabel->setGeometry(QRect(112, 150, 121, 20));
         CustomerIDSignIn = new QLineEdit(CustomerLogin);
         CustomerIDSignIn->setObjectName("CustomerIDSignIn");
-        CustomerIDSignIn->setGeometry(QRect(240, 100, 151, 28));
+        CustomerIDSignIn->setGeometry(QRect(240, 100, 201, 28));
         CustomerPasswordSignIn = new QLineEdit(CustomerLogin);
         CustomerPasswordSignIn->setObjectName("CustomerPasswordSignIn");
-        CustomerPasswordSignIn->setGeometry(QRect(240, 150, 151, 28));
+        CustomerPasswordSignIn->setGeometry(QRect(240, 150, 201, 28));
         LoginButton = new QPushButton(CustomerLogin);
         LoginButton->setObjectName("LoginButton");
-        LoginButton->setGeometry(QRect(190, 220, 83, 29));
+        LoginButton->setGeometry(QRect(190, 220, 101, 61));
         RegisterButton = new QPushButton(CustomerLogin);
         RegisterButton->setObjectName("RegisterButton");
-        RegisterButton->setGeometry(QRect(320, 220, 83, 29));
+        RegisterButton->setGeometry(QRect(320, 220, 111, 61));
 
         retranslateUi(CustomerLogin);
 
@@ -62,6 +62,7 @@ public:
         CustomerLogin->setWindowTitle(QCoreApplication::translate("CustomerLogin", "Dialog", nullptr));
         IdLabel->setText(QCoreApplication::translate("CustomerLogin", "ID", nullptr));
         PasswordLabel->setText(QCoreApplication::translate("CustomerLogin", "Password", nullptr));
+        CustomerIDSignIn->setText(QString());
         LoginButton->setText(QCoreApplication::translate("CustomerLogin", "Login", nullptr));
         RegisterButton->setText(QCoreApplication::translate("CustomerLogin", "Register", nullptr));
     } // retranslateUi

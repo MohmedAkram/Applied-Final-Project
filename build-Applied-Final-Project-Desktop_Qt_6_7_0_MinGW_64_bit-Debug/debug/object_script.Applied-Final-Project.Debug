@@ -1,5 +1,7 @@
 debug/accountpage.o
 debug/admin.o
+debug/confirmbook.o
+debug/creditcardwidget.o
 debug/customer.o
 debug/customerlogin.o
 debug/events.o
@@ -10,6 +12,7 @@ debug/loginadmin.o
 debug/main.o
 debug/mainwindow.o
 debug/registerwindow.o
+debug/reserved.o
 debug/seats.o
 debug/splaytree.o
 debug/system.o
@@ -17,10 +20,14 @@ debug/tickets.o
 debug/vectorc.o
 debug/qrc_recources.o
 debug/moc_accountpage.o
+debug/moc_admin.o
+debug/moc_confirmbook.o
+debug/moc_creditcardwidget.o
 debug/moc_customerlogin.o
 debug/moc_eventwindow1.o
 debug/moc_eventwindow2.o
 debug/moc_loginadmin.o
 debug/moc_mainwindow.o
 debug/moc_registerwindow.o
+debug/moc_reserved.o
 debug/moc_seats.o
