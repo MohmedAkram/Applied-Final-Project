@@ -40,6 +40,8 @@ public:
     QLabel *label_7;
     QLineEdit *BalanceLine;
     QLabel *label_8;
+    QLineEdit *add;
+    QPushButton *add_balance;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -99,6 +101,12 @@ public:
         label_8 = new QLabel(centralwidget);
         label_8->setObjectName("label_8");
         label_8->setGeometry(QRect(250, 330, 81, 16));
+        add = new QLineEdit(centralwidget);
+        add->setObjectName("add");
+        add->setGeometry(QRect(240, 370, 113, 21));
+        add_balance = new QPushButton(centralwidget);
+        add_balance->setObjectName("add_balance");
+        add_balance->setGeometry(QRect(380, 360, 100, 32));
         AccountPage->setCentralWidget(centralwidget);
         menubar = new QMenuBar(AccountPage);
         menubar->setObjectName("menubar");
@@ -126,6 +134,8 @@ public:
         label_6->setText(QCoreApplication::translate("AccountPage", "Wallet", nullptr));
         label_7->setText(QCoreApplication::translate("AccountPage", "Balance ", nullptr));
         label_8->setText(QCoreApplication::translate("AccountPage", "Add Balance", nullptr));
+        add->setText(QString());
+        add_balance->setText(QCoreApplication::translate("AccountPage", "add", nullptr));
     } // retranslateUi
 
 };

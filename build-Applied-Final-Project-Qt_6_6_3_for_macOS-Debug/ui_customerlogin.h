@@ -47,10 +47,10 @@ public:
         CustomerPasswordSignIn->setGeometry(QRect(240, 150, 201, 28));
         LoginButton = new QPushButton(CustomerLogin);
         LoginButton->setObjectName("LoginButton");
-        LoginButton->setGeometry(QRect(190, 220, 101, 51));
+        LoginButton->setGeometry(QRect(190, 220, 101, 61));
         RegisterButton = new QPushButton(CustomerLogin);
         RegisterButton->setObjectName("RegisterButton");
-        RegisterButton->setGeometry(QRect(320, 220, 111, 51));
+        RegisterButton->setGeometry(QRect(320, 220, 111, 61));
 
         retranslateUi(CustomerLogin);
 

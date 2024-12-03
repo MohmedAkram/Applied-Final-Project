@@ -15,13 +15,13 @@ CustomerLogin::CustomerLogin(QWidget *parent)
 
     // Style for input fields (line edits)
     QString lineEditStyle =
-        "background-color: #f5f5f5;"     // Light-gray background
-        "color: #333333;"                // Dark-gray text
-        "font-size: 18px;"               // Larger, readable font
+        "background-color: white;"       // White background
+        "color: black;"                  // Black text color
+        "font-size: 16px;"               // Readable font size
         "font-weight: normal;"           // Normal text weight
-
-        "border-radius: 10px;"           // Slightly rounded corners
-        "border: 1px solid #cccccc;";    // Subtle border
+        "border: 2px solid #FF69B4;"     // Pink border
+        "border-radius: 10px;"           // Rounded corners
+        "padding: 5px;";                 // Padding inside the box
 
     ui->CustomerIDSignIn->setStyleSheet(lineEditStyle);
     ui->CustomerPasswordSignIn->setStyleSheet(lineEditStyle);
@@ -32,18 +32,18 @@ CustomerLogin::CustomerLogin(QWidget *parent)
 
     // Style for buttons
     QString buttonStyle =
-        "background-color: #007bff;"    // Blue background
-        "color: white;"                 // White font color
-        "font-size: 14px;"              // Medium font size
-        "font-weight: bold;"            // Bold text
-
-        "border-radius: 8px;"           // Rounded corners
-        "border: 2px solid #0056b3;"    // Border matching button color
+        "background-color: #007bff;"     // Blue background
+        "color: white;"                  // White text color
+        "font-size: 18px;"               // Larger font size
+        "font-weight: bold;"             // Bold text
+        "border: 2px solid #FF69B4;"     // Pink border
+        "border-radius: 12px;"           // Rounded corners
+        "padding: 10px 20px;"            // Larger size for buttons
         "transition: background-color 0.3s ease;"  // Smooth transition for hover
         ""
         "QPushButton:hover {"
-        "  background-color: #0056b3;"  // Darker blue on hover
-        "  border-color: #003f7f;"      // Darker border on hover
+        "  background-color: #0056b3;"   // Darker blue on hover
+        "  border-color: #003f7f;"       // Darker border on hover
         "}";
 
     ui->LoginButton->setStyleSheet(buttonStyle);
@@ -51,18 +51,15 @@ CustomerLogin::CustomerLogin(QWidget *parent)
 
     // Style for labels
     QString labelStyle =
-        "color: #333333;"               // Dark-gray text color
-        "font-size: 14px;"              // Clear font size
-        "font-weight: bold;"            // Bold text
-
-        "border: none;";                // No border for simplicity
+        "color: #333333;"                // Dark-gray text color
+        "font-size: 14px;"               // Clear font size
+        "font-weight: bold;"             // Bold text
+        "border: none;";                 // No border
 
     ui->IdLabel->setStyleSheet(labelStyle);
     ui->PasswordLabel->setStyleSheet(labelStyle);
-
-    // Optional: Set a custom background color for the dialog
-
 }
+
 CustomerLogin::~CustomerLogin()
 {
     delete ui;
@@ -80,12 +77,11 @@ void CustomerLogin::on_LoginButton_clicked()
     if (c != nullptr && c->customer.Password == password)
     {
         Customer *C;
-        C= new Customer(c->customer.customerID,c->customer.name,c->customer.email,c->customer.IsVIP,c->customer.Password);
-        EventWindow2* eve2= new EventWindow2(C);
+        C = new Customer(c->customer.customerID, c->customer.name, c->customer.email, c->customer.IsVIP, c->customer.Password);
+        EventWindow2* eve2 = new EventWindow2(C);
         eve2->showMaximized();
         this->hide();
         sys.ev->hide();
-
     }
     else
     {
@@ -97,7 +93,7 @@ void CustomerLogin::on_LoginButton_clicked()
 
 void CustomerLogin::on_RegisterButton_clicked()
 {
-    RegisterWindow *registerwindow = new RegisterWindow(this);
+    RegisterWindow* registerwindow = new RegisterWindow(this);
     registerwindow->show();
     this->close(); // Close login window when signup is clicked
 }

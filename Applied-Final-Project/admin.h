@@ -1,28 +1,30 @@
-#ifndef ADMIN_H
-#define ADMIN_H
+#ifndef ADMINWINDOW_H
+#define ADMINWINDOW_H
 
-#include "vectorC.h"
-#include <string>
+#include <QDialog>
+#include <QVBoxLayout>
+#include <QPushButton>
+#include <QHBoxLayout>
+#include <QLabel>
 
-    using namespace std;
-
-struct AdminCredential
+class AdminWindow : public QDialog
 {
-    int username;
-    string password;
-};
-class Admin
-{
-private:
-    vectorC<AdminCredential> adminCredentials;
+    Q_OBJECT
 
 public:
-    Admin();
-    bool authenticate(int username, const string& password);
-    bool isAdmin(int username);
-    void addAdmin(int username, const string& password);
-    void removeAdmin(int username);
+    AdminWindow(QWidget* parent = nullptr);
+    ~AdminWindow();
+
+private:
+    QVBoxLayout* mainLayout;
+    QHBoxLayout* topBarLayout;
+    QPushButton* addAdminButton;
+    QPushButton* removeAdminButton;
+    QPushButton* logoutButton;
+
+    void setupUI();
 
 };
 
-#endif
+#endif // ADMINWINDOW_H
+

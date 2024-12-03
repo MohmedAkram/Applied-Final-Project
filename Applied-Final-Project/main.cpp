@@ -16,6 +16,7 @@
 #include "eventwindow1.h"
 #include "system.h"
 #include "halls.h"
+#include  "admin.h"
 
 
 
@@ -29,6 +30,8 @@ int main(int argc, char *argv[]) {
     sys.ev->showMaximized();
     // Halls h(1,"21:00");
     // h.show();
+    // AdminWindow e;
+    // e.show();
 
     return a.exec();
 }

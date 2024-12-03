@@ -1,51 +1,62 @@
-/*#include "Admin.h"
-Admin::Admin()
+#include "admin.h"
+
+AdminWindow::AdminWindow(QWidget* parent)
+    : QDialog(parent), mainLayout(new QVBoxLayout(this)), topBarLayout(new QHBoxLayout),
+    addAdminButton(new QPushButton("Add Event", this)),
+    removeAdminButton(new QPushButton("Remove Event", this)),
+    logoutButton(new QPushButton("Logout", this))
 {
-    adminCredentials= vectorC<AdminCredentials>(5);
-}
-bool Admin::authenticate(int username, const int &password)
-{
-    for(int i=0;i<adminCredentials.getSize();i++)
-    {
-        if(adminCredentials.peek().username==username && adminCredentials.peek().password==password)
-        {
-            return true;
-        }
-    }
-    return false;
+    setupUI();
 }
 
-bool Admin::isAdmin(int username)
-{
-    for(int i=0;i<adminCredentials.getSize();i++)
-    {
-        if(adminCredentials.peek().username==username)
-        {
-            return true;
-        }
-    }
-    return false;
+AdminWindow::~AdminWindow() {
+    // Destructor
 }
 
-void Admin::addAdmin(int username, const int &password)
+void AdminWindow::setupUI()
 {
-    if(adminCredentials.peek().username==username)
-    {
-        adminCredentials.peek().password=password;// If the AdminId already exists it will update the password
-        return;
-    }
-    adminCredentials.push(AdminCredential(username,password));
+    // Set fixed size to make the window bigger
+    setFixedSize(1200, 800);
+
+    // Top bar layout
+    QLabel* titleLabel = new QLabel("Admin Page", this);
+    titleLabel->setAlignment(Qt::AlignCenter);
+    titleLabel->setStyleSheet("font-size: 36px; font-weight: bold; color: white; margin: 0px;");
+    topBarLayout->addWidget(titleLabel, 0, Qt::AlignCenter);
+
+    // Top bar styling
+    QWidget* topBarWidget = new QWidget(this);
+    topBarWidget->setLayout(topBarLayout);
+    topBarWidget->setStyleSheet("background-color: #FF69B4; padding: 20px; border-radius: 10px;");
+    mainLayout->addWidget(topBarWidget);
+
+    // Buttons styling
+    addAdminButton->setFixedSize(300, 60);
+    addAdminButton->setStyleSheet(
+        "background-color: #FF69B4; color: white; font-size: 20px; font-weight: bold; padding: 15px; border-radius: 10px;");
+
+    removeAdminButton->setFixedSize(300, 60);
+    removeAdminButton->setStyleSheet(
+        "background-color: #FF69B4; color: white; font-size: 20px; font-weight: bold; padding: 15px; border-radius: 10px;");
+
+    logoutButton->setFixedSize(300, 60);
+    logoutButton->setStyleSheet(
+        "background-color: #FF69B4; color: white; font-size: 20px; font-weight: bold; padding: 15px; border-radius: 10px;");
+
+    // Buttons layout
+    QVBoxLayout* buttonLayout = new QVBoxLayout;
+    buttonLayout->setAlignment(Qt::AlignCenter);
+    buttonLayout->setSpacing(40); // Increased spacing for better aesthetics
+    buttonLayout->addWidget(addAdminButton, 0, Qt::AlignCenter);
+    buttonLayout->addWidget(removeAdminButton, 0, Qt::AlignCenter);
+    buttonLayout->addWidget(logoutButton, 0, Qt::AlignCenter);
+
+    // Add buttons to main layout
+    mainLayout->addSpacing(50); // Add space between the top bar and buttons
+    mainLayout->addLayout(buttonLayout);
+
+    // Main window styling
+    setLayout(mainLayout);
+    setStyleSheet("background-color: #B4E7E2; padding: 20px; border-radius: 15px;");
+    setWindowTitle("Admin Page");
 }
-void Admin::removeAdmin(int username)
-{
-    vectorC<adminCredentials> filtered;
-    for (int i = 0; i < adminCredentials.getSize(); i++)
-    {
-        if (adminCredentials[i].username != username)// this is to accesses all elements by index and compares the AdminId
-        {
-            filtered.push(adminCredentials[i]);//push all other elements into the vectors except the element that will be removed
-        }
-    }
-    adminCredentials = filtered; // this will replace the original vector with filtered vector
-}
-*/

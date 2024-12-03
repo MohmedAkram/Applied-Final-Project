@@ -43,7 +43,7 @@ public:
     {
         if (ConfirmBook->objectName().isEmpty())
             ConfirmBook->setObjectName("ConfirmBook");
-        ConfirmBook->resize(400, 300);
+        ConfirmBook->resize(427, 310);
         Seatnumber = new QLabel(ConfirmBook);
         Seatnumber->setObjectName("Seatnumber");
         Seatnumber->setGeometry(QRect(40, 70, 91, 21));
@@ -67,22 +67,29 @@ public:
         Wallet->setGeometry(QRect(200, 0, 91, 21));
         SeatEdit = new QLineEdit(ConfirmBook);
         SeatEdit->setObjectName("SeatEdit");
-        SeatEdit->setGeometry(QRect(180, 70, 113, 21));
+        SeatEdit->setGeometry(QRect(180, 70, 201, 21));
+        SeatEdit->setReadOnly(true);
         Moviename = new QLineEdit(ConfirmBook);
         Moviename->setObjectName("Moviename");
-        Moviename->setGeometry(QRect(180, 100, 113, 21));
+        Moviename->setGeometry(QRect(180, 100, 201, 21));
+        Moviename->setAutoFillBackground(false);
+        Moviename->setReadOnly(true);
         HallEdit = new QLineEdit(ConfirmBook);
         HallEdit->setObjectName("HallEdit");
-        HallEdit->setGeometry(QRect(180, 130, 113, 21));
+        HallEdit->setGeometry(QRect(180, 130, 201, 21));
+        HallEdit->setReadOnly(true);
         TimeEdit = new QLineEdit(ConfirmBook);
         TimeEdit->setObjectName("TimeEdit");
-        TimeEdit->setGeometry(QRect(180, 160, 113, 21));
+        TimeEdit->setGeometry(QRect(180, 160, 201, 21));
+        TimeEdit->setReadOnly(true);
         PriceEdit = new QLineEdit(ConfirmBook);
         PriceEdit->setObjectName("PriceEdit");
-        PriceEdit->setGeometry(QRect(180, 190, 113, 21));
+        PriceEdit->setGeometry(QRect(180, 190, 201, 21));
+        PriceEdit->setReadOnly(true);
         RemainingEdit = new QLineEdit(ConfirmBook);
         RemainingEdit->setObjectName("RemainingEdit");
-        RemainingEdit->setGeometry(QRect(180, 220, 113, 21));
+        RemainingEdit->setGeometry(QRect(180, 220, 201, 21));
+        RemainingEdit->setReadOnly(true);
         WalletEdit = new QLineEdit(ConfirmBook);
         WalletEdit->setObjectName("WalletEdit");
         WalletEdit->setGeometry(QRect(310, 0, 81, 21));
@@ -91,7 +98,7 @@ public:
         TicketDetails->setGeometry(QRect(110, 30, 151, 31));
         Confirm = new QPushButton(ConfirmBook);
         Confirm->setObjectName("Confirm");
-        Confirm->setGeometry(QRect(120, 250, 131, 32));
+        Confirm->setGeometry(QRect(160, 260, 131, 32));
 
         retranslateUi(ConfirmBook);
 
