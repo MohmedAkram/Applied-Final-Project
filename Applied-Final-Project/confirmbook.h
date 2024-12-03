@@ -15,11 +15,13 @@ class ConfirmBook : public QDialog
     Q_OBJECT
 public:
     double T;
-    string seatnumber;
+    QVector<int> seatnumber;
     double Rbalance;
-    Customer* Cu;
-    void setseatnum(QVector<QString> selectedSeats){
-        seatnumber= selectedSeats.join(", ").toStdString();
+    Customer* C ;
+    Events* E;
+    Seats * S;
+    void setseatnum(QVector<int> selectedSeats){
+        seatnumber = selectedSeats;
     };
     explicit ConfirmBook(Events* e,Customer*c,Seats *s,QWidget *parent = nullptr);
     ~ConfirmBook();

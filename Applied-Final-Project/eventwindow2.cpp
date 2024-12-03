@@ -135,15 +135,15 @@ void EventWindow2::addEventToLayout(Events* event, Customer* C, int row, int col
 
     // Connect buttons to slots
     connect(time1, &QPushButton::clicked, [C, event]() {
-        Seats* w = new Seats(C, event); // Pass Customer pointer and event
+        Seats* w = new Seats(C, event,1); // Pass Customer pointer and event
         w->show();                      // Display the Seats window
     });
     connect(time2, &QPushButton::clicked, [C, event]() {
-        Seats* w = new Seats(C, event);
+        Seats* w = new Seats(C, event,2);
         w->show();
     });
     connect(time3, &QPushButton::clicked, [C, event]() {
-        Seats* w = new Seats(C, event);
+        Seats* w = new Seats(C, event,3);
         w->show();
     });
 

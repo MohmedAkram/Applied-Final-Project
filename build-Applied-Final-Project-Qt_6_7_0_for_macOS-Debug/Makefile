@@ -839,12 +839,7 @@ compiler_rcc_make_all: qrc_recources.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) qrc_recources.cpp
 qrc_recources.cpp: ../Applied-Final-Project/recources.qrc \
-		../../../Qt/6.7.0/macos/libexec/rcc \
-		../Applied-Final-Project/WALLPAPER.jpeg \
-		../Applied-Final-Project/_.jpeg \
-		../Applied-Final-Project/share.jpg \
-		../Applied-Final-Project/maxresdefault.jpg \
-		../Applied-Final-Project/welad\ resq.jpg
+		../../../Qt/6.7.0/macos/libexec/rcc
 	/Users/kamalelnazir/Qt/6.7.0/macos/libexec/rcc -name recources --no-zstd ../Applied-Final-Project/recources.qrc -o qrc_recources.cpp
 
 compiler_moc_header_make_all: moc_accountpage.cpp moc_admin.cpp moc_confirmbook.cpp moc_customerlogin.cpp moc_eventwindow1.cpp moc_eventwindow2.cpp moc_loginadmin.cpp moc_mainwindow.cpp moc_registerwindow.cpp moc_seats.cpp
@@ -1136,7 +1131,23 @@ confirmbook.o: ../Applied-Final-Project/confirmbook.cpp ../Applied-Final-Project
 		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/qvector.h \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMessageBox \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
-		ui_confirmbook.h
+		ui_confirmbook.h \
+		../Applied-Final-Project/system.h \
+		../Applied-Final-Project/splaytree.h \
+		../Applied-Final-Project/Customer.h \
+		../Applied-Final-Project/eventwindow1.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QScrollArea \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qscrollarea.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QVBoxLayout \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QHBoxLayout \
+		../Applied-Final-Project/vectorc.h \
+		../Applied-Final-Project/customerlogin.h \
+		../Applied-Final-Project/registerwindow.h \
+		../Applied-Final-Project/eventwindow2.h \
+		../Applied-Final-Project/accountpage.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o confirmbook.o ../Applied-Final-Project/confirmbook.cpp
 
 customer.o: ../Applied-Final-Project/customer.cpp ../Applied-Final-Project/customer.h \
@@ -1411,7 +1422,21 @@ seats.o: ../Applied-Final-Project/seats.cpp ../Applied-Final-Project/seats.h \
 		../../../Qt/6.7.0/macos/lib/QtCore.framework/Headers/qdebug.h \
 		../Applied-Final-Project/confirmbook.h \
 		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QDialog \
-		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qdialog.h \
+		../Applied-Final-Project/system.h \
+		../Applied-Final-Project/splaytree.h \
+		../Applied-Final-Project/Customer.h \
+		../Applied-Final-Project/eventwindow1.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QScrollArea \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qscrollarea.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QHBoxLayout \
+		../Applied-Final-Project/vectorc.h \
+		../Applied-Final-Project/customerlogin.h \
+		../Applied-Final-Project/registerwindow.h \
+		../Applied-Final-Project/eventwindow2.h \
+		../Applied-Final-Project/accountpage.h \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../../Qt/6.7.0/macos/lib/QtWidgets.framework/Headers/qmainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o seats.o ../Applied-Final-Project/seats.cpp
 
 splaytree.o: ../Applied-Final-Project/splaytree.cpp ../Applied-Final-Project/SplayTree.h \
