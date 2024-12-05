@@ -403,12 +403,36 @@ release/moc_accountpage.cpp: ../Applied-Final-Project/accountpage.h \
 		../../../Qt/6.7.0/mingw_64/include/QtCore/qlocale.h \
 		../../../Qt/6.7.0/mingw_64/include/QtGui/qguiapplication_platform.h \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
+		../Applied-Final-Project/creditcardwidget.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QWidget \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QLineEdit \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextcursor.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextformat.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qpen.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextoption.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QVBoxLayout \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qlayout.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QHBoxLayout \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QMessageBox \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qmessagebox.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qdialog.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
 		../Applied-Final-Project/customer.h \
 		../Applied-Final-Project/vectorC.h \
 		../Applied-Final-Project/Events.h \
 		../../../Qt/6.7.0/mingw_64/include/QtCore/QString \
 		../../../Qt/6.7.0/mingw_64/include/QtGui/QPixmap \
 		../Applied-Final-Project/tickets.h \
+		../Applied-Final-Project/accountpage.h \
 		release/moc_predefs.h \
 		../../../Qt/6.7.0/mingw_64/bin/moc.exe
 	C:\Qt\6.7.0\mingw_64\bin\moc.exe $(DEFINES) --include C:/ADS/Applied-Final-Project/build-Applied-Final-Project-Desktop_Qt_6_7_0_MinGW_64_bit-Debug/release/moc_predefs.h -IC:/Qt/6.7.0/mingw_64/mkspecs/win32-g++ -IC:/ADS/Applied-Final-Project/Applied-Final-Project -IC:/Qt/6.7.0/mingw_64/include -IC:/Qt/6.7.0/mingw_64/include/QtWidgets -IC:/Qt/6.7.0/mingw_64/include/QtGui -IC:/Qt/6.7.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Applied-Final-Project\accountpage.h -o release\moc_accountpage.cpp
@@ -1046,6 +1070,17 @@ release/moc_creditcardwidget.cpp: ../Applied-Final-Project/creditcardwidget.h \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qmessagebox.h \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qdialog.h \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+		../Applied-Final-Project/customer.h \
+		../Applied-Final-Project/vectorC.h \
+		../Applied-Final-Project/Events.h \
+		../../../Qt/6.7.0/mingw_64/include/QtCore/QString \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/QPixmap \
+		../Applied-Final-Project/tickets.h \
+		../Applied-Final-Project/accountpage.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
+		../Applied-Final-Project/creditcardwidget.h \
 		release/moc_predefs.h \
 		../../../Qt/6.7.0/mingw_64/bin/moc.exe
 	C:\Qt\6.7.0\mingw_64\bin\moc.exe $(DEFINES) --include C:/ADS/Applied-Final-Project/build-Applied-Final-Project-Desktop_Qt_6_7_0_MinGW_64_bit-Debug/release/moc_predefs.h -IC:/Qt/6.7.0/mingw_64/mkspecs/win32-g++ -IC:/ADS/Applied-Final-Project/Applied-Final-Project -IC:/Qt/6.7.0/mingw_64/include -IC:/Qt/6.7.0/mingw_64/include/QtWidgets -IC:/Qt/6.7.0/mingw_64/include/QtGui -IC:/Qt/6.7.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Applied-Final-Project\creditcardwidget.h -o release\moc_creditcardwidget.cpp
@@ -1473,6 +1508,13 @@ release/moc_eventwindow1.cpp: ../Applied-Final-Project/eventwindow1.h \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
+		../Applied-Final-Project/creditcardwidget.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QLineEdit \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextcursor.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextformat.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qpen.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextoption.h \
 		release/moc_predefs.h \
 		../../../Qt/6.7.0/mingw_64/bin/moc.exe
 	C:\Qt\6.7.0\mingw_64\bin\moc.exe $(DEFINES) --include C:/ADS/Applied-Final-Project/build-Applied-Final-Project-Desktop_Qt_6_7_0_MinGW_64_bit-Debug/release/moc_predefs.h -IC:/Qt/6.7.0/mingw_64/mkspecs/win32-g++ -IC:/ADS/Applied-Final-Project/Applied-Final-Project -IC:/Qt/6.7.0/mingw_64/include -IC:/Qt/6.7.0/mingw_64/include/QtWidgets -IC:/Qt/6.7.0/mingw_64/include/QtGui -IC:/Qt/6.7.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Applied-Final-Project\eventwindow1.h -o release\moc_eventwindow1.cpp
@@ -1701,6 +1743,13 @@ release/moc_eventwindow2.cpp: ../Applied-Final-Project/eventwindow2.h \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
+		../Applied-Final-Project/creditcardwidget.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QLineEdit \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextcursor.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextformat.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qpen.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextoption.h \
 		release/moc_predefs.h \
 		../../../Qt/6.7.0/mingw_64/bin/moc.exe
 	C:\Qt\6.7.0\mingw_64\bin\moc.exe $(DEFINES) --include C:/ADS/Applied-Final-Project/build-Applied-Final-Project-Desktop_Qt_6_7_0_MinGW_64_bit-Debug/release/moc_predefs.h -IC:/Qt/6.7.0/mingw_64/mkspecs/win32-g++ -IC:/ADS/Applied-Final-Project/Applied-Final-Project -IC:/Qt/6.7.0/mingw_64/include -IC:/Qt/6.7.0/mingw_64/include/QtWidgets -IC:/Qt/6.7.0/mingw_64/include/QtGui -IC:/Qt/6.7.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Applied-Final-Project\eventwindow2.h -o release\moc_eventwindow2.cpp
@@ -2939,6 +2988,29 @@ release/accountpage.o: ../Applied-Final-Project/accountpage.cpp ../Applied-Final
 		../../../Qt/6.7.0/mingw_64/include/QtCore/qlocale.h \
 		../../../Qt/6.7.0/mingw_64/include/QtGui/qguiapplication_platform.h \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
+		../Applied-Final-Project/creditcardwidget.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QWidget \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QLineEdit \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextcursor.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextformat.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qpen.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextoption.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QVBoxLayout \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qlayout.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QHBoxLayout \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QMessageBox \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qmessagebox.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qdialog.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
 		../Applied-Final-Project/customer.h \
 		../Applied-Final-Project/vectorC.h \
 		../Applied-Final-Project/Events.h \
@@ -2951,24 +3023,12 @@ release/accountpage.o: ../Applied-Final-Project/accountpage.cpp ../Applied-Final
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QLabel \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qlabel.h \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
 		../../../Qt/6.7.0/mingw_64/include/QtGui/qpicture.h \
-		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QLineEdit \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qlineedit.h \
-		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextcursor.h \
-		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextformat.h \
-		../../../Qt/6.7.0/mingw_64/include/QtGui/qpen.h \
-		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextoption.h \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QMenuBar \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qmenubar.h \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qmenu.h \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QPushButton \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qpushbutton.h \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QStatusBar \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qstatusbar.h \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QWidget
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qstatusbar.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\accountpage.o ..\Applied-Final-Project\accountpage.cpp
 
 release/admin.o: ../Applied-Final-Project/admin.cpp ../Applied-Final-Project/admin.h \
@@ -3418,7 +3478,8 @@ release/confirmbook.o: ../Applied-Final-Project/confirmbook.cpp ../Applied-Final
 		../Applied-Final-Project/accountpage.h \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
+		../Applied-Final-Project/creditcardwidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\confirmbook.o ..\Applied-Final-Project\confirmbook.cpp
 
 release/creditcardwidget.o: ../Applied-Final-Project/creditcardwidget.cpp ../Applied-Final-Project/creditcardwidget.h \
@@ -3628,7 +3689,17 @@ release/creditcardwidget.o: ../Applied-Final-Project/creditcardwidget.cpp ../App
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QMessageBox \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qmessagebox.h \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qdialog.h \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+		../Applied-Final-Project/customer.h \
+		../Applied-Final-Project/vectorC.h \
+		../Applied-Final-Project/Events.h \
+		../../../Qt/6.7.0/mingw_64/include/QtCore/QString \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/QPixmap \
+		../Applied-Final-Project/tickets.h \
+		../Applied-Final-Project/accountpage.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\creditcardwidget.o ..\Applied-Final-Project\creditcardwidget.cpp
 
 release/customer.o: ../Applied-Final-Project/customer.cpp ../Applied-Final-Project/customer.h \
@@ -3986,7 +4057,8 @@ release/customerlogin.o: ../Applied-Final-Project/customerlogin.cpp ../Applied-F
 		../Applied-Final-Project/accountpage.h \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
+		../Applied-Final-Project/creditcardwidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\customerlogin.o ..\Applied-Final-Project\customerlogin.cpp
 
 release/events.o: ../Applied-Final-Project/events.cpp ../Applied-Final-Project/events.h \
@@ -4329,6 +4401,13 @@ release/eventwindow1.o: ../Applied-Final-Project/eventwindow1.cpp ../Applied-Fin
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
+		../Applied-Final-Project/creditcardwidget.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QLineEdit \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextcursor.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextformat.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qpen.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextoption.h \
 		ui_eventwindow1.h \
 		../../../Qt/6.7.0/mingw_64/include/QtCore/QVariant \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
@@ -4562,6 +4641,13 @@ release/eventwindow2.o: ../Applied-Final-Project/eventwindow2.cpp ../Applied-Fin
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
+		../Applied-Final-Project/creditcardwidget.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QLineEdit \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextcursor.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextformat.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qpen.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextoption.h \
 		../Applied-Final-Project/Seats.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\eventwindow2.o ..\Applied-Final-Project\eventwindow2.cpp
 
@@ -5006,6 +5092,13 @@ release/main.o: ../Applied-Final-Project/main.cpp ../Applied-Final-Project/mainw
 		../Applied-Final-Project/tickets.h \
 		../Applied-Final-Project/eventwindow2.h \
 		../Applied-Final-Project/accountpage.h \
+		../Applied-Final-Project/creditcardwidget.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QLineEdit \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextcursor.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextformat.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qpen.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextoption.h \
 		../Applied-Final-Project/eventwindow1.h \
 		../Applied-Final-Project/system.h \
 		../Applied-Final-Project/splaytree.h \
@@ -5455,7 +5548,8 @@ release/registerwindow.o: ../Applied-Final-Project/registerwindow.cpp ../Applied
 		../Applied-Final-Project/accountpage.h \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
+		../Applied-Final-Project/creditcardwidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\registerwindow.o ..\Applied-Final-Project\registerwindow.cpp
 
 release/reserved.o: ../Applied-Final-Project/reserved.cpp ../Applied-Final-Project/reserved.h \
@@ -5893,7 +5987,14 @@ release/seats.o: ../Applied-Final-Project/seats.cpp ../Applied-Final-Project/sea
 		../Applied-Final-Project/accountpage.h \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
+		../Applied-Final-Project/creditcardwidget.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QLineEdit \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextcursor.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextformat.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qpen.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextoption.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\seats.o ..\Applied-Final-Project\seats.cpp
 
 release/splaytree.o: ../Applied-Final-Project/splaytree.cpp ../Applied-Final-Project/SplayTree.h \
@@ -6243,7 +6344,14 @@ release/system.o: ../Applied-Final-Project/system.cpp ../Applied-Final-Project/s
 		../Applied-Final-Project/accountpage.h \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
 		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h \
-		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
+		../Applied-Final-Project/creditcardwidget.h \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/QLineEdit \
+		../../../Qt/6.7.0/mingw_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextcursor.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextformat.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qpen.h \
+		../../../Qt/6.7.0/mingw_64/include/QtGui/qtextoption.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\system.o ..\Applied-Final-Project\system.cpp
 
 release/tickets.o: ../Applied-Final-Project/tickets.cpp ../Applied-Final-Project/Tickets.h \
