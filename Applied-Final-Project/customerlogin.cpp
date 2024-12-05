@@ -25,7 +25,16 @@ void CustomerLogin::on_LoginButton_clicked()
    Customer customer(IDint, "","",true,password);
     if(sys.CustomerTree.findNode(customer) != nullptr &&sys.CustomerTree.findNode(customer)->customer.Password == password )
     {
+<<<<<<< Updated upstream
         sys.CustomerTree.printInOrder();
+=======
+        Customer *C;
+        C = new Customer(c->customer.customerID, c->customer.name, c->customer.email, c->customer.IsVIP, c->customer.Password);
+        EventWindow2* eve2 = new EventWindow2(C);
+        eve2->showMaximized();
+        this->hide();
+        //sys.ev->hide();
+>>>>>>> Stashed changes
     }
     else
     {
