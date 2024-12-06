@@ -29,7 +29,7 @@ public:
     wallet *W;
     int customerID; ////////*****************************************
     string Password;
-    string name; ////////*****************************************
+    string name; ////////***************************************** pushhh
     Customer(int id);
     Customer(int id, string Name, string Email,bool isvip,string password );
     int getbalance();
