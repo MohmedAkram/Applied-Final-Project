@@ -7,15 +7,13 @@
 
 template <class T>
 class vectorC {
-private:
+public:
     T** data;       // Array of pointers
     int size;       // Capacity of the array
     int currentSize;  // Number of elements currently in the array
 
     // Resize the array to a new capacity
     void resize();
-
-public:
     explicit vectorC(int s = 10);
     ~vectorC();
     void remove(int index);

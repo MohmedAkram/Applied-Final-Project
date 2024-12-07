@@ -3,7 +3,8 @@
 
 // Constructor implementation
 Tickets::Tickets(int seat, int movie, bool status, bool type)
-    : seatNumber(seat), movieNum (movie), price(0.0), type(type), status(status) {
+    : seatNumber(seat),movieNum(movie), price(0.0), status(status), type(type) {
+
     // Price is not initialized yet
 }
 

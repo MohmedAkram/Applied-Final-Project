@@ -19,13 +19,15 @@ System::System() {
     // Initialize the static 3D array
     for (int i = 0; i < 5; ++i) {
         for (int j = 0; j < 3; ++j) {
-            for (int k = 0; k < 41; ++k){
+            for (int k = 0; k < 40; ++k){
                 if (k < 20) {
-                    TDB[i][j][k] = new Tickets(k, i, false, false); // Dynamically allocate
+                    TDB[i][j][k] = new Tickets(k, i, false, false);
+                    TDB[i][j][k]->time=j;                  // Dynamically allocate
                 } else {
-                    TDB[i][j][k] = new Tickets(k, i, false, true);  // Dynamically allocate
+                    TDB[i][j][k] = new Tickets(k, i, false, true);
+                    TDB[i][j][k]->time=j;                  // Dynamically allocate
                 }
-                TDB[i][j][k]->time=j;
+
             }
         }
     }

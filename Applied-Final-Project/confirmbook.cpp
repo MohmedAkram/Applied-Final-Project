@@ -62,8 +62,11 @@ void ConfirmBook::on_Confirm_clicked()
             if (seatIndex >= 0 && seatIndex < 40)
             {
                 qDebug() << "Booking seat:" << seatIndex;
-                sys.TDB[E->getEventID()-1][S->Time][seatIndex]->status = true; // Mark seat as booked
-                C->ReservedTickets.push(sys.TDB[E->getEventID()-1][S->Time][seatIndex]);// Add to reserved tickets
+                sys.TDB[E->getEventID()-1][S->Time][seatIndex]->status = true;// Mark seat as booked
+                sys.TDB[E->getEventID()-1][S->Time][seatIndex]->movieNum = E->getEventID()-1;
+                Tickets* w =sys.TDB[E->getEventID()-1][S->Time][seatIndex];
+                C->ReservedTickets.push(w);// Add to reserved tickets
+
             } else {
                 qDebug() << "Invalid seat index" << seatIndex << "for this event and time.";
             }

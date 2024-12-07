@@ -33,6 +33,7 @@ private:
     QHBoxLayout* topBarLayout;
     QScrollArea* scrollArea;
     QWidget* scrollWidget;
+    QString getTimeFromIndex(int timeIndex);
     QGridLayout* gridLayout;
 
     void setupUI();

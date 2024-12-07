@@ -18,8 +18,12 @@ Reserved::Reserved(Customer* customer, QWidget *parent)
 }
 
 Reserved::~Reserved() {
-    delete ui;
+    if (ui) {
+        delete ui;
+        ui = nullptr;
+    }
 }
+
 
 void Reserved::setupUI() {
     // Set up the main layout
@@ -62,7 +66,7 @@ void Reserved::loadTickets() {
 void Reserved::addTicketToLayout(Tickets* ticket, int row, int col) {
     // Create the ticket container
     QWidget *ticketWidget = new QWidget;
-    ticketWidget->setFixedSize(600, 600);
+    ticketWidget->setFixedSize(600, 650); // Increased height to fit all elements
     ticketWidget->setStyleSheet(
         "border-radius: 15px;"
         "background-color: #e6f7ff;"
@@ -71,7 +75,7 @@ void Reserved::addTicketToLayout(Tickets* ticket, int row, int col) {
 
     QVBoxLayout *ticketLayout = new QVBoxLayout(ticketWidget);
 
-    // Ticket
+    // Ticket Title
     QLabel *titleLabel;
     if (ticket->movieNum == 0) {
         titleLabel = new QLabel("Event: Welad Rizk III", ticketWidget);
@@ -82,18 +86,25 @@ void Reserved::addTicketToLayout(Tickets* ticket, int row, int col) {
     } else if (ticket->movieNum == 3) {
         titleLabel = new QLabel("Event: Bringing Back: Morgan Ahmed Morgan", ticketWidget);
     }
+    else {titleLabel = new QLabel("Event: Unknown ", ticketWidget);}
     titleLabel->setStyleSheet("font-size: 24px; font-weight: bold; color: #333333; text-align: center;");
 
-    QLabel *dateLabel = new QLabel("Seat Number: " + QString::number(ticket->seatNumber+1), ticketWidget);
-    dateLabel->setStyleSheet("color: #5f6368; font-size: 18px; text-align: center;");
-
-    QLabel *seatLabel;
-    if (ticket->seatNumber < 20) {
-        seatLabel = new QLabel(currentCustomer->IsVIP ? "Price: 40 $" : "Price: 50 $", ticketWidget);
-    } else {
-        seatLabel = new QLabel(currentCustomer->IsVIP ? "Price: 80 $" : "Price: 100 $", ticketWidget);
-    }
+    // Seat Number
+    QLabel *seatLabel = new QLabel("Seat Number: " + QString::number(ticket->seatNumber + 1), ticketWidget);
     seatLabel->setStyleSheet("color: #5f6368; font-size: 18px; text-align: center;");
+
+    // Price Information
+    QLabel *priceLabel;
+    if (ticket->seatNumber < 20) {
+        priceLabel = new QLabel(currentCustomer->IsVIP ? "Price: 40 $" : "Price: 50 $", ticketWidget);
+    } else {
+        priceLabel = new QLabel(currentCustomer->IsVIP ? "Price: 80 $" : "Price: 100 $", ticketWidget);
+    }
+    priceLabel->setStyleSheet("color: #5f6368; font-size: 18px; text-align: center;");
+
+    // **Time Label**
+    QLabel *timeLabel = new QLabel("Time: " + getTimeFromIndex(ticket->time), ticketWidget);
+    timeLabel->setStyleSheet("color: #5f6368; font-size: 18px; text-align: center;");
 
     // Cancel button
     QPushButton *cancelButton = new QPushButton("Cancel Ticket", ticketWidget);
@@ -102,15 +113,16 @@ void Reserved::addTicketToLayout(Tickets* ticket, int row, int col) {
         "padding: 10px; border-radius: 8px;"
         );
 
-    // **Connect the cancel button to a slot function**
+    // Connect the cancel button to a slot function
     connect(cancelButton, &QPushButton::clicked, this, [this, ticketWidget, ticket]() {
         this->onCancelTicketClicked(ticketWidget, ticket);
     });
 
     // Add components to layout
     ticketLayout->addWidget(titleLabel);
-    ticketLayout->addWidget(dateLabel);
     ticketLayout->addWidget(seatLabel);
+    ticketLayout->addWidget(priceLabel);
+    ticketLayout->addWidget(timeLabel);
     ticketLayout->addWidget(cancelButton);
 
     ticketWidget->setLayout(ticketLayout);
@@ -120,24 +132,28 @@ void Reserved::addTicketToLayout(Tickets* ticket, int row, int col) {
 }
 
 void Reserved::onCancelTicketClicked(QWidget *ticketWidget, Tickets* ticket) {
-    // **Remove ticket from layout and delete its widget**
-    ticketWidget->hide();  // Hide the widget
-    gridLayout->removeWidget(ticketWidget); // Remove from the layout
-    ticketWidget->deleteLater(); // Schedule it for deletion
+    ticketWidget->hide();
+    gridLayout->removeWidget(ticketWidget);
+    ticketWidget->deleteLater();
+    ticket->status=false;
+    for(int i= 0;i<currentCustomer->ReservedTickets.currentSize;i++){
+        if (currentCustomer->ReservedTickets.get(i)==ticket){currentCustomer->ReservedTickets.remove(i);}}
+    if (currentCustomer->IsVIP) {
+        if (ticket->seatNumber < 20) { currentCustomer->editbalance(40); }
+        else { currentCustomer->editbalance(80); }
+    } else {
+        if (ticket->seatNumber < 20) { currentCustomer->editbalance(50); }
+        else { currentCustomer->editbalance(100); }}
+}
+// Helper function to convert time index to readable time string
+QString Reserved::getTimeFromIndex(int timeIndex) {
+    switch (timeIndex) {
+    case 0: return "10:00 PM";
+    case 1: return "4:00 PM";
+    case 2: return "7:00 PM";
+    case 3: return "10:00 PM";
+default:
+    qDebug() << "Invalid time index: " << timeIndex;  // Log for debugging
+    return "Invalid Time";}
 
-    // **Remove the ticket from the currentCustomer's ReservedTickets list**
-    for (int i = 0; i < currentCustomer->ReservedTickets.getSize(); ++i) {
-        if (currentCustomer->ReservedTickets.get(i) == ticket) {
-            sys.TDB[currentCustomer->ReservedTickets.get(i)->movieNum][currentCustomer->ReservedTickets.get(i)->time][currentCustomer->ReservedTickets.get(i)->seatNumber]->status = false;
-            currentCustomer->ReservedTickets.remove(i);
-            if (currentCustomer->IsVIP){
-                if (ticket->seatNumber<20){currentCustomer->editbalance(40);}
-                else{currentCustomer->editbalance(80);}}
-            else
-            if (ticket->seatNumber<20){currentCustomer->editbalance(50);}
-            else{currentCustomer->editbalance(100);}
-
-            break;
-        }
-    }
 }
