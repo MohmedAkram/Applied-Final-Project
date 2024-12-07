@@ -6,31 +6,33 @@
 #include <QSpinBox>
 #include <QDoubleSpinBox>
 #include <QPushButton>
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QLabel>
 #include <QPixmap>
-#include <QFileDialog>
 
 class AddEventDialog : public QDialog {
     Q_OBJECT
 
 public:
-    AddEventDialog(QWidget *parent = nullptr);
+    explicit AddEventDialog(QWidget *parent = nullptr);
+
     QString getTitle() const;
-    QString getDate() const;
     int getDuration() const;
+    QString getDate() const;
     double getPrice() const;
     QPixmap getImage() const;
 
+private slots:
+    void selectImage();  // Slot for selecting image
+    void logout();       // Slot for logging out and returning to EventsWindow
+
 private:
-    QLineEdit *titleEdit;
-    QLineEdit *dateEdit;
+    QLineEdit *titleLineEdit;
     QSpinBox *durationSpinBox;
+    QLineEdit *dateLineEdit;
     QDoubleSpinBox *priceSpinBox;
-    QLabel *imagePreview;
-    QPixmap eventImage;
-    QPushButton *browseButton;
+    QPushButton *selectImageButton;
+    QPixmap selectedImage;
+    QPushButton *addEventButton;
+    QPushButton *logoutButton;  // Logout button
 };
 
 #endif // ADDEVENTDIALOG_H

@@ -1,75 +1,122 @@
 #include "AddEventDialog.h"
+#include <QFileDialog>
+#include <QVBoxLayout>
+#include <QLabel>
+#include <QLineEdit>
+#include <QSpinBox>
+#include <QDoubleSpinBox>
+#include <QPushButton>
+#include <QPixmap>
+#include "eventwindow1.h"
+#include "movies.h"
 
 AddEventDialog::AddEventDialog(QWidget *parent)
-    : QDialog(parent), titleEdit(new QLineEdit(this)), dateEdit(new QLineEdit(this)),
-    durationSpinBox(new QSpinBox(this)), priceSpinBox(new QDoubleSpinBox(this)),
-    imagePreview(new QLabel(this)), browseButton(new QPushButton("Browse Image", this)) {
+    : QDialog(parent),
+    titleLineEdit(new QLineEdit(this)),
+    durationSpinBox(new QSpinBox(this)),
+    dateLineEdit(new QLineEdit(this)),
+    priceSpinBox(new QDoubleSpinBox(this)),
+    selectImageButton(new QPushButton("Select Image", this)),
+    addEventButton(new QPushButton("Add Event", this)),
+    logoutButton(new QPushButton("Logout", this))  // Add the Logout button
+{
+    // Layout setup
+    QVBoxLayout *layout = new QVBoxLayout(this);
 
-    setWindowTitle("Add New Event");
-    setFixedSize(400, 400);
+    // Set background color and padding
+    this->setStyleSheet("background-color: #B4E7E2; padding: 20px; color: #2F4F4F;");
 
-    // Layout
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    // Event title
+    layout->addWidget(new QLabel("Event Title:"));
+    layout->addWidget(titleLineEdit);
 
-    // Title input
-    QLabel *titleLabel = new QLabel("Title:");
-    mainLayout->addWidget(titleLabel);
-    mainLayout->addWidget(titleEdit);
+    // Event duration
+    layout->addWidget(new QLabel("Duration (minutes):"));
+    layout->addWidget(durationSpinBox);
 
-    // Date input
-    QLabel *dateLabel = new QLabel("Date:");
-    mainLayout->addWidget(dateLabel);
-    mainLayout->addWidget(dateEdit);
+    // Event date
+    layout->addWidget(new QLabel("Event Date:"));
+    layout->addWidget(dateLineEdit);
 
-    // Duration input
-    QLabel *durationLabel = new QLabel("Duration (minutes):");
-    mainLayout->addWidget(durationLabel);
-    durationSpinBox->setRange(1, 500);
-    mainLayout->addWidget(durationSpinBox);
+    // Event price
+    layout->addWidget(new QLabel("Price:"));
+    layout->addWidget(priceSpinBox);
 
-    // Price input
-    QLabel *priceLabel = new QLabel("Price:");
-    mainLayout->addWidget(priceLabel);
-    priceSpinBox->setRange(0, 10000);
-    priceSpinBox->setDecimals(2);
-    mainLayout->addWidget(priceSpinBox);
+    // Select image button
+    layout->addWidget(selectImageButton);
 
-    // Image selection
-    QLabel *imageLabel = new QLabel("Event Image:");
-    mainLayout->addWidget(imageLabel);
-    QHBoxLayout *imageLayout = new QHBoxLayout();
-    imageLayout->addWidget(imagePreview);
-    imageLayout->addWidget(browseButton);
-    mainLayout->addLayout(imageLayout);
+    // Add event button
+    layout->addWidget(addEventButton);
 
-    // Image preview setup
-    imagePreview->setFixedSize(100, 100);
-    imagePreview->setStyleSheet("border: 1px solid #000;");
-    imagePreview->setAlignment(Qt::AlignCenter);
+    // Logout button
+    layout->addWidget(logoutButton);
 
-    connect(browseButton, &QPushButton::clicked, this, [this]() {
-        QString imagePath = QFileDialog::getOpenFileName(this, "Select Image", "", "Images (*.png *.jpg *.jpeg)");
-        if (!imagePath.isEmpty()) {
-            eventImage.load(imagePath);
-            imagePreview->setPixmap(eventImage.scaled(100, 100, Qt::KeepAspectRatio));
-        }
-    });
+    // Set button and input field styles
+    QString textFieldStyle = R"(
+        border-radius: 10px;
+        background-color: #e6f7ff;
+        padding: 2px 2px;
+        font-size: 10px;
+        font-family: Arial, sans-serif;
+        border: 1px solid #FF69B4;
+    )";
+    titleLineEdit->setStyleSheet(textFieldStyle);
+    dateLineEdit->setStyleSheet(textFieldStyle);
+    durationSpinBox->setStyleSheet(textFieldStyle);
+    priceSpinBox->setStyleSheet(textFieldStyle);
 
-    // Confirm and cancel buttons
-    QHBoxLayout *buttonLayout = new QHBoxLayout();
-    QPushButton *addButton = new QPushButton("Add");
-    QPushButton *cancelButton = new QPushButton("Cancel");
-    buttonLayout->addWidget(addButton);
-    buttonLayout->addWidget(cancelButton);
+    QString buttonStyle = R"(
+        background-color: #FF69B4;
+        color: white;
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-weight: bold;
+        box-shadow: 0px 0px 10px rgba(255, 105, 180, 0.5);
+    )";
+    selectImageButton->setStyleSheet(buttonStyle);
+    addEventButton->setStyleSheet(buttonStyle);
+    logoutButton->setStyleSheet(buttonStyle); // Style for Logout button
 
-    mainLayout->addLayout(buttonLayout);
-
-    connect(addButton, &QPushButton::clicked, this, &AddEventDialog::accept);
-    connect(cancelButton, &QPushButton::clicked, this, &AddEventDialog::reject);
+    // Connect buttons
+    connect(selectImageButton, &QPushButton::clicked, this, &AddEventDialog::selectImage);
+    connect(addEventButton, &QPushButton::clicked, this, &QDialog::accept);
+    connect(logoutButton, &QPushButton::clicked, this, &AddEventDialog::logout); // Connect Logout button
 }
 
-QString AddEventDialog::getTitle() const { return titleEdit->text(); }
-QString AddEventDialog::getDate() const { return dateEdit->text(); }
-int AddEventDialog::getDuration() const { return durationSpinBox->value(); }
-double AddEventDialog::getPrice() const { return priceSpinBox->value(); }
-QPixmap AddEventDialog::getImage() const { return eventImage; }
+void AddEventDialog::logout() {
+    // Close the current dialog and return to the EventsWindow
+    this->close();  // Close the AddEventDialog
+
+    // Create a new instance of EventsWindow1 and show it
+    EventsWindow1 *eventsWindow = new EventsWindow1(nullptr,movies ); // Ensure you pass the necessary parameters to create the window
+    eventsWindow->show();
+}
+
+QString AddEventDialog::getTitle() const {
+    return titleLineEdit->text();
+}
+
+int AddEventDialog::getDuration() const {
+    return durationSpinBox->value();
+}
+
+QString AddEventDialog::getDate() const {
+    return dateLineEdit->text();
+}
+
+double AddEventDialog::getPrice() const {
+    return priceSpinBox->value();
+}
+
+QPixmap AddEventDialog::getImage() const {
+    return selectedImage;
+}
+
+void AddEventDialog::selectImage() {
+    QString imagePath = QFileDialog::getOpenFileName(this, "Select Image", QString(), "Images (*.png *.jpg *.jpeg *.bmp)");
+    if (!imagePath.isEmpty()) {
+        selectedImage = QPixmap(imagePath);
+    }
+}

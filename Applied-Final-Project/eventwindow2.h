@@ -28,15 +28,16 @@ private:
     QGridLayout *gridLayout;         // Grid layout for arranging event cards
     QPushButton *accountButton;      // Button for "My Account"
 
-    vectorC<Events> movies;          // Custom vector to hold event objects
+    vectorC<Events> eventsList;      // Events list passed to the window
 
 public:
-    explicit EventWindow2(Customer* customer,QWidget* parent = nullptr);
+    explicit EventWindow2(Customer* customer, QWidget* parent, vectorC<Events>& eventsList);
     ~EventWindow2();
+
     Customer* C;
     void setupUI();                  // Function to set up the UI
-    void loadEvents(Customer* customer);               // Function to load event data
-    void addEventToLayout(Events *event,Customer* C, int row, int col); // Add an event to the grid layout
+    void loadEvents();               // Function to load event data
+    void addEventToLayout(Events *event, Customer* C, int row, int col); // Add an event to the grid layout
 };
 
 #endif // EVENTWINDOW2_H

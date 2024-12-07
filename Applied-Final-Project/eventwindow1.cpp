@@ -1,15 +1,13 @@
 #include "eventwindow1.h"
-#include "ui_eventwindow1.h"
 #include "customerlogin.h"
 #include "registerwindow.h"
-#include "customer.h"
-#include "system.h"
+#include "events.h"
 #include <QPushButton>
 #include <QMessageBox>
 
-EventsWindow1::EventsWindow1(QWidget *parent)
+EventsWindow1::EventsWindow1(QWidget *parent, vectorC<Events>& eventsList)
     : QDialog(parent),
-    movies(10),
+    movies(eventsList), // Initialize reference
     mainLayout(new QVBoxLayout(this)),
     topBarLayout(new QHBoxLayout),
     scrollArea(new QScrollArea(this)),
@@ -22,7 +20,7 @@ EventsWindow1::EventsWindow1(QWidget *parent)
 
 void EventsWindow1::setupUI() {
     // Set up the top bar layout with Login and Sign Up buttons
-    topBarLayout->setAlignment(Qt::AlignRight); // Align buttons to the top-right corner
+    topBarLayout->setAlignment(Qt::AlignRight);
 
     QPushButton *loginButton = new QPushButton("Login");
     QPushButton *signupButton = new QPushButton("Sign Up");
@@ -41,21 +39,21 @@ void EventsWindow1::setupUI() {
     RegisterWindow *registerr = new RegisterWindow(this);
 
     QObject::connect(loginButton, &QPushButton::clicked, [logins]() {
-        logins->exec();       // Show Login window
+        logins->exec();
     });
 
     QObject::connect(signupButton, &QPushButton::clicked, [registerr]() {
-        registerr->exec(); // Show Signup window
+        registerr->exec();
     });
 
     topBarLayout->addWidget(loginButton);
     topBarLayout->addWidget(signupButton);
-    mainLayout->addLayout(topBarLayout); // Add top bar to the main layout
+    mainLayout->addLayout(topBarLayout);
 
     // Set up scroll area for events
     scrollArea->setWidgetResizable(true);
-    gridLayout->setSpacing(30); // Larger spacing between items
-    gridLayout->setContentsMargins(40, 40, 40, 40); // Larger margins around the grid
+    gridLayout->setSpacing(30);
+    gridLayout->setContentsMargins(40, 40, 40, 40);
 
     scrollWidget->setLayout(gridLayout);
     scrollArea->setWidget(scrollWidget);
@@ -69,26 +67,6 @@ void EventsWindow1::setupUI() {
 }
 
 void EventsWindow1::loadEvents() {
-    // Define and add events to vectorC
-    QPixmap www(":/images/welad resq.jpg");
-    QPixmap opp(":/images/_.jpeg");
-    QPixmap bar(":/images/share.jpg");
-    QPixmap morg(":/images/maxresdefault.jpg");
-
-    Events* event1 = new Events(1, "Welad Rizk III", 2023, "Action - Comedy", 200.00, www);
-    Events* event2 = new Events(2, "Barbie", 2023, "Romance - Fiction", 250.00, bar);
-    Events* event3 = new Events(2, "Oppenheimer", 2023, "Thriller", 250.00, opp);
-    Events* event4 = new Events(2, "Bringing Back: Morgan Ahmed Morgan", 2023, "Comedy", 250.00, morg);
-    Events* event6 = new Events(1, "Welad Rizk III", 2023, "Action - Comedy", 200.00, www);
-    Events* event7 = new Events(1, "Welad Rizk III", 2023, "Action - Comedy", 200.00, www);
-
-    movies.push(event1);
-    movies.push(event2);
-    movies.push(event3);
-    movies.push(event4);
-    movies.push(event6);
-    movies.push(event7);
-
     // Iterate through the vector and display events
     for (int i = 0; i < movies.getSize(); ++i) {
         Events *event = movies.get(i); // Use get() method to access the event
@@ -99,10 +77,10 @@ void EventsWindow1::loadEvents() {
 void EventsWindow1::addEventToLayout(Events *event, int row, int col) {
     // Event container
     QWidget *eventWidget = new QWidget;
-    eventWidget->setFixedSize(600, 600); // Larger size for each event box
+    eventWidget->setFixedSize(600, 600);
     eventWidget->setStyleSheet(
         "border-radius: 15px;"
-        "background-color: #e6f7ff;" // Cream background for the event box
+        "background-color: #e6f7ff;"
         "box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);"
         );
 
@@ -110,11 +88,11 @@ void EventsWindow1::addEventToLayout(Events *event, int row, int col) {
 
     // Photo
     QLabel *photoLabel = new QLabel(eventWidget);
-    photoLabel->setPixmap(event->getImage().scaled(580, 300, Qt::KeepAspectRatio)); // Larger image size
+    photoLabel->setPixmap(event->getImage().scaled(580, 300, Qt::KeepAspectRatio));
     photoLabel->setAlignment(Qt::AlignCenter);
     photoLabel->setStyleSheet(
         "border-radius: 15px;"
-        "border: 3px solid #FF69B4;" // Pink border around image
+        "border: 3px solid #FF69B4;"
         "box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);"
         "padding: 10px;"
         );
@@ -126,7 +104,7 @@ void EventsWindow1::addEventToLayout(Events *event, int row, int col) {
     QLabel *dateLabel = new QLabel(event->getDate(), eventWidget);
     dateLabel->setStyleSheet("color: #5f6368; font-size: 18px; text-align: center; margin-bottom: 20px;");
 
-    // Details button (pink background)
+    // Details button
     QPushButton *detailsButton = new QPushButton("Details", eventWidget);
     detailsButton->setStyleSheet(
         "background-color: #FF69B4; color: white; font-size: 18px; padding: 12px 20px;"

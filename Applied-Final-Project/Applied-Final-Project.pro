@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     accountpage.cpp \
+    addeventdialog.cpp \
     admin.cpp \
     confirmbook.cpp \
     creditcardwidget.cpp \
@@ -22,6 +23,7 @@ SOURCES += \
     loginadmin.cpp \
     main.cpp \
     mainwindow.cpp \
+    movies.cpp \
     registerwindow.cpp \
     reserved.cpp \
     seats.cpp \
@@ -33,6 +35,7 @@ SOURCES += \
 
 HEADERS += \
     accountpage.h \
+    addeventdialog.h \
     admin.h \
     confirmbook.h \
     creditcardwidget.h \
@@ -44,6 +47,7 @@ HEADERS += \
     halls.h \
     loginadmin.h \
     mainwindow.h \
+    movies.h \
     registerwindow.h \
     reserved.h \
     seats.h \
@@ -54,6 +58,7 @@ HEADERS += \
 
 FORMS += \
     accountpage.ui \
+    addeventdialog.ui \
     confirmbook.ui \
     creditcardwidget.ui \
     customerlogin.ui \

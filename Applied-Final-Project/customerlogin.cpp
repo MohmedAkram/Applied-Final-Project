@@ -7,6 +7,7 @@
 #include "eventwindow2.h"
 #include "customer.h"
 #include "admin.h"
+ #include  "movies.h"
 
 CustomerLogin::CustomerLogin(QWidget *parent)
     : QDialog(parent)
@@ -79,7 +80,7 @@ void CustomerLogin::on_LoginButton_clicked()
     {
         Customer *C;
         C = new Customer(c->customer.customerID, c->customer.name, c->customer.email, c->customer.IsVIP, c->customer.Password);
-        EventWindow2* eve2 = new EventWindow2(C);
+        EventWindow2* eve2 = new EventWindow2(C, this, movies);
         eve2->showMaximized();
         this->hide();
         sys.ev->hide();

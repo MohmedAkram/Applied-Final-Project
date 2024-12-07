@@ -3,6 +3,7 @@
 
 #include <QString>
 #include <QPixmap>
+#include"vectorc.h"
 
 class Events {
 private:
@@ -15,6 +16,8 @@ private:
 
 public:
     // Constructors and Destructor
+
+
     Events(int id, const QString &title, int duration, const QString &date, double price, const QPixmap &img);
     Events(const Events &other) = delete;             // Delete copy constructor
     Events &operator=(const Events &other) = delete;  // Delete copy assignment operator

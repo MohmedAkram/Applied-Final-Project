@@ -98,6 +98,7 @@ public:
         BalanceLine = new QLineEdit(centralwidget);
         BalanceLine->setObjectName("BalanceLine");
         BalanceLine->setGeometry(QRect(20, 370, 113, 21));
+        BalanceLine->setReadOnly(true);
         label_8 = new QLabel(centralwidget);
         label_8->setObjectName("label_8");
         label_8->setGeometry(QRect(250, 330, 211, 16));

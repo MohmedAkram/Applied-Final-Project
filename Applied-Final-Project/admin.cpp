@@ -1,4 +1,9 @@
 #include "admin.h"
+#include "AddEventDialog.h"  // Include the custom dialog header
+#include "events.h"
+#include "vectorc.h"
+#include "movies.h"
+#include "eventwindow1.h"  // Include the EventsWindow1 header
 
 AdminWindow::AdminWindow(QWidget* parent)
     : QDialog(parent), mainLayout(new QVBoxLayout(this)), topBarLayout(new QHBoxLayout),
@@ -7,10 +12,16 @@ AdminWindow::AdminWindow(QWidget* parent)
     logoutButton(new QPushButton("Logout", this))
 {
     setupUI();
+
+    // Connect the "Add Event" button to the slot
+    connect(addAdminButton, &QPushButton::clicked, this, &AdminWindow::onAddEventClicked);
+
+    // Connect the "Logout" button to the logout slot
+    connect(logoutButton, &QPushButton::clicked, this, &AdminWindow::onLogoutClicked);
 }
 
 AdminWindow::~AdminWindow() {
-    // Destructor
+    // Destructor implementation (any necessary cleanup can go here)
 }
 
 void AdminWindow::setupUI()
@@ -59,4 +70,36 @@ void AdminWindow::setupUI()
     setLayout(mainLayout);
     setStyleSheet("background-color: #B4E7E2; padding: 20px; border-radius: 15px;");
     setWindowTitle("Admin Page");
+}
+
+void AdminWindow::onAddEventClicked() {
+    AddEventDialog dialog(this); // Create the AddEventDialog
+
+    // Show the dialog and wait for the user to provide the details
+    if (dialog.exec() == QDialog::Accepted) {
+        // Get event details from the dialog
+        QString title = dialog.getTitle();
+        int duration = dialog.getDuration();
+        QString date = dialog.getDate();
+        double price = dialog.getPrice();
+        QPixmap image = dialog.getImage();
+
+        // Create a new event
+        Events* newEvent = new Events(movies.getSize() + 1, title, duration, date, price, image);
+
+        // Add the new event to the movies vector
+        movies.push(newEvent);
+
+        // Optionally: Update the UI or notify the user that the event was added successfully
+        // QMessageBox::information(this, "Event Added", "The event has been added successfully!");
+    }
+}
+
+void AdminWindow::onLogoutClicked() {
+    // Close the current AdminWindow
+    this->close();
+
+    // Create a new instance of EventsWindow1 and show it
+    EventsWindow1 *eventsWindow = new EventsWindow1(nullptr, movies); // Assuming movies is accessible
+    eventsWindow->show();
 }

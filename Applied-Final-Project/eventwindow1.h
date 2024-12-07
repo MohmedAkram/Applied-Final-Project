@@ -2,39 +2,33 @@
 #define EVENTSWINDOW1_H
 
 #include <QDialog>
-#include <QScrollArea>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
+#include <QScrollArea>
 #include <QGridLayout>
 #include <QLabel>
 #include <QPushButton>
-#include <QMessageBox>
-#include <QPixmap>
-#include "events.h"
-#include "vectorc.h"
-#include "customerlogin.h"
-#include "registerwindow.h"
-#include "seats.h"
-#include "eventwindow2.h"
+#include "vectorc.h"  // Include vectorC definition
+#include "events.h"   // Include Events class definition
 
 class EventsWindow1 : public QDialog {
     Q_OBJECT
 
 public:
-    explicit EventsWindow1(QWidget *parent = nullptr);
+    explicit EventsWindow1(QWidget *parent, vectorC<Events>& eventsList); // Constructor accepting vectorC reference
+    ~EventsWindow1() = default;
 
 private:
-    void setupUI();
-    void loadEvents();
-    void addEventToLayout(Events *event, int row, int col);
-
-    vectorC<Events> movies;
-
+    vectorC<Events>& movies;  // Reference to the passed vectorC
     QVBoxLayout *mainLayout;
     QHBoxLayout *topBarLayout;
     QScrollArea *scrollArea;
     QWidget *scrollWidget;
     QGridLayout *gridLayout;
+
+    void setupUI();
+    void loadEvents();
+    void addEventToLayout(Events *event, int row, int col);
 };
 
 #endif // EVENTSWINDOW1_H
