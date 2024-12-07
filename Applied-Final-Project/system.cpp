@@ -17,7 +17,7 @@ System::System() {
     CustomerTree.insert(c5);
 
     // Initialize the static 3D array
-    for (int i = 0; i < 5; ++i) {
+    for (int i = 0; i < 6; ++i) {
         for (int j = 0; j < 3; ++j) {
             for (int k = 0; k < 40; ++k){
                 if (k < 20) {

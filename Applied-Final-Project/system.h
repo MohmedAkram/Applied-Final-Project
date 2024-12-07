@@ -19,9 +19,6 @@ public:
     System(int id, string name);
     SplayTree CustomerTree; // tree
     EventsWindow1 *ev;
-    void authenticateUser();
-    void processPayment();
-    void sendNotifications();
     void generateTicket();
     Tickets* TDB[5][3][40];
     void addEventTikets();

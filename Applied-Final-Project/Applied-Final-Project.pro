@@ -19,7 +19,6 @@ SOURCES += \
     events.cpp \
     eventwindow1.cpp \
     eventwindow2.cpp \
-    halls.cpp \
     loginadmin.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -44,7 +43,6 @@ HEADERS += \
     events.h \
     eventwindow1.h \
     eventwindow2.h \
-    halls.h \
     loginadmin.h \
     mainwindow.h \
     movies.h \

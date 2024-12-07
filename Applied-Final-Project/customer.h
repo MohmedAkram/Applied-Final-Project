@@ -37,10 +37,6 @@ public:
     bool chechbalance(int value);
     void editname(string s);
     void editemail(string s);
-    void viewEvents();
-    void bookTicket();
-    void cancelBooking();
-    void viewBookingHistory();
     bool operator<(const Customer& other) const {
         return customerID < other.customerID;
     }

@@ -15,7 +15,6 @@
 #include "eventwindow2.h"
 #include "eventwindow1.h"
 #include "system.h"
-#include "halls.h"
 #include  "admin.h"
  #include  "movies.h"
 
@@ -37,16 +36,13 @@ int main(int argc, char *argv[]) {
     Events* event2 = new Events(2, "Barbie", 2023, "Romance - Fiction", 250.00, br);
     Events* event3 = new Events(2, "Oppenheimer", 2023, "Thriller", 250.00, op);
     Events* event4 = new Events(2, "Bringing Back: Morgan Ahmed Morgan", 2023, "Comedy", 250.00, mog);
-    Events* event6 = new Events(1, "Welad Rizk III", 2023, "Action - Comedy", 200.00, ww);
-    Events* event7 = new Events(1, "Welad Rizk III", 2023, "Action - Comedy", 200.00, ww);
+
 
     // Add your events to the movies vector
     movies.push(event1);
     movies.push(event2);
     movies.push(event3);
     movies.push(event4);
-    movies.push(event6);
-    movies.push(event7);
     sys.ev = new EventsWindow1(nullptr,movies );
     sys.ev->showMaximized();
 

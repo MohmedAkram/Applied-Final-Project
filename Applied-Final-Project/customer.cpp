@@ -28,17 +28,6 @@ void Customer::editname(string s){
 void Customer::editemail(string s){
     email=s;
 }
-void Customer::viewEvents() {
 
-}
-void Customer::bookTicket() {
-
-}
-void Customer::cancelBooking() {
-
-}
-void Customer::viewBookingHistory() {
-
-}
 
 
