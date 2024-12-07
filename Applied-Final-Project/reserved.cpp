@@ -57,6 +57,7 @@ void Reserved::loadTickets() {
         addTicketToLayout(ticket, i / 2, i % 2); // Arrange tickets in grid
     }
 }
+
 void Reserved::addTicketToLayout(Tickets* ticket, int row, int col) {
     // Create the ticket container
     QWidget *ticketWidget = new QWidget;
@@ -79,15 +80,24 @@ void Reserved::addTicketToLayout(Tickets* ticket, int row, int col) {
     QLabel *seatLabel = new QLabel("Price: $" + QString::number(ticket->price), ticketWidget);
     seatLabel->setStyleSheet("color: #5f6368; font-size: 18px; text-align: center;");
 
+    // Cancel button
+    QPushButton *cancelButton = new QPushButton("Cancel Ticket", ticketWidget);
+    cancelButton->setStyleSheet(
+        "background-color: #FF4444; color: white; font-size: 16px; font-weight: bold; "
+        "padding: 10px; border-radius: 8px;"
+        );
 
+    // Connect the cancel button to remove the ticket
 
     // Add components to layout
     ticketLayout->addWidget(titleLabel);
     ticketLayout->addWidget(dateLabel);
     ticketLayout->addWidget(seatLabel);
+    ticketLayout->addWidget(cancelButton);
 
     ticketWidget->setLayout(ticketLayout);
 
     // Add ticket widget to grid layout
     gridLayout->addWidget(ticketWidget, row, col);
 }
+

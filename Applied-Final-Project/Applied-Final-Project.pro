@@ -27,6 +27,7 @@ SOURCES += \
     seats.cpp \
     splaytree.cpp \
     system.cpp \
+    tests.cpp \
     tickets.cpp \
     vectorc.cpp
 
