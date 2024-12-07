@@ -27,7 +27,6 @@ ConfirmBook::ConfirmBook(Events* e, Customer* c, Seats* s, QWidget *parent)
     ui->WalletEdit->setText(QString::number(c->getbalance()));
     ui->SeatEdit->setText(seat);  // Display the selected seats here
     ui->PriceEdit->setText(QString::number(T));
-
     Rbalance = c->getbalance() - T;
     ui->RemainingEdit->setText(QString::number(Rbalance));
 
@@ -49,7 +48,8 @@ void ConfirmBook::on_Confirm_clicked()
         QMessageBox::warning(this, "Insufficient balance", "Please add balance first");
         return;
     } else {
-        C->editbalance(-T);  // Deduct the amount from the customer's balance
+        C->editbalance(-T);
+            // Deduct the amount from the customer's balance
 
         for (int i = 0; i < S->selectedSeats.size(); i++) // Debugging: Check the selected seats
             qDebug() << "Selected seats:"<< S->selectedSeats[i];

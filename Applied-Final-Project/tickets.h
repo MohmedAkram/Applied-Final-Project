@@ -10,7 +10,8 @@ public:
     double price;
     bool status;
     int movieNum;  // Added movieName variable
-    bool type;       // Added type variable
+    bool type;
+    int time;        // Added type variable
 
     Tickets();  // Default constructor
     Tickets(int seat, int movie, bool status, bool type); // Updated constructor

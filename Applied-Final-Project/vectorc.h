@@ -18,7 +18,7 @@ private:
 public:
     explicit vectorC(int s = 10);
     ~vectorC();
-
+    void remove(int index);
     void push(T* value);  // Add a pointer to the array
     T* pop();             // Remove and return the last pointer
     T* peek() const;      // View the last pointer without removing it
@@ -83,6 +83,20 @@ T* vectorC<T>::get(int index) const {
 template <class T>
 int vectorC<T>::getSize() const {
     return currentSize;
+}
+template <class T>
+void vectorC<T>::remove(int index) {
+    if (index < 0 || index >= currentSize) {
+        throw std::out_of_range("Index out of range");
+    }
+
+    // If the index is not the last element, shift elements to fill the gap
+    for (int i = index; i < currentSize - 1; ++i) {
+        data[i] = data[i + 1]; // Shift each element one position to the left
+    }
+
+    data[currentSize - 1] = nullptr; // Optional: Nullify the last position
+    --currentSize; // Decrease the size of the vector
 }
 
 // Print the elements (for debugging purposes)

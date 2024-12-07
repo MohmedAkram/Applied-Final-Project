@@ -1,5 +1,6 @@
 #include "reserved.h"
 #include "ui_reserved.h"
+#include "system.h"
 
 Reserved::Reserved(Customer* customer, QWidget *parent)
     : QDialog(parent),
@@ -70,14 +71,28 @@ void Reserved::addTicketToLayout(Tickets* ticket, int row, int col) {
 
     QVBoxLayout *ticketLayout = new QVBoxLayout(ticketWidget);
 
-    // Ticket details
-    QLabel *titleLabel = new QLabel("Event: " + QString::number(ticket->movieNum), ticketWidget);
+    // Ticket
+    QLabel *titleLabel;
+    if (ticket->movieNum == 0) {
+        titleLabel = new QLabel("Event: Welad Rizk III", ticketWidget);
+    } else if (ticket->movieNum == 1) {
+        titleLabel = new QLabel("Event: Barbie", ticketWidget);
+    } else if (ticket->movieNum == 2) {
+        titleLabel = new QLabel("Event: Oppenheimer", ticketWidget);
+    } else if (ticket->movieNum == 3) {
+        titleLabel = new QLabel("Event: Bringing Back: Morgan Ahmed Morgan", ticketWidget);
+    }
     titleLabel->setStyleSheet("font-size: 24px; font-weight: bold; color: #333333; text-align: center;");
 
-    QLabel *dateLabel = new QLabel("Seat Number: " + QString::number(ticket->seatNumber), ticketWidget);
+    QLabel *dateLabel = new QLabel("Seat Number: " + QString::number(ticket->seatNumber+1), ticketWidget);
     dateLabel->setStyleSheet("color: #5f6368; font-size: 18px; text-align: center;");
 
-    QLabel *seatLabel = new QLabel("Price: $" + QString::number(ticket->price), ticketWidget);
+    QLabel *seatLabel;
+    if (ticket->seatNumber < 20) {
+        seatLabel = new QLabel(currentCustomer->IsVIP ? "Price: 40 $" : "Price: 50 $", ticketWidget);
+    } else {
+        seatLabel = new QLabel(currentCustomer->IsVIP ? "Price: 80 $" : "Price: 100 $", ticketWidget);
+    }
     seatLabel->setStyleSheet("color: #5f6368; font-size: 18px; text-align: center;");
 
     // Cancel button
@@ -87,7 +102,10 @@ void Reserved::addTicketToLayout(Tickets* ticket, int row, int col) {
         "padding: 10px; border-radius: 8px;"
         );
 
-    // Connect the cancel button to remove the ticket
+    // **Connect the cancel button to a slot function**
+    connect(cancelButton, &QPushButton::clicked, this, [this, ticketWidget, ticket]() {
+        this->onCancelTicketClicked(ticketWidget, ticket);
+    });
 
     // Add components to layout
     ticketLayout->addWidget(titleLabel);
@@ -101,3 +119,25 @@ void Reserved::addTicketToLayout(Tickets* ticket, int row, int col) {
     gridLayout->addWidget(ticketWidget, row, col);
 }
 
+void Reserved::onCancelTicketClicked(QWidget *ticketWidget, Tickets* ticket) {
+    // **Remove ticket from layout and delete its widget**
+    ticketWidget->hide();  // Hide the widget
+    gridLayout->removeWidget(ticketWidget); // Remove from the layout
+    ticketWidget->deleteLater(); // Schedule it for deletion
+
+    // **Remove the ticket from the currentCustomer's ReservedTickets list**
+    for (int i = 0; i < currentCustomer->ReservedTickets.getSize(); ++i) {
+        if (currentCustomer->ReservedTickets.get(i) == ticket) {
+            sys.TDB[currentCustomer->ReservedTickets.get(i)->movieNum][currentCustomer->ReservedTickets.get(i)->time][currentCustomer->ReservedTickets.get(i)->seatNumber]->status = false;
+            currentCustomer->ReservedTickets.remove(i);
+            if (currentCustomer->IsVIP){
+                if (ticket->seatNumber<20){currentCustomer->editbalance(40);}
+                else{currentCustomer->editbalance(80);}}
+            else
+            if (ticket->seatNumber<20){currentCustomer->editbalance(50);}
+            else{currentCustomer->editbalance(100);}
+
+            break;
+        }
+    }
+}

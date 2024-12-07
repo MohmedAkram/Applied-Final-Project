@@ -25,6 +25,7 @@ System::System() {
                 } else {
                     TDB[i][j][k] = new Tickets(k, i, false, true);  // Dynamically allocate
                 }
+                TDB[i][j][k]->time=j;
             }
         }
     }

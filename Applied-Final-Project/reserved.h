@@ -9,6 +9,7 @@
 #include <QLabel>
 #include <QPushButton>
 #include "customer.h"
+#include "tickets.h" // Ensure Tickets is included if it's used as a parameter
 
 namespace Ui {
 class Reserved;
@@ -21,6 +22,9 @@ class Reserved : public QDialog
 public:
     explicit Reserved(Customer* customer, QWidget *parent = nullptr);
     ~Reserved();
+
+private slots:
+    void onCancelTicketClicked(QWidget *ticketWidget, Tickets* ticket); // **Declaration for the cancel button slot**
 
 private:
     Ui::Reserved *ui;

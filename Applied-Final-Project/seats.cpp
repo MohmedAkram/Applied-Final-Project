@@ -132,7 +132,7 @@ void Seats::onSeatClicked()
 
     // Check if the seat is VIP or booked
     bool isVip = sys.TDB[E->getEventID()-1][Time][seatNumber-1]->type;
-    bool booked = sys.TDB[E->getEventID()-1][Time][seatNumber-1]->status;
+
 
     // Prevent selecting booked seats
     if (button->styleSheet().contains("red")) {
@@ -143,11 +143,15 @@ void Seats::onSeatClicked()
     // Handle seat selection/deselection
     if (selectedSeats.contains(seatNumber)) {  // Check if the seat is already selected
         selectedSeats.removeOne(seatNumber);  // Deselect the seat
-        totalPrice -= isVip ? vipPrice : regularPrice;
+        if (C->IsVIP){
+            totalPrice -= isVip ? vipPrice*0.8 : regularPrice*0.8;}
+        else{totalPrice -= isVip ? vipPrice : regularPrice;}
         button->setStyleSheet(isVip ? "background-color: gold; color: white;" : "background-color: gray; color: black;");
     } else {  // Select the seat
         selectedSeats.append(seatNumber);  // Add the seat to the selected seats vector
-        totalPrice += isVip ? vipPrice : regularPrice;
+        if (C->IsVIP){
+            totalPrice += isVip ? vipPrice*0.8 : regularPrice*0.8;}
+        else{totalPrice += isVip ? vipPrice : regularPrice;}
         button->setStyleSheet(isVip ? "background-color: cyan; color: black;" : "background-color: blue; color: black;");
     }
 
