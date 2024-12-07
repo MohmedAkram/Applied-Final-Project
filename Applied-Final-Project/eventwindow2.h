@@ -15,6 +15,7 @@
 #include "customer.h"
 #include "seats.h"
 #include "accountpage.h"
+#include "reserved.h"
 
 class EventWindow2 : public QDialog {
     Q_OBJECT

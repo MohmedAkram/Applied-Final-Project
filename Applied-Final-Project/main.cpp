@@ -30,8 +30,9 @@ int main(int argc, char *argv[]) {
     sys.ev->showMaximized();
     // Halls h(1,"21:00");
     // h.show();
-    // AdminWindow e;
-    // e.show();
+    AdminWindow e;
+
+    //e.show();
 
     return a.exec();
 }

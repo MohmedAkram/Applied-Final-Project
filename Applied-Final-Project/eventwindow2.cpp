@@ -40,7 +40,10 @@ void EventWindow2::setupUI() {
     connect(myTic, &QPushButton::clicked, [this]() {
         // 7oto el functionality hena bta3et el mytickets window hena ya regalaaaa
 
+        Reserved* reservedWindow = new Reserved(C, this);
+        reservedWindow->show();
 
+        //hide();
 
 
 

@@ -6,6 +6,7 @@
 #include <QMessageBox>
 #include "eventwindow2.h"
 #include "customer.h"
+#include "admin.h"
 
 CustomerLogin::CustomerLogin(QWidget *parent)
     : QDialog(parent)
@@ -82,6 +83,13 @@ void CustomerLogin::on_LoginButton_clicked()
         eve2->showMaximized();
         this->hide();
         sys.ev->hide();
+    }
+
+    else if (IDint== 1000 && Password =="1000"   ){
+        AdminWindow *e= new AdminWindow;
+
+        e->show();
+        hide();
     }
     else
     {
