@@ -30,8 +30,7 @@ private:
     QVBoxLayout* mainLayout;
     QHBoxLayout* topBarLayout;
     QPushButton* addAdminButton;
-    QPushButton* removeAdminButton;
-    QPushButton* logoutButton;
+    QPushButton* logoutButton;  // Remove the removeAdminButton
 
     //vectorC<Events> movies;  // The vector containing all the events
 };

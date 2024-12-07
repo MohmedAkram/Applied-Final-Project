@@ -22,7 +22,6 @@ public:
 
 private slots:
     void selectImage();  // Slot for selecting image
-    void logout();       // Slot for logging out and returning to EventsWindow
 
 private:
     QLineEdit *titleLineEdit;
@@ -32,7 +31,6 @@ private:
     QPushButton *selectImageButton;
     QPixmap selectedImage;
     QPushButton *addEventButton;
-    QPushButton *logoutButton;  // Logout button
 };
 
 #endif // ADDEVENTDIALOG_H

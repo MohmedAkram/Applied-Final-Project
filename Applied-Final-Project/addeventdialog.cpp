@@ -17,8 +17,7 @@ AddEventDialog::AddEventDialog(QWidget *parent)
     dateLineEdit(new QLineEdit(this)),
     priceSpinBox(new QDoubleSpinBox(this)),
     selectImageButton(new QPushButton("Select Image", this)),
-    addEventButton(new QPushButton("Add Event", this)),
-    logoutButton(new QPushButton("Logout", this))  // Add the Logout button
+    addEventButton(new QPushButton("Add Event", this))
 {
     // Layout setup
     QVBoxLayout *layout = new QVBoxLayout(this);
@@ -48,9 +47,6 @@ AddEventDialog::AddEventDialog(QWidget *parent)
     // Add event button
     layout->addWidget(addEventButton);
 
-    // Logout button
-    layout->addWidget(logoutButton);
-
     // Set button and input field styles
     QString textFieldStyle = R"(
         border-radius: 10px;
@@ -77,21 +73,10 @@ AddEventDialog::AddEventDialog(QWidget *parent)
     )";
     selectImageButton->setStyleSheet(buttonStyle);
     addEventButton->setStyleSheet(buttonStyle);
-    logoutButton->setStyleSheet(buttonStyle); // Style for Logout button
 
     // Connect buttons
     connect(selectImageButton, &QPushButton::clicked, this, &AddEventDialog::selectImage);
     connect(addEventButton, &QPushButton::clicked, this, &QDialog::accept);
-    connect(logoutButton, &QPushButton::clicked, this, &AddEventDialog::logout); // Connect Logout button
-}
-
-void AddEventDialog::logout() {
-    // Close the current dialog and return to the EventsWindow
-    this->close();  // Close the AddEventDialog
-
-    // Create a new instance of EventsWindow1 and show it
-    EventsWindow1 *eventsWindow = new EventsWindow1(nullptr,movies ); // Ensure you pass the necessary parameters to create the window
-    eventsWindow->show();
 }
 
 QString AddEventDialog::getTitle() const {
